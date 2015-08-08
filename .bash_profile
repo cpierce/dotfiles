@@ -15,7 +15,7 @@ export HISTFILESIZE=2000
 
 # ls colors and settings
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+export LSCOLORS=exfxBxDxcxegedabagacad
 alias ls='ls -GFh'
 
 # PS1 Prompt
