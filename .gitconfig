@@ -1,0 +1,39 @@
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Chris Pierce
+	email = cpierce@csdurant.com
+	IdentityFile = ~/.ssh/id_rsa
+[url "https://"]
+	insteadOf = git://
+[credential]
+    helper = cache -- timeout=3600
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+    pager = true
+[merge]
+    tool = meld
+[mergetool]
+    keepBackup = false
+[alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    co = checkout
+    ci = commit
+    aa = add --all
+    st = status
+    di = diff
+    dc = diff --cached
+[core]
+    excludesfile = ~/.gitignore
+    filemode = false
+	editor = vim
