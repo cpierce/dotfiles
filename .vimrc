@@ -137,7 +137,10 @@ set foldlevel=99
 set wildmode=list:longest
 
 " clipboard fusion!
-set clipboard^=unnamed clipboard^=unnamedplus
+set clipboard=unnamed
+
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w :!pbpaste<CR><CR>
 
 " Source the vimrc file after saving it.
 " This way, you don't have to reload Vim to see the changes.
