@@ -37,6 +37,9 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/gitignore'
 
+" some random settings
+set encoding=utf-8
+
 " custom file ignores
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
@@ -139,8 +142,10 @@ set wildmode=list:longest
 " clipboard fusion!
 set clipboard=unnamed
 
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w :!pbpaste<CR><CR>
+nmap <C-c> :.w !pbcopy<CR><CR>
+vmap <C-c> y:e ~/.vimbuffer<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
+nmap <C-v> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR><CR>
+imap <C-v> <Esc>:set paste<cr>:r !pbpaste<CR>:set nopaste<CR><CR>
 
 " Source the vimrc file after saving it.
 " This way, you don't have to reload Vim to see the changes.

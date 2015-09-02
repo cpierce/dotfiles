@@ -1,7 +1,0 @@
-
-" clipboard fusion!
-set clipboard=unnamed
-
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w :!pbpaste<CR>
-
