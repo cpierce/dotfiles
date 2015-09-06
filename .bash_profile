@@ -1,5 +1,8 @@
 export PATH=/usr/local/mysql/bin:$PATH
 
+# Skip .DS_Store on tab tab
+export FIGNORE=$FIGNORE:DS_Store
+
 # Grep Colors
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;30;40'
