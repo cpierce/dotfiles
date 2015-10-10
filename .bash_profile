@@ -20,6 +20,7 @@ export HISTFILESIZE=2000
 export CLICOLOR=1
 export LSCOLORS=exfxBxDxcxegedabagacad
 alias ls='ls -GFh'
+alias pwgen="pwgen -cn 16 | tr -d '\n' | cut -c 1-16 | pbcopy ; echo 'Password copied to clipboard.'"
 
 # PS1 Prompt
 export PS1="(\[\e[0m\]#\[\e[1;34m\]\!\[\e[0m\]) \[\e[0;36m\]\u\[\e[0;37m\]@\[\e[0;36m\]\h\[\e[0;37m\]:\[\e[0;34m\]\w\[\e[0;37m\]\$\[\e[0m\] "
