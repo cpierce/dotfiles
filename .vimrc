@@ -26,8 +26,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'craigemery/vim-autotag'
+Plugin 'derekwyatt/vim-scala'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'othree/html5.vim'
@@ -70,9 +70,6 @@ set laststatus=2
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
-" show line numbers
-set number
 
 " show lines in lower right
 set ruler
@@ -168,16 +165,18 @@ set relativenumber
 
 " Toggle relative line numbers
 function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
+    if(&nu == 1)
+        set rnu
+    elseif(&rnu==1)
+        set nornu
+    else
+        set nu
+    endif
 endfunc
 
 " Automatically set absolute numbers in insert mode
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+autocmd InsertEnter * :set rnu
+autocmd InsertLeave * :set nu
 
 """"""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -187,7 +186,8 @@ autocmd InsertLeave * :set relativenumber
 let mapleader = ","
 
 " toggle numbers
-nnoremap <leader>n :call NumberToggle()<cr>
+set number
+nnoremap <leader>n :call NumberToggle()<CR>
 
 " switch between files with <leader><leader>
 nnoremap <leader><leader> <c-^>
