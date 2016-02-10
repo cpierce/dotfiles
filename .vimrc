@@ -35,6 +35,7 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/gitignore'
 
@@ -284,9 +285,4 @@ highlight Cursor guibg=#444
 " highlight col 80
 set colorcolumn=80
 highlight ColorColumn guibg=#333
-
-" extra whitespace sucks, make it RED
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
 
