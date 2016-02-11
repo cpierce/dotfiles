@@ -44,8 +44,8 @@ set encoding=utf-8
 
 " custom file ignores
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+            \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
+            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 let g:ctrlp_use_caching = 0
 if executable('ag')
@@ -53,10 +53,10 @@ if executable('ag')
 
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+    let g:ctrlp_prompt_mappings = {
+                \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+                \ }
 endif
 
 " LESS Syntax
@@ -117,9 +117,9 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 
 " Remember info about open buffers on close
 set viminfo^=%
@@ -149,10 +149,10 @@ imap <C-v> <Esc>:set paste<cr>:r !pbpaste<CR>:set nopaste<CR><CR>
 " Source the vimrc file after saving it.
 " This way, you don't have to reload Vim to see the changes.
 if has("autocmd")
- augroup myvimrchooks
-  au!
-  autocmd bufwritepost .vimrc source ~/.vimrc
- augroup END
+    augroup myvimrchooks
+        au!
+        autocmd bufwritepost .vimrc source ~/.vimrc
+    augroup END
 endif
 
 " No arrow keys!
@@ -160,6 +160,12 @@ map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
+
+" Format file by shortcut key
+function! FormatFile()
+    :normal gg=G
+    :FixWhitespace
+endfunc
 
 " Relative numbers by default
 set relativenumber
@@ -189,6 +195,9 @@ let mapleader = ","
 " toggle numbers
 set number
 nnoremap <leader>n :call NumberToggle()<CR>
+
+" format file
+nnoremap <leader>F :call FormatFile()<CR>
 
 " switch between files with <leader><leader>
 nnoremap <leader><leader> <c-^>
