@@ -28,6 +28,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'craigemery/vim-autotag'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'othree/html5.vim'
@@ -64,6 +65,10 @@ nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 " Airline show
 set laststatus=2
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 """"""""""""""""""""""""""""""""""""""""
 " General VIM
