@@ -38,12 +38,14 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/gitignore'
 
-" open NERDTree if no file is specified
+" NERDTree options
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:NERDTreeWinPos = "right"
 
 " some random settings
 set encoding=utf-8
