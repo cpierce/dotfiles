@@ -168,7 +168,7 @@ function! FormatFile()
 endfunc
 
 " Relative numbers by default
-set relativenumber
+set number
 
 """"""""""""""""""""""""""""""""""""""""
 " Mappings
