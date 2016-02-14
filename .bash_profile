@@ -11,7 +11,7 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='38;5;208'
 
 # NPM Installs Locally
-export PATH="$PATH:$HOME/npm/bin"
+export PATH="/usr/local/bin:$PATH:$HOME/npm/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
 
 # History Details
