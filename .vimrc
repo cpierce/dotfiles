@@ -144,12 +144,7 @@ set foldlevel=99
 set wildmode=list:longest
 
 " clipboard fusion!
-set clipboard=unnamed
-
-nmap <C-c> :.w !pbcopy<CR><CR>
-vmap <C-c> y:e ~/.vimbuffer<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
-nmap <C-v> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR><CR>
-imap <C-v> <Esc>:set paste<cr>:r !pbpaste<CR>:set nopaste<CR><CR>
+set clipboard=unnamed clipboard^=unnamedplus
 
 " Source the vimrc file after saving it.
 " This way, you don't have to reload Vim to see the changes.
@@ -175,31 +170,12 @@ endfunc
 " Relative numbers by default
 set relativenumber
 
-" Toggle relative line numbers
-function! NumberToggle()
-    if(&nu == 1)
-        set rnu
-    elseif(&rnu==1)
-        set nornu
-    else
-        set nu
-    endif
-endfunc
-
-" Automatically set absolute numbers in insert mode
-autocmd InsertEnter * :set rnu
-autocmd InsertLeave * :set nu
-
 """"""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""
 
 " set leader
 let mapleader = ","
-
-" toggle numbers
-set number
-nnoremap <leader>n :call NumberToggle()<CR>
 
 " format file
 nnoremap <leader>F :call FormatFile()<CR>
