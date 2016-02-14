@@ -37,8 +37,13 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'scrooloose/nerdtree'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/gitignore'
+
+" open NERDTree if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " some random settings
 set encoding=utf-8
@@ -179,6 +184,9 @@ let mapleader = ","
 
 " format file
 nnoremap <leader>F :call FormatFile()<CR>
+
+" toggle NERDTree with leader + n
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 " switch between files with <leader><leader>
 nnoremap <leader><leader> <c-^>
