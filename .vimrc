@@ -39,6 +39,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'EdwardIII/vim-codebug'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/gitignore'
 
@@ -175,7 +176,7 @@ function! FormatFile()
 endfunc
 
 " Relative numbers by default
-set number
+set relativenumber
 
 """"""""""""""""""""""""""""""""""""""""
 " Mappings
