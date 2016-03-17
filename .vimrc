@@ -26,7 +26,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-Plugin 'craigemery/vim-autotag'
+Plugin 'majutsushi/tagbar'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
@@ -38,10 +38,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'EdwardIII/vim-codebug'
+" Plugin 'EdwardIII/vim-codebug'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'vim-scripts/gitignore'
 
 " NERDTree options
 autocmd StdinReadPre * let s:std_in=1
@@ -134,6 +132,9 @@ autocmd BufReadPost *
             \   exe "normal! g`\"" |
             \ endif
 
+" Write file using sudo if :w!! is called
+cmap w!! %!sudo tee > /dev/null %
+
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -176,6 +177,7 @@ function! FormatFile()
 endfunc
 
 " Relative numbers by default
+set number
 set relativenumber
 
 """"""""""""""""""""""""""""""""""""""""
@@ -190,6 +192,10 @@ nnoremap <leader>F :call FormatFile()<CR>
 
 " toggle NERDTree with leader + n
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+" breakpoint for codebug
+nnoremap <leader>x :BreakpointAdd<CR>
+nnoremap <leader>X :BreakpointDelete<CR>
 
 " switch between files with <leader><leader>
 nnoremap <leader><leader> <c-^>
@@ -207,7 +213,7 @@ map 0 ^
 imap jj <Esc>
 
 " Map ,g to tag definition
-map <leader>g g]
+map <leader>g :TagbarToggle<CR>
 
 " reselect when indenting
 vnoremap < <gv
