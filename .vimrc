@@ -11,35 +11,34 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-" vundle repo
+" Vundle Plugins
 Plugin 'gmarik/vundle'
-
-" github repos
-Plugin 'vim-scripts/bufkill.vim'
+Plugin 'bufkill.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'pearofducks/ansible-vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
-Plugin 'othree/html5.vim'
-Plugin 'hail2u/vim-css3-syntax'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
+
 Plugin 'nanotech/jellybeans.vim'
+
+Plugin 'pearofducks/ansible-vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'othree/html5.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'derekwyatt/vim-scala'
 
 " NERDTree options
 autocmd StdinReadPre * let s:std_in=1
@@ -288,3 +287,4 @@ set colorcolumn=80
 highlight ExtraWhitespace ctermbg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
+
