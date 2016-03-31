@@ -28,6 +28,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'pearofducks/ansible-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
@@ -36,9 +37,9 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'EdwardIII/vim-codebug'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'w0ng/vim-hybrid'
 Plugin 'nanotech/jellybeans.vim'
 
 " NERDTree options
@@ -51,7 +52,7 @@ set encoding=utf-8
 
 " custom file ignores
 let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
+            \ 'dir':  '\.vagrant$\|\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
             \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 let g:ctrlp_use_caching = 0
@@ -75,6 +76,14 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
 
 """"""""""""""""""""""""""""""""""""""""
 " General VIM
@@ -132,6 +141,9 @@ autocmd BufReadPost *
             \   exe "normal! g`\"" |
             \ endif
 
+" Auto format file on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Write file using sudo if :w!! is called
 cmap w!! %!sudo tee > /dev/null %
 
@@ -173,7 +185,6 @@ map <Down> <Nop>
 " Format file by shortcut key
 function! FormatFile()
     :normal gg=G
-    :FixWhitespace
 endfunc
 
 " Relative numbers by default
@@ -259,10 +270,6 @@ set scrolloff=10
 " highlight current line
 :set cursorline
 
-" remove gVim gui
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-
 " invert and bold status line
 set highlight=sbr
 
@@ -275,21 +282,10 @@ set t_Co=256
 set background=dark
 colorscheme jellybeans
 
-set guitablabel=%M%t
-if has("gui_running")
-    set lines=40
-    set columns=115
-endif
-set guifont=Inconsolata\ Medium\ 10
-
-" invisible character colors
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
-highlight CursorLine guibg=#333
-highlight LineNr guifg=#444
-highlight Cursor guibg=#444
-
 " highlight col 80
 set colorcolumn=80
-highlight ColorColumn guibg=#333
 
+" extra whitespace sucks, make it RED
+highlight ExtraWhitespace ctermbg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red
+match ExtraWhitespace /\s\+$/
