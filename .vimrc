@@ -39,7 +39,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'w0ng/vim-hybrid'
 Plugin 'nanotech/jellybeans.vim'
 
 " NERDTree options
