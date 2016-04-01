@@ -32,6 +32,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'nanotech/jellybeans.vim'
 
 Plugin 'pearofducks/ansible-vim'
+Plugin 'kylef/apiblueprint.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
