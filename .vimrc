@@ -17,6 +17,7 @@ Plugin 'bufkill.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tobys/vmustache'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-multiple-cursors'
@@ -28,6 +29,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
+Bundle 'tobyS/pdv'
 
 Plugin 'nanotech/jellybeans.vim'
 
@@ -199,6 +201,15 @@ let mapleader = ","
 
 " format file
 nnoremap <leader>F :call FormatFile()<CR>
+
+" Unisnip
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+" PDV config
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <leader>/ :call pdv#DocumentWithSnip()<CR>
 
 " toggle NERDTree with leader + n
 nnoremap <leader>n :NERDTreeToggle<CR>
