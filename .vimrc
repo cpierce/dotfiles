@@ -29,7 +29,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
-Bundle 'tobyS/pdv'
+Plugin 'tobyS/pdv'
+Plugin 'mbbill/undotree'
 
 Plugin 'nanotech/jellybeans.vim'
 
@@ -42,6 +43,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'derekwyatt/vim-scala'
+
+" Make undo work across coding sessions
+set undofile
+set undodir=~/.vim/undodir
 
 " NERDTree options
 autocmd StdinReadPre * let s:std_in=1
@@ -199,6 +204,9 @@ set relativenumber
 " set leader
 let mapleader = ","
 
+" Undo magic
+nnoremap <leader>u :call UndotreeToggle()<CR>
+
 " format file
 nnoremap <leader>F :call FormatFile()<CR>
 
@@ -213,10 +221,6 @@ nnoremap <leader>/ :call pdv#DocumentWithSnip()<CR>
 
 " toggle NERDTree with leader + n
 nnoremap <leader>n :NERDTreeToggle<CR>
-
-" breakpoint for codebug
-nnoremap <leader>x :BreakpointAdd<CR>
-nnoremap <leader>X :BreakpointDelete<CR>
 
 " switch between files with <leader><leader>
 nnoremap <leader><leader> <c-^>

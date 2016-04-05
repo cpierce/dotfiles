@@ -25,8 +25,16 @@ export HISTFILESIZE=2000
 # ls colors and settings
 export CLICOLOR=1
 export LSCOLORS=AxfxBxDxcxegedabagacad
+
+# Aliases
 alias ls='ls -GFh'
-alias pwgen="pwgen -cn 16 | tr -d '\n' | cut -c 1-16 | pbcopy ; echo 'Password copied to clipboard.'"
+alias pwgen='pwgen -cn 16 | tr -d '\n' | cut -c 1-16 | pbcopy ; echo "Password copied to clipboard."'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias pubkey='cat ~/.ssh/id_rsa.pub | pbcopy; echo "Public key copied to clipboard."'
+alias sudo='sudo '
 
 # PS1 Prompt
 export PS1="(\[\e[0m\]#\[\e[38;5;60m\]\!\[\e[0m\]) \[\e[38;5;74m\]\u\[\e[0m\]@\[\e[38;5;74m\]\h\[\e[0m\]:\[\e[38;5;147m\]\w\[\e[0;37m\]\$\[\e[0m\] "
+
+# Load Functions
+source ~/.bash_functions
