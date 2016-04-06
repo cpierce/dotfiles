@@ -21,12 +21,16 @@ extract ()
 
 tunnel ()
   {
-    if [ ! $# -gt 2 ]; then
-        echo "Usage: tunnel <tunnel-host> <tunnel-gateway> <remote-port> [local-port]"
+    if [ ! $# -gt 1 ]; then
+        echo "Usage: tunnel <tunnel-host> <tunnel-gateway> [remote-port] [local-port]"
     else
         TUNNEL_HOST="$1"
         TUNNEL_GATEWAY="$2"
-        REMOTE_PORT="$3"
+        if [ ! "$3" ]; then
+            REMOTE_PORT="3306"
+        else
+            REMOTE_PORT="$3"
+        fi
         if [ ! "$4" ]; then
             LOCAL_PORT="$REMOTE_PORT"
         else
