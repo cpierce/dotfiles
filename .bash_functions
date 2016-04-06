@@ -22,7 +22,7 @@ extract ()
 tunnel ()
   {
     if [ ! $# -gt 1 ]; then
-        echo "Usage: tunnel <tunnel-host> <tunnel-gateway> [remote-port] [local-port]"
+        echo "Usage: tunnel <tunnel-host> <[user@]tunnel-gateway> [remote-port] [local-port]"
     else
         TUNNEL_HOST="$1"
         TUNNEL_GATEWAY="$2"
