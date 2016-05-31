@@ -25,11 +25,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'godlygeek/tabular'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tobyS/pdv'
+Plugin 'brookhong/dbgpavim'
 Plugin 'mbbill/undotree'
 
 Plugin 'nanotech/jellybeans.vim'
@@ -47,6 +49,9 @@ Plugin 'derekwyatt/vim-scala'
 " Make undo work across coding sessions
 set undofile
 set undodir=~/.vim/undodir
+
+" XDebug connection from vagrant to local
+let g:dbgPavimPathMap = [['.', '/vagrant'],]
 
 " NERDTree options
 autocmd StdinReadPre * let s:std_in=1
@@ -127,6 +132,9 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" This disables a beep on => and -> in PHP
+autocmd BufWinEnter *.php set mps-=<:>
 
 " allow background buffers
 set hidden
