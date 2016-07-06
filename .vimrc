@@ -258,7 +258,7 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>f :CtrlPClearCache<cr>
 
 " build bundles
-nnoremap <leader>i :BundleInstall<cr>
+nnoremap <leader>i :BundleInstall!<cr>
 
 " /// for vim-commentary
 nmap /// <Plug>CommentaryLine
