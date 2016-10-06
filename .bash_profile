@@ -32,9 +32,13 @@ alias pwgen='pwgen -cn 16 | tr -d '\n' | cut -c 1-16 | pbcopy ; echo "Password c
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias pubkey='cat ~/.ssh/id_rsa.pub | pbcopy; echo "Public key copied to clipboard."'
 alias sudo='sudo '
+alias aws_slave_ip='aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=lb slave" | jq -r ".Reservations[].Instances[].PublicIpAddress"'
 
 # PS1 Prompt
 export PS1="(\[\e[0m\]#\[\e[38;5;60m\]\!\[\e[0m\]) \[\e[38;5;74m\]\u\[\e[0m\]@\[\e[38;5;74m\]\h\[\e[0m\]:\[\e[38;5;147m\]\w\[\e[0;37m\]\$\[\e[0m\] "
+
+# Load the fowarding agent if it isn't
+/usr/bin/ssh-add -A >/dev/null 2>&1
 
 # Load Functions
 source ~/.bash_functions
