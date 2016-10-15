@@ -1,2 +1,2 @@
 # dotfiles
-My Dotfiles
+Config files of Chris Pierce <cpierce@csdurant.com>
