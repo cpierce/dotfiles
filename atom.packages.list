@@ -1,7 +1,7 @@
 api-blueprint-preview@0.7.0
 atom-beautify@0.29.13
 docblockr@0.8.7
-file-icons@1.7.24
+file-icons@1.7.25
 git-control@0.8.2
 git-log@0.4.1
 highlight-line@0.11.1
@@ -23,5 +23,5 @@ project-manager@3.3.3
 tabs-to-spaces@1.0.2
 tree-view-git-status@1.2.0
 untitled-no-more@0.1.0
-
+jellybeans
 
