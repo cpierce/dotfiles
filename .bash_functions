@@ -44,6 +44,8 @@ tunnel ()
 aws_instances ()
   {
     local output="table"
+    local filters=""
+    local profile=""
     local option
     local OPTIND
     local OPTARG
@@ -54,13 +56,13 @@ aws_instances ()
           output=${OPTARG}
           ;;
         p)
-          profile="--profile $OPTARG "
+          profile="--profile $OPTARG"
           ;;
         f)
-          filters="--filters $OPTARG "
+          filters="--filters $OPTARG"
           ;;
       esac
     done
 
-    aws ec2 describe-instances "$filters$profile"--query "Reservations[*].Instances[*].{Name:Tags[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output $output
+    aws ec2 describe-instances $filters$profile --query "Reservations[*].Instances[*].{Name:Tags[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output "$output"
   }
