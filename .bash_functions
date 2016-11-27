@@ -40,3 +40,27 @@ tunnel ()
         echo 'Remote tunnel command copied to clipboard.'
     fi
   }
+
+aws_instances ()
+  {
+    local output="table"
+    local option
+    local OPTIND
+    local OPTARG
+
+    while getopts "o:p:f:" option; do
+      case $option in
+        o)
+          output=${OPTARG}
+          ;;
+        p)
+          profile="--profile $OPTARG "
+          ;;
+        f)
+          filters="--filters $OPTARG "
+          ;;
+      esac
+    done
+
+    aws ec2 describe-instances "$filters$profile"--query "Reservations[*].Instances[*].{Name:Tags[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output $output
+  }

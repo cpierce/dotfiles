@@ -32,7 +32,6 @@ alias pwgen='pwgen -cn 16 | tr -d '\n' | cut -c 1-16 | pbcopy ; echo "Password c
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias pubkey='cat ~/.ssh/id_rsa.pub | pbcopy; echo "Public key copied to clipboard."'
 alias sudo='sudo '
-alias aws_instances='aws ec2 describe-instances --query "Reservations[*].Instances[*].{Name:Tags[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output table'
 
 # PS1 Prompt
 export PS1="(\[\e[0m\]#\[\e[38;5;60m\]\!\[\e[0m\]) \[\e[38;5;74m\]\u\[\e[0m\]@\[\e[38;5;74m\]\h\[\e[0m\]:\[\e[38;5;147m\]\w\[\e[0;37m\]\$\[\e[0m\] "
