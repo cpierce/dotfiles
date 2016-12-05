@@ -10,6 +10,7 @@ brew install the_silver_searcher
 brew install php70
 brew install php70-mcrypt
 brew install php70-intl
+brew install php70-xdebug
 brew install pwgen
 brew install phpunit
 brew install nmap
