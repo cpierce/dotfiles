@@ -1,5 +1,9 @@
 #!/bin/sh
+
+# First Install Brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Now packages for we use with Brew
 brew install wget
 brew install tmate
 brew install jq
