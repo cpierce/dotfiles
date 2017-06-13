@@ -36,8 +36,8 @@ alias sudo='sudo '
 # PS1 Prompt
 export PS1="(\[\e[0m\]#\[\e[38;5;60m\]\!\[\e[0m\]) \[\e[38;5;74m\]\u\[\e[0m\]@\[\e[38;5;74m\]\h\[\e[0m\]:\[\e[38;5;147m\]\w\[\e[0;37m\]\$\[\e[0m\] "
 
-# Load the fowarding agent if it isn't
-/usr/bin/ssh-add -A >/dev/null 2>&1
+# Load the fowarding agent if it isn't (Only Keys not certs)
+/usr/bin/ssh-add -k >/dev/null 2>&1
 
 # Load Functions
 source ~/.bash_functions
