@@ -16,3 +16,4 @@ brew install homebrew/php/phpunit
 brew install nmap
 brew cask install virtualbox
 brew cask install vagrant
+brew cask install ngrok
