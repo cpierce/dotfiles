@@ -4,3 +4,4 @@
 ./scripts/vagrant_init.sh
 ./scripts/atom_init.sh
 ./scripts/mac_init.sh
+./scripts/post_install.sh

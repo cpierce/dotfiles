@@ -18,6 +18,8 @@ brew install homebrew/php/php70-xdebug
 brew install pwgen
 brew install homebrew/php/phpunit
 brew install nmap
+brew install terraform
+brew install ansible
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install ngrok
