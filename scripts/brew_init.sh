@@ -15,11 +15,13 @@ brew install homebrew/php/php70
 brew install homebrew/php/php70-mcrypt
 brew install homebrew/php/php70-intl
 brew install homebrew/php/php70-xdebug
+brew install php-cs-fixer
 brew install pwgen
 brew install homebrew/php/phpunit
 brew install nmap
 brew install terraform
 brew install ansible
+brew install shellcheck
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install ngrok
