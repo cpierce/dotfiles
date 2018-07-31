@@ -20,6 +20,8 @@ brew install nmap
 brew install terraform
 brew install ansible
 brew install shellcheck
+brew install node@8
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install ngrok
+
