@@ -1,4 +1,4 @@
-export PATH=/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/opt/node@8/bin:$PATH
 
 # 256 Color
 function EXT_COLOR () { echo -ne "\[\033[38;5;$1m"; }
