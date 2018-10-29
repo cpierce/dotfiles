@@ -27,8 +27,8 @@ export CLICOLOR=1
 export LSCOLORS=AxfxBxDxcxegedabagacad
 
 # Aliases
-alias ls='ls -GFh --color=auto'
-alias pwgen='pwgen -cyn 16 1 | pbcopy ; echo "Password copied to clipboard."'
+alias ls='ls -GFh'
+alias pwgen='pwgen -cnyBr \\}{][\)\(\`\"'"\'"'\;\|~-/\>\<\,\&* 16 1 | pbcopy; echo "Password copied to clipboard."'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias pubkey='cat ~/.ssh/id_rsa.pub | pbcopy; echo "Public key copied to clipboard."'
 alias sudo='sudo '
@@ -41,3 +41,6 @@ export PS1="(\[\e[0m\]#\[\e[38;5;60m\]\!\[\e[0m\]) \[\e[38;5;74m\]\u\[\e[0m\]@\[
 
 # Load Functions
 source ~/.bash_functions
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
