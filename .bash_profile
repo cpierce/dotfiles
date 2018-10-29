@@ -27,7 +27,7 @@ export CLICOLOR=1
 export LSCOLORS=AxfxBxDxcxegedabagacad
 
 # Aliases
-alias ls='ls -GFh'
+alias ls='ls -GFh --color=auto'
 alias pwgen='pwgen -cyn 16 1 | pbcopy ; echo "Password copied to clipboard."'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias pubkey='cat ~/.ssh/id_rsa.pub | pbcopy; echo "Public key copied to clipboard."'
