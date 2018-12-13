@@ -15,7 +15,7 @@ export EDITOR="/usr/local/bin/vim"
 
 # NPM Installs Locally
 export PATH="$PATH:$HOME/npm/bin"
-export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
+export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules:$HOME/.composer/vendor/bin"
 
 # History Details
 export HISTCONTROL=ignoreboth
