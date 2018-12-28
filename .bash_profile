@@ -28,7 +28,7 @@ export LSCOLORS=AxfxBxDxcxegedabagacad
 
 # Aliases
 alias ls='ls -GFh'
-alias pwgen='pwgen -cnyBr \\}{][\)\(\`\"'"\'"'\;\|~-/\>\<\,\&* 16 1 | pbcopy; echo "Password copied to clipboard."'
+alias pwgen='pwgen -cnyBr \\}{][\)\(\`\"'"\'"'\;\|~-/\>\<\,\&* 16 1 | pbcopy; echo -n "Password copied to clipboard: "; pbpaste'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias pubkey='cat ~/.ssh/id_rsa.pub | pbcopy; echo "Public key copied to clipboard."'
 alias sudo='sudo '
