@@ -23,6 +23,7 @@ brew install ansible
 brew install shellcheck
 brew install node@8
 brew install packer
+brew install openconnect
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install ngrok
