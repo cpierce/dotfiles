@@ -2,13 +2,21 @@
 export PATH="$PATH:$HOME/npm/bin:/usr/local/opt/node@10/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules:$HOME/.composer/vendor/bin"
 
-# Skip .DS_Store and .localized on tab tab
+# Load Modules for Zsh
 autoload -Uz compinit
 compinit
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+
+# Skip .DS_Store and .localized on tab tab
 zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store|.localized'
 
 # Prompt
 PROMPT='(#%F{060}%!%f) %F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats '%K{111} ᚠ %b %k'
 
 # Grep Colors
 export GREP_OPTIONS='--color=auto'
