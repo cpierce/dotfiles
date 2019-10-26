@@ -1,6 +1,6 @@
 #!/bin/sh
 cp .zfunctions ~/
-cp .zprofile ~/
+cp .zshrc ~/
 cp .gitconfig ~/
 cp .gitexcludes ~/
 cp .vimrc ~/

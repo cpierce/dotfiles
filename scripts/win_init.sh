@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 sudo apt install ansible nmap php-cli pwgen
 
 # Install the folders for Ubuntu
@@ -9,8 +9,8 @@ ln -s /mnt/c/Users/cpier/Desktop ~/Desktop
 ln -s /mnt/c/Users/cpier/Downloads ~/Downloads
 
 # Bash Scripts
-cp .bash_functions ~/
-cp .bash_profile ~/.bashrc
+cp .zfunctions ~/
+cp .zshrc ~/
 cp .gitconfig ~/
 cp .gitexcludes ~/
 cp .vimrc ~/
