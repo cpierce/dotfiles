@@ -3,7 +3,12 @@ export PATH="$PATH:$HOME/npm/bin:/usr/local/opt/node@10/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules:$HOME/.composer/vendor/bin"
 
 # Skip .DS_Store and .localized on tab tab
+autoload -Uz compinit
+compinit
 zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store|.localized'
+
+# Prompt
+PROMPT='(#%F{060}%!%f) %F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
 
 # Grep Colors
 export GREP_OPTIONS='--color=auto'
