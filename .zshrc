@@ -14,9 +14,9 @@ setopt prompt_subst
 zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store|.localized'
 
 # Prompt
-PROMPT='(#%F{060}%!%f) %F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
+PROMPT='%K{060} #%! %k %F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
 RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats '%K{104} ᚠ %b %k'
+zstyle ':vcs_info:git:*' formats '%K{060} ᚠ %b %k'
 
 # Grep Colors
 export GREP_OPTIONS='--color=auto'
