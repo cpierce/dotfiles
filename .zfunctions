@@ -59,7 +59,7 @@ aws_instances ()
     if [[ -n $o_filters[2] ]]; then filters=(--filters $o_filters[2]); fi
     if [[ -n $o_output[2] ]]; then output=($o_output[2]); fi
 
-    aws ec2 describe-instances $profile $filters --query "Reservations[*].Instances[*].{Name:Tags[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output "$output"
+    aws ec2 describe-instances $profile $filters --query "Reservations[*].Instances[*].{Name:Tags[?Key=='Name']|[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output "$output"
   }
 
 # DB Instances
