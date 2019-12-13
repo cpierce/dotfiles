@@ -41,12 +41,6 @@ tunnel ()
         echo 'Remote tunnel command copied to clipboard.'
     fi
   }
-tester ()
-{
-    zparseopts -D -A options p: o: f:
-    echo $options[o]
-
-    }
 # AWS Instances
 aws_instances ()
   {
