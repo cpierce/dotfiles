@@ -21,6 +21,7 @@ brew install nmap
 brew install terraform
 brew install ansible
 brew install shellcheck
+brew install watch
 brew install node@12
 brew install packer
 brew install openconnect
