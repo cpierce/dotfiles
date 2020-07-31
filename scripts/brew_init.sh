@@ -28,4 +28,5 @@ brew install openconnect
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install ngrok
+brew cask install 1password-cli
 
