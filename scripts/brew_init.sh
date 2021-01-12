@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # First Install Brew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Now packages for we use with Brew
 brew install git
@@ -12,7 +12,7 @@ brew install awscli
 brew install s3cmd
 brew install vim
 brew install the_silver_searcher
-brew install php
+brew install php@7.4
 pecl install xdebug
 brew install php-cs-fixer
 brew install pwgen
