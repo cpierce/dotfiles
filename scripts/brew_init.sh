@@ -25,8 +25,8 @@ brew install watch
 brew install node@12
 brew install packer
 brew install openconnect
-brew cask install virtualbox
-brew cask install vagrant
-brew cask install ngrok
-brew cask install 1password-cli
-
+brew install --cask virtualbox
+brew install --cask vagrant
+brew install --cask ngrok
+brew install --cask 1password-cli
+brew upgrade
