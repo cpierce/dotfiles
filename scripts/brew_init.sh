@@ -30,3 +30,4 @@ brew install --cask vagrant
 brew install --cask ngrok
 brew install --cask 1password-cli
 brew upgrade
+brew upgrade --cask
