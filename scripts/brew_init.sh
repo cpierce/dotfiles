@@ -29,5 +29,6 @@ brew install --cask virtualbox
 brew install --cask vagrant
 brew install --cask ngrok
 brew install --cask 1password-cli
+brew install --cask docker
 brew upgrade
 brew upgrade --cask
