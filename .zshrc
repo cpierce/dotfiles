@@ -1,5 +1,5 @@
 # Paths
-export PATH="$PATH:$HOME/npm/bin:/usr/local/opt/node@12/bin"
+export PATH="$PATH:$HOME/npm/bin:/opt/homebrew/opt/node@12/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules:$HOME/.composer/vendor/bin"
 
 # Load Modules for Zsh
