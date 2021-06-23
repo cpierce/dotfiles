@@ -9,6 +9,7 @@ brew install ansible
 brew install awscli
 brew install docker
 brew install git
+brew install fzf
 brew install jq
 brew install ngrok
 brew install nmap

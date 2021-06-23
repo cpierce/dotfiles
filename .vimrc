@@ -44,6 +44,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'juliosueiras/vim-terraform-completion'
 
 " Make undo work across coding sessions
 set undofile
