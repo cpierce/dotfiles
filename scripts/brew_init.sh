@@ -11,9 +11,10 @@ brew install docker
 brew install git
 brew install fzf
 brew install jq
+brew install newman
 brew install ngrok
 brew install nmap
-brew install node@12
+brew install node
 brew install openconnect
 brew install packer
 brew install php@7.4
@@ -21,6 +22,7 @@ brew install php-cs-fixer
 brew install phpunit
 brew install powershell
 brew install pwgen
+brew install rustc
 brew install s3cmd
 brew install shellcheck
 brew install tmate
