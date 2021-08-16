@@ -25,6 +25,7 @@ brew install pwgen
 brew install rustc
 brew install s3cmd
 brew install shellcheck
+brew install sslscan
 brew install tmate
 brew install terraform
 brew install the_silver_searcher
