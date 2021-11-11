@@ -29,8 +29,6 @@ brew install sslscan
 brew install tmate
 brew install terraform
 brew install the_silver_searcher
-brew install vagrant
-brew install virtualbox
 brew install vim
 brew install watch
 brew install wget
