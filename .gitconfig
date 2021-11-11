@@ -31,3 +31,5 @@
     excludesfile = ~/.gitexcludes
     filemode = false
 	editor = vim
+[init]
+    defaultBranch = main
