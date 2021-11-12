@@ -8,6 +8,7 @@ brew install 1password-cli
 brew install ansible
 brew install awscli
 brew install docker
+brew install docker-compose
 brew install git
 brew install fzf
 brew install jq
