@@ -15,7 +15,7 @@ brew install jq
 brew install newman
 brew install ngrok
 brew install nmap
-brew install node
+brew install node@17
 brew install openconnect
 brew install packer
 brew install php@7.4
