@@ -40,7 +40,7 @@ export PWGEN_SPECIAL=\'\"\@\?\^\&\*\(\)\`\:\~\?\;\:\[\]\{\}\.\,\\\/\|
 # Aliases
 alias pwgen='pwgen -cnyB 16 1 -r $PWGEN_SPECIAL | tr -d "\n" | pbcopy; echo -n "Password copied to clipboard: "; pbpaste; echo'
 alias myip='curl -s ifconfig.co | tr -d "\n" | pbcopy; echo -n "IP Address is: "; pbpaste; echo'
-alias pubkey='cat ~/.ssh/id_rsa.pub | tr -d "\n" | pbcopy; echo "~/.ssh/id_rsa.pub copied to clipboard."'
+alias pubkey='cat ~/.ssh/id_ed25519.pub | tr -d "\n" | pbcopy; echo "~/.ssh/id_ed25519.pub copied to clipboard."'
 alias ping='ping -c 10'
 alias sudo='sudo '
 
