@@ -1,3 +1,3 @@
 Cmnd_Alias HOSTS_ADD = /usr/bin/tee -a /etc/hosts
-Cmnd_Alias HOSTS_VIM = /usr/local/bin/vim /etc/hosts
+Cmnd_Alias HOSTS_VIM = /opt/homebrew/bin/vim /etc/hosts
 %admin ALL=(root) NOPASSWD: HOSTS_ADD, HOSTS_VIM

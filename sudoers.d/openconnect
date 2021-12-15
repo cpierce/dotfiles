@@ -1,1 +1,1 @@
-%admin ALL=(root) NOPASSWD: /usr/local/bin/openconnect
+%admin ALL=(root) NOPASSWD: /opt/homebrew/bin/openconnect
