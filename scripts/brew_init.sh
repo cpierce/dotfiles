@@ -10,6 +10,7 @@ brew install awscli
 brew install docker
 brew install docker-compose
 brew install git
+brew install gpg
 brew install fzf
 brew install jq
 brew install newman
