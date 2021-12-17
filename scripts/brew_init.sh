@@ -10,7 +10,7 @@ brew install awscli
 brew install docker
 brew install docker-compose
 brew install git
-brew install gpg
+brew install gnupg2
 brew install fzf
 brew install jq
 brew install newman
@@ -21,6 +21,7 @@ brew install openconnect
 brew install packer
 brew install php@7.4
 brew install phpunit
+brew install pinentry-mac
 brew install powershell
 brew install pwgen
 brew install rust
