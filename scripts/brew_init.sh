@@ -16,15 +16,14 @@ brew install jq
 brew install newman
 brew install ngrok
 brew install nmap
-brew install node@17
+brew install node@16
 brew install openconnect
 brew install packer
 brew install php@7.4
-brew install php-cs-fixer
 brew install phpunit
 brew install powershell
 brew install pwgen
-brew install rustc
+brew install rust
 brew install s3cmd
 brew install shellcheck
 brew install sslscan

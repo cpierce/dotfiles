@@ -22,7 +22,7 @@
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     co = checkout
-    ci = commit
+    ci = commit -S
     aa = add --all
     st = status
     di = diff
@@ -33,3 +33,7 @@
 	editor = vim
 [init]
     defaultBranch = main
+[commit]
+    gpgsign = true
+[gpg]
+	program = gpg
