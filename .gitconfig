@@ -3,9 +3,9 @@
 [user]
 	name = Chris Pierce
 	email = cpierce@csdurant.com
-	IdentityFile = ~/.ssh/id_rsa
-[url "https://"]
-	insteadOf = git://
+	IdentityFile = ~/.ssh/id_ed25519
+[url "ssh://git@github.com:"]
+	insteadOf = https://github.com
 [credential]
     helper = cache -- timeout=3600
 [color]
@@ -22,7 +22,7 @@
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     co = checkout
-    ci = commit -S
+    ci = commit
     aa = add --all
     st = status
     di = diff
@@ -36,4 +36,4 @@
 [commit]
     gpgsign = true
 [gpg]
-	program = gpg
+    program = gpg
