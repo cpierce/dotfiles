@@ -14,6 +14,9 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
+# direnv enable
+eval "$(direnv hook zsh)"
+
 # Skip .DS_Store and .localized on tab tab
 zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store|.localized'
 
