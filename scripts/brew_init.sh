@@ -15,7 +15,6 @@ brew install git
 brew install gnupg2
 brew install fzf
 brew install jq
-brew install newman
 brew install ngrok
 brew install nmap
 brew install node@16
