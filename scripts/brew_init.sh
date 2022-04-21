@@ -11,6 +11,7 @@ brew install azure-cli
 brew install direnv
 brew install docker
 brew install docker-compose
+brew install ffmpeg
 brew install git
 brew install gnupg2
 brew install fzf
