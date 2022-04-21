@@ -53,11 +53,6 @@ set undodir=~/.vim/undodir
 " XDebug connection from vagrant to local
 let g:dbgPavimPathMap = [['.', '/vagrant'],]
 
-" NERDTree options
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let g:NERDTreeWinPos = "right"
-
 " some random settings
 set encoding=utf-8
 
@@ -227,8 +222,12 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <leader>/ :call pdv#DocumentWithSnip()<CR>
 
-" toggle NERDTree with leader + n
+" NERDTree config
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 nnoremap <leader>n :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "right"
 
 " switch between files with <leader><leader>
 nnoremap <leader><leader> <c-^>
