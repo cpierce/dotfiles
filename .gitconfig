@@ -1,10 +1,10 @@
 [push]
-	default = simple
+    default = simple
 [user]
-	name = Chris Pierce
-	email = cpierce@csdurant.com
-	IdentityFile = ~/.ssh/id_ed25519
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGKfk6qJWGNN3ql46IcQlihJcJUKtzNwAZkP+e8vVJVh
+    name = Chris Pierce
+    email = cpierce@csdurant.com
+    IdentityFile = ~/.ssh/id_ed25519
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGKfk6qJWGNN3ql46IcQlihJcJUKtzNwAZkP+e8vVJVh
 [credential]
     helper = cache -- timeout=3600
 [color]
@@ -29,13 +29,13 @@
 [core]
     excludesfile = ~/.gitexcludes
     filemode = false
-	editor = vim
+    editor = vim
 [init]
     defaultBranch = main
 [commit]
-	gpgsign = true
+    gpgsign = true
 [gpg]
-	program = gpg
-	format = ssh
+    program = gpg
+    format = ssh
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
