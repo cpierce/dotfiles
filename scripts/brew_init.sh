@@ -18,7 +18,7 @@ brew install fzf
 brew install jq
 brew install ngrok
 brew install nmap
-brew install node@16
+brew install node@18
 brew install openconnect
 brew install packer
 brew install php@7.4

@@ -1,5 +1,5 @@
 # Paths
-export PATH="$PATH:/opt/homebrew/opt/node@16/bin"
+export PATH="$PATH:/opt/homebrew/opt/node@18/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules:$HOME/.composer/vendor/bin"
 
 export NVM_DIR="$HOME/.nvm"
