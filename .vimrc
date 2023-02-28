@@ -3,55 +3,51 @@
 set nocompatible
 filetype off
 
-""""""""""""""""""""""""""""""""""""""""
-" Bundles
-""""""""""""""""""""""""""""""""""""""""
+" vim plug install if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" vundle stuff
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-" Vundle Plugins
-Plugin 'gmarik/vundle'
-Plugin 'bufkill.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tobys/vmustache'
-Plugin 'honza/vim-snippets'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'godlygeek/tabular'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tobyS/pdv'
-Plugin 'brookhong/dbgpavim'
-Plugin 'mbbill/undotree'
+" Plugins
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-commentary'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tobys/vmustache'
+Plug 'honza/vim-snippets'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'godlygeek/tabular'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'tobyS/pdv'
+Plug 'brookhong/dbgpavim'
+Plug 'mbbill/undotree'
+Plug 'nanotech/jellybeans.vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'kylef/apiblueprint.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'juliosueiras/vim-terraform-completion'
 
-Plugin 'nanotech/jellybeans.vim'
-
-Plugin 'pearofducks/ansible-vim'
-Plugin 'kylef/apiblueprint.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'othree/html5.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'juliosueiras/vim-terraform-completion'
+call plug#end()
 
 " Make undo work across coding sessions
 set undofile
 set undodir=~/.vim/undodir
-
-" XDebug connection from vagrant to local
-let g:dbgPavimPathMap = [['.', '/vagrant'],]
 
 " some random settings
 set encoding=utf-8
@@ -219,7 +215,7 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " PDV config
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
 nnoremap <leader>/ :call pdv#DocumentWithSnip()<CR>
 
 " NERDTree config
@@ -256,8 +252,8 @@ nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>f :CtrlPClearCache<cr>
 
-" build bundles
-nnoremap <leader>i :BundleInstall!<cr>
+" build Plugins and update
+nnoremap <leader>i :PlugInstall!<cr>
 
 " /// for vim-commentary
 nmap /// <Plug>CommentaryLine
