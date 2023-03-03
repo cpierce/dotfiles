@@ -13,6 +13,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins
+Plug 'qpkorr/vim-bufkill'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'MarcWeber/vim-addon-mw-utils'
