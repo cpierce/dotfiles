@@ -21,7 +21,8 @@ brew install nmap
 brew install node@18
 brew install openconnect
 brew install packer
-brew install php@7.4
+brew install php
+brew install phpstan
 brew install phpunit
 brew install pinentry-mac
 brew install powershell
