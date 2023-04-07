@@ -50,10 +50,12 @@ alias myip='curl -s ifconfig.co | tr -d "\n" | pbcopy; echo -n "IP Address is: "
 alias pubkey='cat $HOME/.ssh/id_ed25519.pub | pbcopy; echo "ED25519 pub key copied to clipboard."'
 alias ping='ping -c 10'
 alias sudo='sudo '
-alias aws='op run --env-file=$HOME/.config/op/aws-env -- aws'
 
 # Load the fowarding agent if it is not (Only keys not certs)
 /usr/bin/ssh-add -k >/dev/null 2>&1
 
 # Load custom functions
 source ~/.zfunctions
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /Users/cpierce/.config/op/plugins.sh
