@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 ./scripts/zsh_init.sh
 ./scripts/brew_init.sh
 ./scripts/mac_init.sh

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
