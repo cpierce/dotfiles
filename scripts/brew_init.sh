@@ -8,6 +8,7 @@ brew install 1password-cli
 brew install ansible
 brew install awscli
 brew install azure-cli
+brew install copilot
 brew install direnv
 brew install docker
 brew install docker-compose
@@ -19,6 +20,7 @@ brew install jq
 brew install ngrok
 brew install nmap
 brew install node@18
+brew install pnpm
 brew install openconnect
 brew install packer
 brew install php

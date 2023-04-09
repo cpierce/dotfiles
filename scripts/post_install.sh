@@ -1,4 +1,4 @@
 #!/bin/sh
+pnpm setup
 source ~/.zshrc
-npm install -g newman
-
+pnpm install -g newman
