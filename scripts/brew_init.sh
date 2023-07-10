@@ -19,7 +19,7 @@ brew install fzf
 brew install jq
 brew install ngrok
 brew install nmap
-brew install node@18
+brew install node
 brew install pnpm
 brew install openconnect
 brew install packer
@@ -29,7 +29,6 @@ brew install phpunit
 brew install pinentry-mac
 brew install powershell
 brew install pwgen
-brew install rust
 brew install s3cmd
 brew install shellcheck
 brew install sslscan
