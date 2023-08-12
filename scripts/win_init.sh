@@ -14,10 +14,8 @@ cp .zshrc ~/
 cp .gitconfig ~/
 cp .gitexcludes ~/
 cp .vimrc ~/
+cp -R .aws ~/
 sudo cp sudoers.d/* /etc/sudoers.d/
 mkdir -p ~/Workspace
 cp -R .ssh/config_linux ~/.ssh/config
-cp -R .ssh/id_ed25519.pub ~/.ssh/
 chmod 700 ~/.ssh
-chown 600 ~/.ssh/id_ed25519.pub
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
