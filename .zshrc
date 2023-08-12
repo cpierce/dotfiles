@@ -44,6 +44,6 @@ alias sudo='sudo '
 alias grep='grep --color=auto'
 
 # Load cutom functions, fzf, and op plugins
-[ -f ~/.zfunctions ] && source ~/.zfunctions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.config/op/plugins.sh ] && source ~/.config/op/plugins.sh
+[ -f ~/.zfunctions ] && source ~/.zfunctions

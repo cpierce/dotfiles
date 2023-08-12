@@ -1,27 +1,29 @@
 # Easy Extraction
-extract ()
-  {
-    if [ -f "$1" ]; then
-        case "$1" in
-            *.tar.bz2) tar fxj "$1" ;;
-            *.tar.gz) tar fzx "$1" ;;
-            *.bz2) bunzip "$1" ;;
-            *.gz) gunzip "$1" ;;
-            *.tar) tar xf "$1" ;;
-            *.tbz2) tar fxj "$1" ;;
-            *.tgz) tar fzx "$1" ;;
-            *.zip) unzip "$1" ;;
-            *.Z) uncompress "$1" ;;
-            *) echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file."
+extract () {
+    if [ ! -f "$1" ]; then
+        echo "\"$1\" is not a valid file."
+        return 1
     fi
-  }
+
+    case "$1" in
+        *.tar.bz2) tar fxj "$1" ;;
+        *.tar.gz) tar fzx "$1" ;;
+        *.bz2) bunzip "$1" ;;
+        *.gz) gunzip "$1" ;;
+        *.tar) tar xf "$1" ;;
+        *.tbz2) tar fxj "$1" ;;
+        *.tgz) tar fzx "$1" ;;
+        *.zip) unzip "$1" ;;
+        *.Z) uncompress "$1" ;;
+        *)
+            echo "Unknown archive format for '$1'"
+            return 1
+            ;;
+    esac
+}
 
 # SSH Tunnel
-tunnel ()
-  {
+tunnel () {
     if [ ! $# -gt 1 ]; then
         echo "Usage: tunnel <tunnel-host> <[user@]tunnel-gateway> [remote-port] [local-port]"
     else
@@ -40,33 +42,33 @@ tunnel ()
         echo ssh -C -N -L $LOCAL_PORT:$TUNNEL_HOST:$REMOTE_PORT $TUNNEL_GATEWAY | pbcopy
         echo 'Remote tunnel command copied to clipboard.'
     fi
-  }
-# AWS Instances
-aws_instances ()
-  {
-    local output="table"
-    local filters profile o_profile o_output o_filters
+}
+
+# Global variables for AWS options
+declare -a AWS_PROFILE=()
+declare -a AWS_FILTERS=()
+declare AWS_OUTPUT="table"
+
+# Helper function to parse AWS options
+parse_aws_options() {
+    local o_profile o_output o_filters
 
     zparseopts -D -- p:=o_profile -profile:=o_profile o:=o_output -output:=o_output f:=o_filters -filters:=o_filters
 
-    if [[ -n $o_profile[2] ]]; then profile=(--profile $o_profile[2]); fi
-    if [[ -n $o_filters[2] ]]; then filters=(--filters $o_filters[2]); fi
-    if [[ -n $o_output[2] ]]; then output=($o_output[2]); fi
+    # Set global AWS variables based on parsed options
+    [[ -n ${o_profile[2]} ]] && AWS_PROFILE=(--profile "${o_profile[2]}")
+    [[ -n ${o_filters[2]} ]] && AWS_FILTERS=(--filters "${o_filters[2]}")
+    [[ -n ${o_output[2]} ]] && AWS_OUTPUT="${o_output[2]}"
+}
 
-    aws ec2 describe-instances $profile $filters --query "Reservations[*].Instances[*].{Name:Tags[?Key=='Name']|[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output "$output"
-  }
+# AWS Instances function
+aws_instances() {
+    parse_aws_options "$@"
+    op plugin run -- aws ec2 describe-instances "${AWS_PROFILE[@]}" "${AWS_FILTERS[@]}" --query "Reservations[*].Instances[*].{Name:Tags[?Key=='Name']|[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output "$AWS_OUTPUT"
+}
 
-# DB Instances
-db_instanes ()
-  {
-    local output="table"
-    local filters profile o_profile o_output o_filters
-
-    zparseopts -D -- p:=o_profile -profile:=o_profile o:=o_output -output:=o_output f:=o_filters -filters:=o_filters
-
-    if [[ -n $o_profile[2] ]]; then profile=(--profile $o_profile[2]); fi
-    if [[ -n $o_filters[2] ]]; then filters=(--filters $o_filters[2]); fi
-    if [[ -n $o_output[2] ]]; then output=($o_output[2]); fi
-
-    aws rds describe-db-instances $profile $filters --query "DBInstances[*].{Size:DBInstanceClass,Engine:Engine,Endpoint:Endpoint.Address,Version:EngineVersion,AZ:MultiAZ,Status:DBInstanceStatus,Name:DBInstanceIdentifier}" --output "$output"
-  }
+# DB Instances function
+db_instances() {
+    parse_aws_options "$@"
+    op plugin run -- aws rds describe-db-instances "${AWS_PROFILE[@]}" "${AWS_FILTERS[@]}" --query "DBInstances[*].{Size:DBInstanceClass,Engine:Engine,Endpoint:Endpoint.Address,Version:EngineVersion,AZ:MultiAZ,Status:DBInstanceStatus,Name:DBInstanceIdentifier}" --output "$AWS_OUTPUT"
+}
