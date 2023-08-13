@@ -2,7 +2,7 @@
 cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
-cp .gitexcludes ~/
+cp .gitignore_global ~/
 cp .vimrc ~/
 sudo cp sudoers.d/* /etc/sudoers.d/
 mkdir -p ~/Workspace

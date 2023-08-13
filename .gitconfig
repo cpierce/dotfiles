@@ -5,7 +5,7 @@
     email = cpierce@csdurant.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP3O+vs3dV4dC+MaZDnEIyfr6hfQWTH8mEptTeRE4KhV
 [credential]
-    helper = cache -- timeout=3600
+    helper = cache -- timeout=6300
 [color]
     diff = auto
     status = auto
@@ -14,9 +14,11 @@
     ui = auto
     pager = true
 [merge]
-    tool = meld
+    tool = code
 [mergetool]
     keepBackup = false
+[mergetool "code"]
+    cmd = code --wait $MERGED
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     co = checkout
@@ -26,8 +28,12 @@
     st = status
     di = diff
     dc = diff --cached
+[format]
+    pretty = format:"%h - %an, %ar : %s"
+[fetch]
+    prune = true
 [core]
-    excludesfile = ~/.gitexcludes
+    excludesfile = ~/.gitignore_global
     filemode = false
     editor = vim
 [init]
