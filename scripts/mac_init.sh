@@ -60,4 +60,4 @@ defaults write com.apple.finder ShowRemovableMediaOnSidebar -bool true
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 48
 defaults write com.apple.dock magnification -bool true
-defaults write com.apple.dock largesize -int 68
+defaults write com.apple.dock largesize -int 64
