@@ -36,7 +36,7 @@ zstyle ':vcs_info:git:*' formats '%K{060} ᚠ %b %k'
 
 # Aliases
 alias ls='ls -AGFh'
-alias pwgen='pwgen -cnyB 16 1 -r $PWGEN_SPECIAL | tr -d "\n" | pbcopy; echo -n "Password copied to clipboard: "; pbpaste; echo'
+alias pwgen='pwgen -cnyB 32 1 -r $PWGEN_SPECIAL | tr -d "\n" | pbcopy; echo -n "Password copied to clipboard: "; pbpaste; echo'
 alias myip='curl -s ifconfig.co | tr -d "\n" | pbcopy; echo -n "IP Address is: "; pbpaste; echo'
 alias pubkey='op item get "SSH Key - Primary" --fields "public key" | pbcopy; echo "ED25519 pub key copied to clipboard."'
 alias ping='ping -c 10'
