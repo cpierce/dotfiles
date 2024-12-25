@@ -21,7 +21,6 @@ brew install ngrok
 brew install nmap
 brew install node
 brew install pnpm
-brew install openconnect
 brew install packer
 brew install php
 brew install phpstan
@@ -29,12 +28,12 @@ brew install phpunit
 brew install pinentry-mac
 brew install powershell
 brew install pwgen
+brew install ripgrep
 brew install s3cmd
 brew install shellcheck
 brew install sslscan
 brew install tmate
 brew install terraform
-brew install the_silver_searcher
 brew install youtube-dl
 brew install vim
 brew install watch
