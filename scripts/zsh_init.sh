@@ -9,4 +9,3 @@ mkdir -p ~/Workspace
 cp -R .ssh ~/
 cp -R .aws ~/
 sudo chmod 700 ~/.ssh
-

@@ -288,4 +288,3 @@ set colorcolumn=80
 highlight ExtraWhitespace ctermbg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
-
