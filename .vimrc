@@ -13,71 +13,51 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plug 'qpkorr/vim-bufkill'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tobys/vmustache'
-Plug 'honza/vim-snippets'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
-Plug 'tobyS/pdv'
-Plug 'brookhong/dbgpavim'
 Plug 'mbbill/undotree'
 Plug 'nanotech/jellybeans.vim'
-Plug 'pearofducks/ansible-vim'
-Plug 'kylef/apiblueprint.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'juliosueiras/vim-terraform-completion'
 
 call plug#end()
 
 " Make undo work across coding sessions
+if !(isdirectory($HOME . '/.vim/undodir'))
+    call mkdir($HOME . '/.vim/undodir', 'p')
+endif
 set undofile
 set undodir=~/.vim/undodir
 
 " some random settings
 set encoding=utf-8
-
-" custom file ignores
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.vagrant$\|\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
-            \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
-
-let g:ctrlp_use_caching = 0
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-    let g:ctrlp_prompt_mappings = {
-                \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-                \ }
 endif
 
-" LESS Syntax
-nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
+" SASS Syntax Compiler
+autocmd FileType scss nnoremap ,m :w <BAR> !sass %:%:r.css<CR><space>
 
-" Airline show
+" Airline Show
 set laststatus=2
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#buffers#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'jellybeans'
 let g:airline_symbols.space = "\ua0"
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
@@ -97,6 +77,9 @@ set backspace=indent,eol,start
 
 " show lines in lower right
 set ruler
+
+" Enable mouse support
+set mouse=a
 
 " don't wrap lines ever
 set nowrap
@@ -201,30 +184,35 @@ set relativenumber
 " Mappings
 """"""""""""""""""""""""""""""""""""""""
 
-" set leader
+" set leader to comma key
 let mapleader = ","
 
+" Tab magic
+nnoremap <tab><tab> :tabn<CR>
+nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>to :tabonly<CR>
+
 " Undo magic
-nnoremap <leader>u :call UndotreeToggle()<CR>
+let g:undotree_WindowLayout = 3 " Place on the right
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " format file
 nnoremap <leader>F :call FormatFile()<CR>
 
 " Unisnip
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+"let g:SnipsExpandTrigger="<Tab>"
+"let g:SnipsJumpForwardTrigger="<Tab>"
+"let g:SnipsJumpBackwardTrigger="<S-Tab>"
 
-" PDV config
-let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
-nnoremap <leader>/ :call pdv#DocumentWithSnip()<CR>
+" fzf config
+set rtp+=/opt/homebrew/opt/fzf
+nnoremap <leader>n :Files<cr>
+nnoremap <leader>vs :vertical split \| :Files<CR>
+nnoremap <leader>hs :split \| :Files<CR>
+nnoremap <leader>tn :tabnew \| :Files<CR>
+nnoremap <leader>bb :Buffers<CR>
 
-" NERDTree config
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-nnoremap <leader>n :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "right"
+nnoremap <leader>f :BLines<CR>
 
 " switch between files with <leader><leader>
 nnoremap <leader><leader> <c-^>
@@ -234,26 +222,19 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+nmap <C-s> :write<CR>
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" set jj to exit insert mode
+" set exit insert mode to jj
 imap jj <Esc>
-
-" Map ,g to tag definition
-map <leader>g :TagbarToggle<CR>
 
 " reselect when indenting
 vnoremap < <gv
 vnoremap > >gv
 
-" ctrlp commands
-nnoremap <leader>t :CtrlP<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
-nnoremap <leader>f :CtrlPClearCache<cr>
-
-" build Plugins and update
+" leader commands
 nnoremap <leader>i :PlugInstall!<cr>
 
 " /// for vim-commentary
