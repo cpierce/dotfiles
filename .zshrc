@@ -49,7 +49,7 @@ zstyle ':vcs_info:git:*' actionformats '%K{red} %b|%a %k'
 # Aliases
 # ------------------------------------------
 alias ls='ls -AGFh --color=auto'
-alias tree='tree -C'
+alias tree='tree -a -C --dirsfirst -L 2 --noreport'
 alias pwgen='pwgen -cnyB 32 1 -r $PWGEN_SPECIAL | tr -d "\n" | pbcopy; echo -n "Password copied to clipboard: "; pbpaste; echo'
 alias myip='curl -s ifconfig.co | tr -d "\n" | pbcopy; echo -n "IP Address is: "; pbpaste; echo'
 alias pubkey='op item get "SSH Key - Primary" --fields "public key" | pbcopy; echo "ED25519 pub key copied to clipboard."'

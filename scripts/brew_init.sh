@@ -35,6 +35,7 @@ brew install shellcheck
 brew install sslscan
 brew install tmate
 brew install terraform
+brew install tree
 brew install youtube-dl
 brew install vim
 brew install watch
