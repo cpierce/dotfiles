@@ -1,4 +1,6 @@
-# Easy Extraction
+# ------------------------------------------
+# Easy File Extraction Function
+# ------------------------------------------
 extract () {
     if [ ! -f "$1" ]; then
         echo "\"$1\" is not a valid file."
@@ -7,11 +9,10 @@ extract () {
 
     case "$1" in
         *.tar.bz2) tar fxj "$1" ;;
-        *.tar.gz) tar fzx "$1" ;;
+        *.tar.gz) tar fxz "$1" ;;
         *.bz2) bunzip "$1" ;;
         *.gz) gunzip "$1" ;;
         *.tar) tar xf "$1" ;;
-        *.tbz2) tar fxj "$1" ;;
         *.tgz) tar fzx "$1" ;;
         *.zip) unzip "$1" ;;
         *.Z) uncompress "$1" ;;
@@ -22,53 +23,56 @@ extract () {
     esac
 }
 
-# SSH Tunnel
+# ------------------------------------------
+# SSH Tunnel Command Generator Function
+# ------------------------------------------
 tunnel () {
-    if [ ! $# -gt 1 ]; then
+    if [ $# -lt 2 ]; then
         echo "Usage: tunnel <tunnel-host> <[user@]tunnel-gateway> [remote-port] [local-port]"
-    else
-        TUNNEL_HOST="$1"
-        TUNNEL_GATEWAY="$2"
-        if [ ! "$3" ]; then
-            REMOTE_PORT="3306"
-        else
-            REMOTE_PORT="$3"
-        fi
-        if [ ! "$4" ]; then
-            LOCAL_PORT="$REMOTE_PORT"
-        else
-            LOCAL_PORT="$4"
-        fi
-        echo ssh -C -N -L $LOCAL_PORT:$TUNNEL_HOST:$REMOTE_PORT $TUNNEL_GATEWAY | pbcopy
-        echo 'Remote tunnel command copied to clipboard.'
+        return 1
     fi
+
+    local TUNNEL_HOST="$1"
+    local TUNNEL_GATEWAY="$2"
+    local REMOTE_PORT="${3:-3306}"
+    local LOCAL_PORT="${4:-$REMOTE_PORT}"
+
+    echo ssh -C -N -L $LOCAL_PORT:$TUNNEL_HOST:$REMOTE_PORT $TUNNEL_GATEWAY | pbcopy
+    echo 'Remote tunnel command copied to clipboard.'
 }
 
-# Global variables for AWS options
+# ------------------------------------------
+# AWS Helper Functions
+# ------------------------------------------
 declare -a AWS_PROFILE=()
 declare -a AWS_FILTERS=()
 declare AWS_OUTPUT="table"
 
-# Helper function to parse AWS options
 parse_aws_options() {
     local o_profile o_output o_filters
-
     zparseopts -D -- p:=o_profile -profile:=o_profile o:=o_output -output:=o_output f:=o_filters -filters:=o_filters
 
-    # Set global AWS variables based on parsed options
     [[ -n ${o_profile[2]} ]] && AWS_PROFILE=(--profile "${o_profile[2]}")
     [[ -n ${o_filters[2]} ]] && AWS_FILTERS=(--filters "${o_filters[2]}")
     [[ -n ${o_output[2]} ]] && AWS_OUTPUT="${o_output[2]}"
 }
 
-# AWS Instances function
 aws_instances() {
-    parse_aws_options "$@"
-    op plugin run -- aws ec2 describe-instances "${AWS_PROFILE[@]}" "${AWS_FILTERS[@]}" --query "Reservations[*].Instances[*].{Name:Tags[?Key=='Name']|[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" --output "$AWS_OUTPUT"
+    parse_aws_options "$@" || {
+        echo "Error: Failed to parse AWS options"
+        return 1
+    }
+    op plugin run -- aws ec2 describe-instances "${AWS_PROFILE[@]}" "${AWS_FILTERS[@]}" \
+        --query "Reservations[*].Instances[*].{Name:Tags[?Key=='Name']|[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" \
+        --output "$AWS_OUTPUT"
 }
 
-# DB Instances function
 db_instances() {
-    parse_aws_options "$@"
-    op plugin run -- aws rds describe-db-instances "${AWS_PROFILE[@]}" "${AWS_FILTERS[@]}" --query "DBInstances[*].{Size:DBInstanceClass,Engine:Engine,Endpoint:Endpoint.Address,Version:EngineVersion,AZ:MultiAZ,Status:DBInstanceStatus,Name:DBInstanceIdentifier}" --output "$AWS_OUTPUT"
+    parse_aws_options "$@" || {
+        echo "Error: Failed to parse AWS options"
+        return 1
+    }
+    op plugin run -- aws rds describe-db-instances "${AWS_PROFILE[@]}" "${AWS_FILTERS[@]}" \
+        --query "DBInstances[*].{Size:DBInstanceClass,Engine:Engine,Endpoint:Endpoint.Address,Version:EngineVersion,AZ:MultiAZ,Status:DBInstanceStatus,Name:DBInstanceIdentifier}" \
+        --output "$AWS_OUTPUT"
 }
