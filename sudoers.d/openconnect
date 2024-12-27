@@ -1,1 +1,0 @@
-%admin ALL=(root) NOPASSWD: /opt/homebrew/bin/openconnect
