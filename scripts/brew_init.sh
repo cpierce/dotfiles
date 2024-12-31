@@ -34,7 +34,8 @@ brew install s3cmd
 brew install shellcheck
 brew install sslscan
 brew install tmate
-brew install terraform
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
 brew install tree
 brew install youtube-dl
 brew install vim
