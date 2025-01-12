@@ -56,7 +56,7 @@ alias pubkey='op item get "SSH Key - Primary" --fields "public key" | pbcopy; ec
 alias ping='ping -c 10'
 alias sudo='sudo '
 alias grep='grep --color=auto'
-alias phpstan='phpstan --memory-limit=256M'
+alias phpstan='phpstan --memory-limit=512M'
 alias cdws='cd $WORKSPACE'
 alias reload='source ~/.zshrc'
 
