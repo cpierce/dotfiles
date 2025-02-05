@@ -38,7 +38,7 @@ brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 brew install tree
 brew install youtube-dl
-brew install vim
+brew install neovim
 brew install watch
 brew install wget
 brew upgrade
