@@ -39,6 +39,9 @@ brew install hashicorp/tap/terraform
 brew install tree
 brew install youtube-dl
 brew install neovim
+brew install stylua
+brew install prettier
+brew install php-cs-fixer
 brew install watch
 brew install wget
 brew upgrade

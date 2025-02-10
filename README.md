@@ -14,6 +14,3 @@ Over the years, I've realized the value of a well-organized and efficient worksp
 
 These dotfiles are dedicated to the public domain under the [CC0 1.0 Universal License](https://github.com/cpierce/dotfiles/blob/main/LICENSE/). You can copy, modify, distribute, and perform the work, even for commercial purposes, all without asking permission.
 
----
-
-Let me know if this works for you or if you'd like any further adjustments!
