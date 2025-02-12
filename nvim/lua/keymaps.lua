@@ -1,6 +1,5 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 --
-
 local map = vim.keymap.set
 
 -- jj to escape insert mode
@@ -31,15 +30,18 @@ map('v', '>', '>gv', { noremap = true, silent = true })
 -- Buffer Switching using <leader><leader>
 map('n', '<leader><leader', '<C-^>', { noremap = true, silent = true })
 
--- Fzf
+-- File keyboard shortcuts
 map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, desc = 'Find Files (Telescope)' })
 map('n', '<leader>fg', ':Telescope live_grep<CR>', { silent = true, desc = 'Live Grep (Telescope)' })
+map('n', '<leader>fn', ':enew<CR>', { silent = true, desc = 'New File' })
 
 -- Remap 0 to the first non-blank character
 map('n', '0', '^', { noremap = true, silent = true })
 
 -- Run Lazy sync with <leader>i
-map('n', '<leader>ls', ':Lazy sync<CR>', { noremap = true, silent = true })
+map('n', '<leader>ls', ':Lazy sync<CR>', { noremap = true, silent = true, desc = 'Sync Lazy' })
+map('n', '<leader>lc', ':Lazy clean<CR>', { noremap = true, silent = true, desc = 'Clean Lazy' })
+map('n', '<leader>lu', ':Lazy update<CR>', { noremap = true, silent = true, desc = 'Update Lazy' })
 
 -- Comment with ///
 map('n', '///', function()
@@ -59,14 +61,13 @@ end, { noremap = true, silent = true })
 map('n', '<C-f>', '<cmd>lua require("spectre").toggle()<CR>', { noremap = true, silent = true })
 map('n', '<leader>ss', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { noremap = true, silent = true })
 
--- NeoTree Toggle
+-- NeoTree and File Shortcuts
 map('n', '<leader>nn', ':NeoTreeShowToggle<CR>', { silent = true })
 map('n', '<leader>ns', ':NeoTreeShowToggle git_status<CR>', { silent = true })
 
 -- Tabs
 map('n', '<tab><tab>', ':BufferLineCycleNext<CR>', { silent = true })
 map('n', '<S-tab><S-tab>', ':BufferLineCyclePrev<CR>', { silent = true })
-map('n', '<leader>n', ':enew<CR>', { silent = true })
 
 -- Yank All to Clipboard
 map('n', '<leader>ya', function()
@@ -76,7 +77,7 @@ map('n', '<leader>ya', function()
 end, {
   noremap = true,
   silent = true,
-  desc = 'Yank all to clipboard and restore cursor',
+  desc = 'Yank All',
 })
 
 -- Trouble.nvim Keybindings

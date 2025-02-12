@@ -8,6 +8,6 @@ return {
       { 'williamboman/mason.nvim' },
       { 'williambowan/mason-lspconfig.nvim' },
     },
-    opts = require('config.conform'),
+    opts = require('config.conform-conf'),
   },
 }

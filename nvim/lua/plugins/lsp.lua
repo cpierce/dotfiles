@@ -7,9 +7,9 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'williamboman/mason.nvim', 'echasnovski/mini.icons' },
     config = function()
-      require('mason-lspconfig').setup(require('config.mason'))
+      require('mason-lspconfig').setup(require('config.mason-conf'))
     end,
   },
   {
@@ -17,12 +17,10 @@ return {
     dependencies = { 'williamboman/mason-lspconfig.nvim' },
     config = function()
       local lspconfig = require('lspconfig')
+      local config = require('config.lspconfig-conf')
 
-      -- Setup installed LSP servers
-      local servers = { 'lua_ls', 'ts_ls' }
-      for _, server in ipairs(servers) do
-        lspconfig[server].setup({})
-      end
+      lspconfig.lua_ls.setup(config)
+      lspconfig['lua_ls'].setup(require('config.lsp.lua_ls-conf'))
     end,
   },
 }

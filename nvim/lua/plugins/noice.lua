@@ -1,10 +1,10 @@
 return {
   {
-    "folke/noice.nvim",
+    'folke/noice.nvim',
     dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
     },
-    opts = require("config.noice"), -- Directly load the config
+    opts = require('config.noice-conf'), -- Directly load the config
   },
 }

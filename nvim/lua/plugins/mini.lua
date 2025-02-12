@@ -1,32 +1,38 @@
 return {
   {
-    "echasnovski/mini.ai",
+    'echasnovski/mini.ai',
     version = false,
-    opts = function()
-      return require("config.mini.ai")
-    end,
-    config = function(_, opts)
-      require("mini.ai").setup(opts)
+    config = function()
+      require('mini.ai').setup(require('config.mini.ai-conf'))
     end,
   },
   {
-    "echasnovski/mini.comment",
-    opts = require("config.mini.comment"),
+    'echasnovski/mini.comment',
+    config = function()
+      require('mini.comment').setup(require('config.mini.comment-conf'))
+    end,
   },
   {
-    "echasnovski/mini.icons",
+    'echasnovski/mini.icons',
     version = false,
-    opts = require("config.mini.icons"),
+    config = function()
+      require('mini.icons').setup(require('config.mini.icons-conf'))
+      MiniIcons.mock_nvim_web_devicons()
+    end,
   },
   {
-    "echasnovski/mini.pairs",
+    'echasnovski/mini.pairs',
     version = false,
-    opts = require("config.mini.pairs"),
+    config = function()
+      require('mini.pairs').setup(require('config.mini.pairs-conf'))
+    end,
   },
   {
-    "echasnovski/mini.indentscope",
+    'echasnovski/mini.indentscope',
     version = false,
-    event = { "BufReadPre", "BufNewFile" },
-    opts = require("config.mini.indentscope"),
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      require('mini.indentscope').setup(require('config.mini.indentscope-conf'))
+    end,
   },
 }

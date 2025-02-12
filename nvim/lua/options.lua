@@ -3,7 +3,7 @@
 local opt = vim.opt
 
 -- Mouse mode
-opt.mouse = 'nv'
+opt.mouse = 'a'
 
 -- Error Sounds, ugh!
 opt.errorbells = false -- No annoying beep sounds
@@ -14,17 +14,18 @@ opt.timeoutlen = 500 -- Adjusts key mapping timeout (if needed)
 opt.number = true
 opt.relativenumber = true
 
--- Tab stuff
+-- Tab Stuff
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smarttab = true
 
--- File stuff
+-- File and Clipboard Stuff
 opt.backup = false -- Disable backup files
 opt.swapfile = false -- Disable swap files
 opt.backspace = { 'indent', 'eol', 'start' } -- Allow backspace over everything
+opt.clipboard = 'unnamedplus'
 
 -- UI Tweaks
 opt.termguicolors = true -- Enable true colors

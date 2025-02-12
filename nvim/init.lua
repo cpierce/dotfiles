@@ -2,7 +2,7 @@
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
-require('config.lazy')
+require('lazy-bootstrap')
 require('autocmds')
 require('keymaps')
 require('options')
