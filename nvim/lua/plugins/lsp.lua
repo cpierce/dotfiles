@@ -7,14 +7,25 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = {
+      'williamboman/mason.nvim',
+    },
     config = function()
       require('mason-lspconfig').setup(require('config.mason-lspconfig-conf'))
     end,
   },
   {
     'neovim/nvim-lspconfig',
-    dependencies = { 'williamboman/mason-lspconfig.nvim' },
+    dependencies = {
+      {
+        'simrat39/rust-tools.nvim',
+        dependencies = { 'neovim/nvim-lspconfig' },
+        config = function()
+          require('rust-tools').setup({})
+        end,
+      },
+      'williamboman/mason-lspconfig.nvim',
+    },
     opts = require('config.lspconfig-conf'),
     config = function()
       local lspconfig = require('lspconfig')

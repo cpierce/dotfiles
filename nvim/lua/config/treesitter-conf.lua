@@ -6,6 +6,7 @@ return {
     'php',
     'json',
     'rust',
+    'toml',
     'html',
     'markdown',
     'markdown_inline',
@@ -13,7 +14,7 @@ return {
     'diff',
     'css',
   },
-  sync_install = false,
+  sync_install = true,
   highlight = { enable = true },
   indent = { enable = true },
   incremental_selection = {

@@ -1,14 +1,30 @@
 return {
   filetypes = { 'php' },
-  init_options = {
-    ['language_server_phpstan.enabled'] = true,
-    ['langguage_server_psalm'] = true,
-  },
   settings = {
     intelephense = {
-      completion = { enabled = true },
-      diagnostics = { enabled = true },
-      index = { enabled = true },
+      files = {
+        exclude = {
+          '**/.git/**',
+          '**/node_modules/**',
+          '**/vendor/**/{Tests,tests}/**',
+          '**/.history/**',
+        },
+        maxSize = 5000000,
+      },
+      completion = {
+        enabled = true,
+      },
+      environment = {
+        phpVersion = '8.3',
+      },
+      diagnostics = {
+        enabled = true,
+        undefinedTypes = false,
+        undefinedFunctions = false,
+        undefinedConstants = false,
+        undefinedClassConstants = false,
+        undefinedVariables = true,
+      },
     },
   },
 }
