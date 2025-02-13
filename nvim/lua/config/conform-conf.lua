@@ -13,6 +13,7 @@ return {
     json = { 'prettier' },
     markdown = { 'prettier' },
     sh = { 'shfmt' },
+    php = { 'php_cs_fixer' },
   },
 
   -- Custom formatters and additional settings
@@ -21,6 +22,9 @@ return {
 
     shfmt = {
       prepend_args = { '-i', '2', '-ci' },
+    },
+    php_cs_fixer = {
+      prepend_args = { '--using-cache=no' },
     },
   },
 

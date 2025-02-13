@@ -1,9 +1,11 @@
 return {
   ensure_installed = {
-    'lua_ls',
-    'intelephense',
+    'phpcs',
+    'entelephense',
+    'php-debug-adapter',
+    'stylua',
+    'rust-analyzer',
   },
-  automatic_installation = true,
   ui = {
     border = 'rounded',
   },

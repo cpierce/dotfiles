@@ -1,4 +1,4 @@
--- Keymaps are automatically loaded on the VeryLazy event
+-- Keymaps
 --
 local map = vim.keymap.set
 

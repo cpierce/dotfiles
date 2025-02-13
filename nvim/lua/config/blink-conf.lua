@@ -1,6 +1,5 @@
 return {
   appearance = {
-    use_nvim_cmp_as_default = false,
     nerd_font_variant = 'mono',
   },
   completion = {
@@ -12,6 +11,9 @@ return {
     menu = {
       draw = {
         treesitter = { 'lsp' },
+        columns = {
+          { 'label', 'label_description', gap = 1 },
+        },
       },
     },
     documentation = {
@@ -22,15 +24,12 @@ return {
       enabled = true,
     },
   },
-
   sources = {
     default = { 'lsp', 'path', 'buffer' },
     cmdline = {},
   },
 
   keymap = {
-    preset = 'enter',
-    ['C-y'] = { 'select_and_accept' },
-    ['<Cmd>'] = { 'select_and_accept' },
+    preset = 'super-tab',
   },
 }

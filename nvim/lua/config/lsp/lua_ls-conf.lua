@@ -8,7 +8,10 @@ return {
         version = 'LuaJIT',
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file('', true), -- Recognizes Neovim API
+        library = {
+          '${3rd}/luv/library',
+          vim.api.nvim_get_runtime_file('', true),
+        },
         checkThirdParty = false, -- Optional: Prevents unnecessary warnings
       },
       telemetry = { enable = false },

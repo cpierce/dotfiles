@@ -4,6 +4,7 @@ return {
     'lua',
     'vim',
     'php',
+    'json',
     'rust',
     'html',
     'markdown',

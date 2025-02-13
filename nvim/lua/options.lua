@@ -54,4 +54,3 @@ opt.smartcase = true
 
 -- Enable persistent undo
 opt.undofile = true
-opt.undodir = vim.fn.expand('~/.vim/undodir')

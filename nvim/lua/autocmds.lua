@@ -2,14 +2,10 @@
 --
 local api = vim.api
 
--- Ensure the undo directory exists
-if vim.fn.isdirectory(vim.fn.expand('~/.vim/undodir')) == 0 then
-  vim.fn.mkdir(vim.opt.undodir:get(), 'p')
-end
-
 -- Auto compile scss on save
 api.nvim_create_autocmd('FileType', {
   pattern = 'scss',
+
   callback = function()
     api.nvim_set_keymap('n', ',m', ':w <BAR> !sass %:%:r.css<CR><space>', { noremap = true, silent = true })
   end,

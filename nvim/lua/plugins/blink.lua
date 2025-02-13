@@ -2,14 +2,15 @@ return {
   {
     'saghen/blink.compat',
     version = '*',
-    lazy = true,
+    opts = {},
   },
   {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets' },
     version = '*',
-    config = function()
-      require('blink.cmp').setup(require('config.blink-conf'))
+    opts = require('config.blink-conf'),
+    config = function(_, opts)
+      require('blink.cmp').setup(opts)
     end,
   },
 }

@@ -1,16 +1,0 @@
-[?1049h[?1h=[H[2J[?2004h[?2026$p[?u[c[?25h[?25l(B[m[H[2J[23BError detected while processing /Users/cpierce/.config/nvim/init.lua:[K[17;24r[17;1H[7M[r[16;1H                                                                                
-
-E5113: Error while calling lua chunk: vim/keymap.lua:0: invalid key: nomap      
-stack traceback:                                                                
-        [C]: in function 'nvim_set_keymap'                                      
-        vim/keymap.lua: in function 'map'                                       
-        /Users/cpierce/.config/nvim/lua/keymaps.lua:43: in main chunk           
-        [C]: in function 'require'                                              
-        /Users/cpierce/.config/nvim/init.lua:7: in main chunk                   ]112[2 q]112[2 q[?1002h[?1006h[H  [H[16;1H[K
-  [17;1H[18;1HE5113: Error while calling lua chunk: vim/keymap.lua:0: invalid key: nomap[K
-stack traceback:[K
-        [C]: in function 'nvim_set_keymap'[K
-        vim/keymap.lua: in function 'map'[K
-        /Users/cpierce/.config/nvim/lua/keymaps.lua:43: in main chunk[K
-        [C]: in function 'require'[K
-        /Users/cpierce/.config/nvim/init.lua:7: in main chunk[K[7A[?25h[?25l[?1004h[?25h
