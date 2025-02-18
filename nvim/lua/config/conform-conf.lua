@@ -11,7 +11,13 @@ return {
     javascript = { 'prettier' },
     typescript = { 'prettier' },
     json = { 'prettier' },
+    jsonc = { 'prettier' },
+    html = { 'prettier' },
+    css = { 'prettier' },
+    scss = { 'prettier' },
+    less = { 'prettier' },
     markdown = { 'prettier' },
+    bash = { 'shfmt' },
     sh = { 'shfmt' },
     php = { 'php_cs_fixer' },
   },
@@ -19,6 +25,8 @@ return {
   -- Custom formatters and additional settings
   formatters = {
     injected = { options = { ignore_errors = true } },
+    timeout_ms = 500,
+    lsp_fallback = true,
 
     shfmt = {
       prepend_args = { '-i', '2', '-ci' },

@@ -2,7 +2,7 @@ return {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { 'vim' }, -- Tell LuaLS `vim` is global
+        globals = { 'vim', 'nvim_bufferline', 'Snacks', 'MiniIcons' }, -- Tell LuaLS `vim` is global
       },
       runtime = {
         version = 'LuaJIT',

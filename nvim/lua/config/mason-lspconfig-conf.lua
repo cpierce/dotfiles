@@ -1,10 +1,12 @@
 return {
   ensure_installed = {
-    'lua_ls',
+    'cssls',
+    'html',
     'intelephense',
+    'jsonls',
+    'lua_ls',
+    'rust_analyzer',
+    'yamlls',
   },
   automatic_installation = true,
-  ui = {
-    border = 'rounded',
-  },
 }

@@ -12,62 +12,75 @@ map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
 -- File Saving
-map('n', '<C-s>', ':w<CR>', { silent = true })
+map('n', '<C-s>', ':w<cr>', { silent = true })
 
 -- Disable Arrow Key
+map('', '<Down>', '<Nop>', { noremap = true, silent = true })
 map('', '<Left>', '<Nop>', { noremap = true, silent = true })
 map('', '<Right>', '<Nop>', { noremap = true, silent = true })
 map('', '<Up>', '<Nop>', { noremap = true, silent = true })
-map('', '<Down>', '<Nop>', { noremap = true, silent = true })
-
--- Mason
-map('n', '<leader>cm', '<cmd>Mason<cr>', { noremap = true, silent = true, desc = 'Mason' })
 
 -- Indent and stay in visual mode
 map('v', '<', '<gv', { noremap = true, silent = true })
 map('v', '>', '>gv', { noremap = true, silent = true })
 
 -- Buffer Switching using <leader><leader>
-map('n', '<leader><leader', '<C-^>', { noremap = true, silent = true })
+map('n', '<leader><leader>', '<cmd>BufferLineCycleNext<cr>', { noremap = true, silent = true, desc = 'switch buffer' })
 
 -- File keyboard shortcuts
-map('n', '<leader>ff', ':Telescope find_files<CR>', { silent = true, desc = 'Find Files (Telescope)' })
-map('n', '<leader>fg', ':Telescope live_grep<CR>', { silent = true, desc = 'Live Grep (Telescope)' })
-map('n', '<leader>fn', ':enew<CR>', { silent = true, desc = 'New File' })
+map('n', '<leader>fn', '<cmd>enew<cr>', { silent = true, desc = 'new file' })
 
 -- Remap 0 to the first non-blank character
 map('n', '0', '^', { noremap = true, silent = true })
 
 -- Run Lazy sync with <leader>i
-map('n', '<leader>ls', ':Lazy sync<CR>', { noremap = true, silent = true, desc = 'Sync Lazy' })
-map('n', '<leader>lc', ':Lazy clean<CR>', { noremap = true, silent = true, desc = 'Clean Lazy' })
-map('n', '<leader>lu', ':Lazy update<CR>', { noremap = true, silent = true, desc = 'Update Lazy' })
+map('n', '<leader>ls', '<cmd>Lazy sync<cr>', { noremap = true, silent = true, desc = 'Sync (lazy)' })
+map('n', '<leader>lc', '<cmd>Lazy clean<cr>', { noremap = true, silent = true, desc = 'Clean (lazy)' })
+map('n', '<leader>lu', '<cmd>Lazy update<cr>', { noremap = true, silent = true, desc = 'Update (lazy)' })
 
--- Comment with ///
-map('n', '///', function()
-  require('mini.comment').toggle_lines(vim.fn.line('.'), vim.fn.line('.'))
-end, { noremap = true, silent = true })
+-- Noice Commands
+map('n', '<leader>ml', function()
+  require('noice').cmd('last')
+end, { silent = true, desc = 'Show Last Message (noice)' })
+map('n', '<leader>mh', function()
+  require('noice').cmd('history')
+end, { silent = true, desc = 'Show History (noice)' })
+map('n', '<leader>ma', function()
+  require('noice').cmd('all')
+end, { silent = true, desc = 'Show All (noice)' })
 
 -- Enter exits search mode
-map('n', '<CR>', function()
+map('n', '<cr>', function()
   if vim.v.hlsearch == 1 then
     vim.cmd('nohlsearch')
   else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<cr>', true, false, true), 'n', false)
   end
 end, { noremap = true, silent = true })
 
 -- Spectre Search and Replace
-map('n', '<C-f>', '<cmd>lua require("spectre").toggle()<CR>', { noremap = true, silent = true })
-map('n', '<leader>ss', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { noremap = true, silent = true })
+map('n', '<C-f>', function()
+  require('spectre').toggle()
+end, { noremap = true, silent = true, desc = 'Search and Replace (spectre)' })
 
--- NeoTree and File Shortcuts
-map('n', '<leader>nn', ':NeoTreeShowToggle<CR>', { silent = true })
-map('n', '<leader>ns', ':NeoTreeShowToggle git_status<CR>', { silent = true })
+map('n', '<leader>fr', function()
+  require('spectre').toggle()
+end, { noremap = true, silent = true, desc = 'Search and Replace (spectre)' })
+map(
+  'n',
+  '<leader>fw',
+  '<cmd>lua require("spectre").open_file_search({select_word=true})<cr>',
+  { noremap = true, silent = true, desc = 'Search Selected Word (spectre)' }
+)
+
+-- Snacks
 
 -- Tabs
-map('n', '<tab><tab>', ':BufferLineCycleNext<CR>', { silent = true })
-map('n', '<S-tab><S-tab>', ':BufferLineCyclePrev<CR>', { silent = true })
+map('n', '<tab><tab>', '<cmd>BufferLineCycleNext<cr>', { silent = true, desc = 'Next Buffer' })
+map('n', '<S-tab><S-tab>', '<cmd>BufferLineCyclePrev<cr>', { silent = true, desc = 'Prev Buffer' })
+map('', '<leader>bc', '<cmd>BufferLineCloseOthers<cr>', { silent = true, desc = 'Delete All But Current' })
+map('', '<leader>bn', '<cmd>BufferLineCycleNext<cr>', { silent = true, desc = 'Next Buffer' })
+map('', '<leader>bp', '<cmd>BufferLineCyclePrev<cr>', { silent = true, desc = 'Prev Buffer' })
 
 -- Yank All to Clipboard
 map('n', '<leader>ya', function()
@@ -77,18 +90,33 @@ map('n', '<leader>ya', function()
 end, {
   noremap = true,
   silent = true,
-  desc = 'Yank All',
+  desc = 'Yank File Contents',
 })
+
+-- Conform Formatting
+map('n', '<leader>cf', function()
+  require('conform').format({ async = true, lsp_fallback = true })
+end, { noremap = true, silent = true, desc = 'Format File' })
+
+-- Code Sort/Order
+map('n', '<leader>cI', '<cmd>sort I<cr>', { silent = true, desc = 'Order (no-case reverse)' })
+map('n', '<leader>cO', '<cmd>sort!<cr>', { silent = true, desc = 'Order (reverse)' })
+map('n', '<leader>ci', '<cmd>sort i<cr>', { silent = true, desc = 'Order (no-case)' })
+map('n', '<leader>co', '<cmd>sort<cr>', { silent = true, desc = 'Order' })
+map('v', '<leader>cI', ":'<,'>sort I<cr>", { silent = true, desc = 'Order (no-case reverse)' })
+map('v', '<leader>cO', ":'<,'>sort!<cr>", { silent = true, desc = 'Order (reverse)' })
+map('v', '<leader>ci', ":'<,'>sort i<cr>", { silent = true, desc = 'Order (no-case)' })
+map('v', '<leader>co', ":'<,'>sort<cr>", { silent = true, desc = 'Order' })
 
 -- Trouble.nvim Keybindings
 local trouble = require('trouble')
 
-map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', { desc = 'Diagnostics (Trouble)' })
-map('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = 'Buffer Diagnostics (Trouble)' })
-map('n', '<leader>cs', '<cmd>Trouble symbols toggle<cr>', { desc = 'Symbols (Trouble)' })
-map('n', '<leader>cS', '<cmd>Trouble lsp toggle<cr>', { desc = 'LSP references/definitions/... (Trouble)' })
-map('n', '<leader>xL', '<cmd>Trouble loclist toggle<cr>', { desc = 'Location List (Trouble)' })
-map('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', { desc = 'Quickfix List (Trouble)' })
+map('n', '<leader>cS', '<cmd>Trouble lsp toggle<cr>', { desc = 'LSP References/Definitions/... (trouble)' })
+map('n', '<leader>cs', '<cmd>Trouble symbols toggle<cr>', { desc = 'Symbols (trouble)' })
+map('n', '<leader>xL', '<cmd>Trouble loclist toggle<cr>', { desc = 'Location List (trouble)' })
+map('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', { desc = 'Quick List (trouble)' })
+map('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = 'Buffer Diagnostics (trouble)' })
+map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', { desc = 'Diagnostics (trouble)' })
 
 map('n', '[q', function()
   if trouble.is_open() then
@@ -121,15 +149,15 @@ map('n', '<leader>ql', function()
     position = 'left',
     dir = vim.fn.getcwd(),
   })
-end, { desc = 'Restore Last Session' })
+end, { desc = 'Restore Last Session (persistence)' })
 
 -- Illuminate command
-map('n', '<leader>in', require('illuminate').goto_next_reference, { desc = 'Next reference' })
-map('n', '<leader>ip', require('illuminate').goto_prev_reference, { desc = 'Previous reference' })
+map('n', '<leader>in', require('illuminate').goto_next_reference, { desc = 'Next Reference (illuminate)' })
+map('n', '<leader>ip', require('illuminate').goto_prev_reference, { desc = 'Prev Reference (illuminate)' })
 
 -- Disable session
 map('n', '<leader>qd', function()
   require('persistence').stop()
-end, { desc = 'Disable Session Saving' })
+end, { desc = 'Disable Session Saving (persistence)' })
 
-map('n', '<leader>fo', '<Cmd>Oil<CR>', { silent = true })
+map('n', '<leader>fo', '<cmd>Oil<cr>', { silent = true, desc = 'Open (oil)' })

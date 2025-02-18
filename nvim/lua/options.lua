@@ -20,12 +20,15 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smarttab = true
+opt.smartindent = true
 
 -- File and Clipboard Stuff
 opt.backup = false -- Disable backup files
+opt.writebackup = false -- Disable write backups for files
 opt.swapfile = false -- Disable swap files
 opt.backspace = { 'indent', 'eol', 'start' } -- Allow backspace over everything
 opt.clipboard = 'unnamedplus'
+opt.virtualedit = 'block'
 
 -- UI Tweaks
 opt.termguicolors = true -- Enable true colors
@@ -43,10 +46,31 @@ opt.formatoptions:append('l')
 opt.cursorline = true -- Highlight the current line
 opt.cursorlineopt = 'number' -- Only highlight the line number
 
+-- Spelling
+opt.spelllang = { 'en' }
+
 -- Ignore random nonsense files
+opt.wildmode = 'longest:full,full'
 opt.wildignore = '*.swp,*.bak'
 opt.grepprg = "rg --vimgrep --hidden --glob '!.git/'"
 opt.grepformat = '%f:%l:%c:%m'
+
+-- Folding options
+opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+opt.fillchars = {
+  foldopen = '',
+  foldclose = '',
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
+  eob = ' ',
+}
+opt.foldmethod = 'expr'
+opt.foldexpr = "v:lua.require'utils.folding'.foldexpr()"
+opt.signcolumn = 'yes'
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldtext = ''
 
 -- Ignore case unless case is used
 opt.ignorecase = true
@@ -54,3 +78,9 @@ opt.smartcase = true
 
 -- Enable persistent undo
 opt.undofile = true
+opt.undolevels = 10000
+
+-- Ignore copilot lsp
+vim.g.root_lsp_ignore = { 'copilot' }
+vim.g.markdown_recommended_style = 0
+vim.g.ai_cmp = true

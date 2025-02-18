@@ -1,5 +1,5 @@
 return {
-  flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
+  flavour = 'mocha', -- Options: latte, frappe, macchiato, mocha
   transparent_background = true,
   integrations = {
     aerial = true,
@@ -11,7 +11,6 @@ return {
     flash = true,
     fzf = true,
     gitsigns = true,
-    grug_far = true, -- Ensure this is a valid plugin integration
     headlines = true,
     illuminate = true,
     indent_blankline = { enabled = true },
@@ -23,13 +22,16 @@ return {
     native_lsp = {
       enabled = true,
       underlines = {
-        errors = { "undercurl" },
-        hints = { "undercurl" },
-        warnings = { "undercurl" },
-        information = { "undercurl" },
+        errors = { 'undercurl' },
+        hints = { 'undercurl' },
+        warnings = { 'undercurl' },
+        information = { 'undercurl' },
       },
     },
-    navic = { enabled = true, custom_bg = "lualine" },
+    navic = {
+      enabled = true,
+      custom_bg = 'lualine',
+    },
     neotest = true,
     neotree = true,
     noice = true,
@@ -40,5 +42,5 @@ return {
     treesitter_context = true,
     which_key = true,
   },
-  colorscheme = "catppuccin-mocha", -- Define the colorscheme here
+  colorscheme = 'catppuccin-mocha', -- Define the colorscheme here
 }

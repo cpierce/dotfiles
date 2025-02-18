@@ -1,10 +1,9 @@
 return {
   ensure_installed = {
-    'phpcs',
-    'entelephense',
-    'php-debug-adapter',
+    'prettier',
+    'shellcheck',
+    'shfmt',
     'stylua',
-    'rust-analyzer',
   },
   ui = {
     border = 'rounded',

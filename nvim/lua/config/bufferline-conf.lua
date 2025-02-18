@@ -1,5 +1,13 @@
 return {
   options = {
+    close_command = function(n)
+      --styleua: ignore
+      Snacks.bufdelete(n)
+    end,
+    right_mouse_command = function(n)
+      --stylua: ignore
+      Snacks.bufdelete(n)
+    end,
     mode = 'buffers',
     separator_style = 'slant',
     always_show_bufferline = true,
@@ -14,17 +22,12 @@ return {
 
     -- Offset to align with Neo-tree
     offsets = {
-      { filetype = 'neo-tree', text = 'File Explorer', highlight = 'Directory', text_align = 'left' },
+      { filetype = 'snacks_layout_box' },
     },
 
     -- Use custom filetype icons if needed
     get_element_icon = function(opts)
-      return MiniIcons.get('filetype', opts.filetype) or MiniIcons.get('filetype', 'unknown') -- Default document icon
-    end,
-
-    -- Handle buffer closing
-    close_command = function(n)
-      vim.cmd('bdelete ' .. n)
+      return require('mini.icons').get('filetype', opts.filetype) or require('mini.icons').get('filetype', 'unknown') -- Default document icon
     end,
   },
 }

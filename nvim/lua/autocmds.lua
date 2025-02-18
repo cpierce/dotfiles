@@ -7,7 +7,14 @@ api.nvim_create_autocmd('FileType', {
   pattern = 'scss',
 
   callback = function()
-    api.nvim_set_keymap('n', ',m', ':w <BAR> !sass %:%:r.css<CR><space>', { noremap = true, silent = true })
+    api.nvim_set_keymap('n', '<leader>cm', ':w <BAR> !sass %:%:r.css<CR><space>', { noremap = true, silent = true, desc = 'Compile Sass' })
+  end,
+})
+
+api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  callback = function()
+    api.nvim_set_hl(0, 'Folded', { bg = '#222222' })
   end,
 })
 
@@ -20,52 +27,101 @@ api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'
 -- Disable Mini IndentScope for specific filetypes
 api.nvim_create_autocmd('FileType', {
   pattern = {
-    'Trouble',
     'alpha',
     'dashboard',
     'fzf',
+    'gitsigns-blame',
     'help',
-    'lazy',
     'mason',
-    'neo-tree',
     'notify',
+    'spectre_panel',
     'toggleterm',
-    'trouble',
+    'Trouble',
   },
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
 })
 
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = { 'json', 'jsonc', 'json5' },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
+-- Highlight on yank
+api.nvim_set_hl(0, 'YankHighlight', { bg = '#7ba2e2', fg = '#000000', bold = true })
+api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'YankHighlight', timeout = 200 })
+  end,
+})
+
 -- Auto-open NeoTree on startup
 api.nvim_create_autocmd('VimEnter', {
   callback = function()
-    -- Open filesystem view on the left
-    require('neo-tree.command').execute({
-      action = 'show',
-      source = 'filesystem',
-      position = 'left',
-      dir = vim.fn.getcwd(),
-    })
+    require('snacks').explorer()
+  end,
+})
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'checkhealth',
+    'gitsigns-blame',
+    'help',
+    'lspinfo',
+    'notify',
+    'qf',
+    'spectre_panel',
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.schedule(function()
+      vim.keymap.set('n', 'q', function()
+        vim.cmd('close')
+        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+      end, {
+        buffer = event.buf,
+        silent = true,
+        desc = 'Quit buffer',
+      })
+    end)
+  end,
+})
 
-    -- Cleanup invalid buffers
-    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.fn.buflisted(bufnr) and vim.fn.bufloaded(bufnr) == 0 then
-        vim.api.nvim_buf_delete(bufnr, { force = true })
-      end
-      if vim.api.nvim_buf_is_loaded(bufnr) then
-        vim.api.nvim_buf_call(bufnr, function()
-          vim.cmd('doautocmd BufRead')
-        end)
-      end
-    end
+api.nvim_create_autocmd({ 'BufAdd', 'BufDelete' }, {
+  callback = function()
+    vim.schedule(function()
+      pcall(nvim_bufferline)
+    end)
+  end,
+})
+
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'text', 'plaintex', 'typst', 'gitcommit', 'markdown' },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
   end,
 })
 
 -- Auto-close NeoTree before quitting
 api.nvim_create_autocmd('QuitPre', {
   callback = function()
-    vim.cmd('Neotree close')
     require('persistence').save()
+  end,
+})
+
+-- Auto create dir when saving a file, in case some intermediate directory does not exist
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  callback = function(event)
+    if event.match:match('^%w%w+:[\\/][\\/]') then
+      return
+    end
+    local file = vim.uv.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
   end,
 })

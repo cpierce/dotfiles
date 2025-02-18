@@ -7,17 +7,11 @@ return {
     end,
   },
   {
-    'echasnovski/mini.comment',
-    config = function()
-      require('mini.comment').setup(require('config.mini.comment-conf'))
-    end,
-  },
-  {
     'echasnovski/mini.icons',
     version = false,
     config = function()
       require('mini.icons').setup(require('config.mini.icons-conf'))
-      MiniIcons.mock_nvim_web_devicons()
+      require('mini.icons').mock_nvim_web_devicons()
     end,
   },
   {
@@ -25,14 +19,6 @@ return {
     version = false,
     config = function()
       require('mini.pairs').setup(require('config.mini.pairs-conf'))
-    end,
-  },
-  {
-    'echasnovski/mini.indentscope',
-    version = false,
-    event = { 'BufReadPre', 'BufNewFile' },
-    config = function()
-      require('mini.indentscope').setup(require('config.mini.indentscope-conf'))
     end,
   },
 }

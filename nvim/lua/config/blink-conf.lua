@@ -11,9 +11,6 @@ return {
     menu = {
       draw = {
         treesitter = { 'lsp' },
-        columns = {
-          { 'label', 'label_description', gap = 1 },
-        },
       },
     },
     documentation = {
@@ -25,11 +22,12 @@ return {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'buffer' },
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
     cmdline = {},
   },
 
   keymap = {
     preset = 'super-tab',
+    ['<C-y>'] = { 'select_and_accept' },
   },
 }
