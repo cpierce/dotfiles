@@ -12,6 +12,7 @@ return {
       draw = {
         treesitter = { 'lsp' },
       },
+      border = 'rounded',
     },
     documentation = {
       auto_show = true,
@@ -23,7 +24,6 @@ return {
   },
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
-    cmdline = {},
   },
 
   keymap = {

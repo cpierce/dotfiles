@@ -23,7 +23,7 @@ return function()
       enabled = true,
     },
     codelens = {
-      enabled = false,
+      enabled = true,
     },
     capabilities = {
       workspace = {

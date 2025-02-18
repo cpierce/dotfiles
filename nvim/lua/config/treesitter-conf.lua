@@ -17,6 +17,7 @@ return {
     'php',
     'regex',
     'rust',
+    'sql',
     'toml',
     'typescript',
     'vim',

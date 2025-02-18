@@ -11,8 +11,9 @@ map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
--- File Saving
+-- File Saving and Quiting
 map('n', '<C-s>', ':w<cr>', { silent = true })
+map('n', '<C-q>', ':qall<cr>', { silent = true })
 
 -- Disable Arrow Key
 map('', '<Down>', '<Nop>', { noremap = true, silent = true })
@@ -23,9 +24,6 @@ map('', '<Up>', '<Nop>', { noremap = true, silent = true })
 -- Indent and stay in visual mode
 map('v', '<', '<gv', { noremap = true, silent = true })
 map('v', '>', '>gv', { noremap = true, silent = true })
-
--- Buffer Switching using <leader><leader>
-map('n', '<leader><leader>', '<cmd>BufferLineCycleNext<cr>', { noremap = true, silent = true, desc = 'switch buffer' })
 
 -- File keyboard shortcuts
 map('n', '<leader>fn', '<cmd>enew<cr>', { silent = true, desc = 'new file' })
@@ -38,16 +36,10 @@ map('n', '<leader>ls', '<cmd>Lazy sync<cr>', { noremap = true, silent = true, de
 map('n', '<leader>lc', '<cmd>Lazy clean<cr>', { noremap = true, silent = true, desc = 'Clean (lazy)' })
 map('n', '<leader>lu', '<cmd>Lazy update<cr>', { noremap = true, silent = true, desc = 'Update (lazy)' })
 
--- Noice Commands
-map('n', '<leader>ml', function()
-  require('noice').cmd('last')
-end, { silent = true, desc = 'Show Last Message (noice)' })
-map('n', '<leader>mh', function()
-  require('noice').cmd('history')
-end, { silent = true, desc = 'Show History (noice)' })
-map('n', '<leader>ma', function()
-  require('noice').cmd('all')
-end, { silent = true, desc = 'Show All (noice)' })
+map('n', '<leader>ml', '<cmd>Noice last<cr>', { noremap = true, silent = true, desc = 'Show Last Message (noice)' })
+map('n', '<leader>mh', '<cmd>NoiceFzf<cr>', { noremap = true, silent = true, desc = 'Show History (noice)' })
+map('n', '<leader>ma', '<cmd>Noice all<cr>', { noremap = true, silent = true, desc = 'Show All Messages (noice)' })
+map('n', '<leader>mc', '<cmd>history<cr>', { noremap = true, silent = true, desc = 'Show Command History' })
 
 -- Enter exits search mode
 map('n', '<cr>', function()
@@ -58,24 +50,8 @@ map('n', '<cr>', function()
   end
 end, { noremap = true, silent = true })
 
--- Spectre Search and Replace
-map('n', '<C-f>', function()
-  require('spectre').toggle()
-end, { noremap = true, silent = true, desc = 'Search and Replace (spectre)' })
-
-map('n', '<leader>fr', function()
-  require('spectre').toggle()
-end, { noremap = true, silent = true, desc = 'Search and Replace (spectre)' })
-map(
-  'n',
-  '<leader>fw',
-  '<cmd>lua require("spectre").open_file_search({select_word=true})<cr>',
-  { noremap = true, silent = true, desc = 'Search Selected Word (spectre)' }
-)
-
--- Snacks
-
--- Tabs
+-- Buffers and Tabs
+map('n', '<leader><leader>', '<cmd>BufferLineCycleNext<cr>', { noremap = true, silent = true, desc = 'switch buffer' })
 map('n', '<tab><tab>', '<cmd>BufferLineCycleNext<cr>', { silent = true, desc = 'Next Buffer' })
 map('n', '<S-tab><S-tab>', '<cmd>BufferLineCyclePrev<cr>', { silent = true, desc = 'Prev Buffer' })
 map('', '<leader>bc', '<cmd>BufferLineCloseOthers<cr>', { silent = true, desc = 'Delete All But Current' })
@@ -92,11 +68,6 @@ end, {
   silent = true,
   desc = 'Yank File Contents',
 })
-
--- Conform Formatting
-map('n', '<leader>cf', function()
-  require('conform').format({ async = true, lsp_fallback = true })
-end, { noremap = true, silent = true, desc = 'Format File' })
 
 -- Code Sort/Order
 map('n', '<leader>cI', '<cmd>sort I<cr>', { silent = true, desc = 'Order (no-case reverse)' })
@@ -152,12 +123,10 @@ map('n', '<leader>ql', function()
 end, { desc = 'Restore Last Session (persistence)' })
 
 -- Illuminate command
-map('n', '<leader>in', require('illuminate').goto_next_reference, { desc = 'Next Reference (illuminate)' })
-map('n', '<leader>ip', require('illuminate').goto_prev_reference, { desc = 'Prev Reference (illuminate)' })
+-- map('n', '<leader>in', require('illuminate').goto_next_reference, { desc = 'Next Reference (illuminate)' })
+-- map('n', '<leader>ip', require('illuminate').goto_prev_reference, { desc = 'Prev Reference (illuminate)' })
 
 -- Disable session
 map('n', '<leader>qd', function()
   require('persistence').stop()
 end, { desc = 'Disable Session Saving (persistence)' })
-
-map('n', '<leader>fo', '<cmd>Oil<cr>', { silent = true, desc = 'Open (oil)' })

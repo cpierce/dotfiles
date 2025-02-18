@@ -19,6 +19,12 @@ return {
     end,
   },
   {
+    'mfussenegger/nvim-dap',
+  },
+  {
+    'jay-babu/mason-nvim-dap.nvim',
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       {

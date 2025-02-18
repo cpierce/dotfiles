@@ -14,7 +14,7 @@ api.nvim_create_autocmd('FileType', {
 api.nvim_create_autocmd('ColorScheme', {
   pattern = '*',
   callback = function()
-    api.nvim_set_hl(0, 'Folded', { bg = '#222222' })
+    api.nvim_set_hl(0, 'Folded', { bg = '#333333' })
   end,
 })
 
@@ -40,6 +40,14 @@ api.nvim_create_autocmd('FileType', {
   },
   callback = function()
     vim.b.miniindentscope_disable = true
+  end,
+})
+
+-- Format on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
+  callback = function(args)
+    require('conform').format({ bufnr = args.buf })
   end,
 })
 

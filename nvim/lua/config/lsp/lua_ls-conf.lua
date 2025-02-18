@@ -4,6 +4,14 @@ return {
       diagnostics = {
         globals = { 'vim', 'nvim_bufferline', 'Snacks', 'MiniIcons' }, -- Tell LuaLS `vim` is global
       },
+      hint = {
+        enable = true,
+        setType = false,
+        paramType = true,
+        paramName = 'Disable',
+        semicolon = 'Disable',
+        arrayIndex = 'Disable',
+      },
       runtime = {
         version = 'LuaJIT',
       },

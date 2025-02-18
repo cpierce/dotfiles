@@ -9,5 +9,16 @@ return {
       { 'williambowan/mason-lspconfig.nvim' },
     },
     opts = require('config.conform-conf'),
+    keys = {
+      {
+        '<leader>cf',
+        function()
+          require('conform').format({ async = true, lsp_fallback = true })
+        end,
+        noremap = true,
+        silent = true,
+        desc = 'Format File',
+      },
+    },
   },
 }

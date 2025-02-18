@@ -14,6 +14,9 @@ opt.timeoutlen = 500 -- Adjusts key mapping timeout (if needed)
 opt.number = true
 opt.relativenumber = true
 
+-- Sessions
+opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
+
 -- Tab Stuff
 opt.tabstop = 4
 opt.softtabstop = 4
@@ -28,7 +31,6 @@ opt.writebackup = false -- Disable write backups for files
 opt.swapfile = false -- Disable swap files
 opt.backspace = { 'indent', 'eol', 'start' } -- Allow backspace over everything
 opt.clipboard = 'unnamedplus'
-opt.virtualedit = 'block'
 
 -- UI Tweaks
 opt.termguicolors = true -- Enable true colors
