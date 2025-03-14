@@ -5,6 +5,7 @@ return {
   enable_diagnostics = true,
   enable_git_status = true,
   open_files_do_not_replace_types = { 'terminal', 'Trouble', 'trouble', 'qf', 'Outline' },
+  popup_border_style = 'rounded',
   default_component_configs = {
     git_status = {
       symbols = {
@@ -35,5 +36,15 @@ return {
   window = {
     position = 'left',
     width = 40,
+    mappings = {
+      ['.'] = 'set_root',
+    },
+  },
+  git_status = {
+    window = {
+      mappings = {
+        ['A'] = 'git_add_all',
+      },
+    },
   },
 }

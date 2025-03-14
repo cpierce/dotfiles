@@ -28,14 +28,6 @@ return {
         desc = 'Grep Files (snacks)',
       },
       {
-        '<leader>fe',
-        function()
-          require('snacks').explorer()
-        end,
-        silent = true,
-        desc = 'File Explorer Toggle (snacks)',
-      },
-      {
         '<leader>t',
         function()
           require('snacks').terminal()

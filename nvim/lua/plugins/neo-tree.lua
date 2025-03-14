@@ -7,4 +7,13 @@ return {
     'MunifTanjim/nui.nvim',
   },
   opts = require('config.neo-tree-conf'),
+  keys = {
+    {
+      '<leader>fe',
+      ':Neotree toggle<cr>',
+      noremap = true,
+      silent = true,
+      desc = 'Toggle Explorer',
+    },
+  },
 }
