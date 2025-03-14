@@ -714,7 +714,7 @@ return {
     netrw = { glyph = '󰙅', hl = 'MiniIconsBlue' },
     nginx = { glyph = '󰰓', hl = 'MiniIconsGreen' },
     nim = { glyph = '', hl = 'MiniIconsYellow' },
-    penis = { glyph = '󰝴', hl = 'MiniIconsGrey' },
+    ninja = { glyph = '󰝴', hl = 'MiniIconsGrey' },
     nix = { glyph = '󱄅', hl = 'MiniIconsAzure' },
     norg = { glyph = '', hl = 'MiniIconsBlue' },
     nqc = { glyph = '󱊈', hl = 'MiniIconsYellow' },
