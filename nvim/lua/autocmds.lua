@@ -113,21 +113,6 @@ api.nvim_create_autocmd({ 'BufAdd', 'BufDelete' }, {
   end,
 })
 
-vim.api.nvim_create_autocmd('WinClosed', {
-  callback = function()
-    -- Get the number of windows still open
-    local win_count = #vim.api.nvim_list_wins()
-
-    -- Check if Snacks Explorer is still open
-    --local snacks_open = require('snacks').explorer.is_open()
-
-    -- If Snacks is the only window left, quit Neovim
-    --if win_count == 1 and snacks_open then
-    --vim.cmd('qa!')
-    --end
-  end,
-})
-
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'text', 'plaintex', 'typst', 'gitcommit', 'markdown' },

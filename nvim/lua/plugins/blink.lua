@@ -6,7 +6,7 @@ return {
   },
   {
     'saghen/blink.cmp',
-    dependencies = { 'rafamadriz/friendly-snippets' },
+    dependencies = { 'rafamadriz/friendly-snippets', 'giuxtaposition/blink-cmp-copilot' },
     version = '*',
     opts = require('config.blink-conf'),
   },
