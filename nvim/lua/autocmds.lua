@@ -69,8 +69,14 @@ api.nvim_create_autocmd('TextYankPost', {
 
 -- Auto-open NeoTree on startup
 api.nvim_create_autocmd('VimEnter', {
+  pattern = '*',
   callback = function()
-    require('snacks').explorer()
+    require('neo-tree.command').execute({ action = 'show' })
+    if vim.fn.argc() > 0 then
+      vim.defer_fn(function()
+        vim.cmd('wincmd p')
+      end, 100)
+    end
   end,
 })
 -- close some filetypes with <q>
@@ -104,6 +110,21 @@ api.nvim_create_autocmd({ 'BufAdd', 'BufDelete' }, {
     vim.schedule(function()
       pcall(nvim_bufferline)
     end)
+  end,
+})
+
+vim.api.nvim_create_autocmd('WinClosed', {
+  callback = function()
+    -- Get the number of windows still open
+    local win_count = #vim.api.nvim_list_wins()
+
+    -- Check if Snacks Explorer is still open
+    --local snacks_open = require('snacks').explorer.is_open()
+
+    -- If Snacks is the only window left, quit Neovim
+    --if win_count == 1 and snacks_open then
+    --vim.cmd('qa!')
+    --end
   end,
 })
 

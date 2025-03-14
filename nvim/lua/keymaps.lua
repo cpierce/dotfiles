@@ -14,6 +14,7 @@ map('n', '<C-l>', '<C-w>l')
 -- File Saving and Quiting
 map('n', '<C-s>', ':w<cr>', { silent = true })
 map('n', '<C-q>', ':qall<cr>', { silent = true })
+map('n', '<leader>qq', ':qall<cr>', { noremap = true, silent = true, desc = 'Quit nVim' })
 
 -- Disable Arrow Key
 map('', '<Down>', '<Nop>', { noremap = true, silent = true })
@@ -35,6 +36,7 @@ map('n', '0', '^', { noremap = true, silent = true })
 map('n', '<leader>ls', '<cmd>Lazy sync<cr>', { noremap = true, silent = true, desc = 'Sync (lazy)' })
 map('n', '<leader>lc', '<cmd>Lazy clean<cr>', { noremap = true, silent = true, desc = 'Clean (lazy)' })
 map('n', '<leader>lu', '<cmd>Lazy update<cr>', { noremap = true, silent = true, desc = 'Update (lazy)' })
+map('n', '<leader>la', '<cmd>lua Snacks.picker.autocmds()<cr>', { noremap = true, silent = true, desc = 'Autocmds (snacks)' })
 
 map('n', '<leader>ml', '<cmd>Noice last<cr>', { noremap = true, silent = true, desc = 'Show Last Message (noice)' })
 map('n', '<leader>mh', '<cmd>NoiceFzf<cr>', { noremap = true, silent = true, desc = 'Show History (noice)' })

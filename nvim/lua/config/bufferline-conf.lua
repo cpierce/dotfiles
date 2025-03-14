@@ -22,7 +22,7 @@ return {
 
     -- Offset to align with Neo-tree
     offsets = {
-      { filetype = 'snacks_layout_box' },
+      { filetype = 'neo-tree', text = '', highlight = 'Directory', text_align = 'left' },
     },
 
     -- Use custom filetype icons if needed

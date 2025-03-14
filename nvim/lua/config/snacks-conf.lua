@@ -2,7 +2,6 @@ return {
   animate = {},
   bigfile = {},
   bufdelete = {},
-  explorer = {},
   git = {},
   gitbrowse = {},
   indent = {
@@ -15,10 +14,6 @@ return {
     sources = {
       files = {
         hidden = true,
-      },
-      explorer = {
-        hidden = true,
-        layout = { cycle = false, preset = 'sidebar', preview = false },
       },
     },
   },

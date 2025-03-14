@@ -43,6 +43,7 @@ opt.smoothscroll = true -- Enable smooth scroll
 opt.textwidth = 158 -- Set textwidth gutter at 78 characters
 opt.colorcolumn = '160' -- Show visible line for wrap
 opt.formatoptions:append('l')
+opt.shortmess:append('I')
 
 -- Highlight the line number only
 opt.cursorline = true -- Highlight the current line

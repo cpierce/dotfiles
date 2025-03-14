@@ -2,10 +2,10 @@ return {
   {
     'stevearc/oil.nvim',
     dependencies = { 'echasnovski/mini.icons' },
-    opts = {},
+    opts = require('config.oil-conf'),
     lazy = false,
     keys = {
-      { '<leader>fo', '<cmd>Oil<cr>', silent = true, desc = 'Open (oil)' },
+      { '-', '<cmd>Oil<cr>', silent = true, desc = 'Open (oil)' },
     },
   },
 }
