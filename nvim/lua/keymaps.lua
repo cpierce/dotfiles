@@ -118,15 +118,8 @@ map('n', '<leader>ql', function()
   require('persistence').load({ last = true })
   require('neo-tree.command').execute({
     action = 'show',
-    source = 'filesystem',
-    position = 'left',
-    dir = vim.fn.getcwd(),
   })
 end, { desc = 'Restore Last Session (persistence)' })
-
--- Illuminate command
--- map('n', '<leader>in', require('illuminate').goto_next_reference, { desc = 'Next Reference (illuminate)' })
--- map('n', '<leader>ip', require('illuminate').goto_prev_reference, { desc = 'Prev Reference (illuminate)' })
 
 -- Disable session
 map('n', '<leader>qd', function()

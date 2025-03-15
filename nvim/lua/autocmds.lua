@@ -76,6 +76,10 @@ api.nvim_create_autocmd('VimEnter', {
       vim.defer_fn(function()
         vim.cmd('wincmd p')
       end, 100)
+    else
+      vim.defer_fn(function()
+        vim.cmd('lua Snacks.dashboard.open()')
+      end, 100)
     end
   end,
 })
