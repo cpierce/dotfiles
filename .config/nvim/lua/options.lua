@@ -87,3 +87,9 @@ opt.undolevels = 10000
 vim.g.root_lsp_ignore = { 'copilot' }
 vim.g.markdown_recommended_style = 0
 vim.g.ai_cmp = true
+
+vim.diagnostic.config({
+  virtual_lines = {
+    current_line = true,
+  },
+})

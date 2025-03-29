@@ -27,7 +27,7 @@ map('v', '<', '<gv', { noremap = true, silent = true })
 map('v', '>', '>gv', { noremap = true, silent = true })
 
 -- File keyboard shortcuts
-map('n', '<leader>fn', '<cmd>enew<cr>', { silent = true, desc = 'new file' })
+map('n', '<leader>fn', '<cmd>enew<cr>', { silent = true, desc = 'New File' })
 
 -- Remap 0 to the first non-blank character
 map('n', '0', '^', { noremap = true, silent = true })
