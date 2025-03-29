@@ -22,10 +22,6 @@ local servers = {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
   },
-  rust_analyzer = {
-    cmd = { 'rust-analyzer' },
-    filetypes = { 'rust' },
-  },
   yamlls = {
     cmd = { 'yaml-language-server', '--stdio' },
     filetypes = { 'yaml' },

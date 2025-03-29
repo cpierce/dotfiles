@@ -15,12 +15,10 @@ return {
       'williamboman/mason.nvim',
       'mfussenegger/nvim-dap',
       'jay-babu/mason-nvim-dap.nvim',
-      'simrat39/rust-tools.nvim',
       'b0o/schemastore.nvim',
     },
     config = function()
       require('mason-lspconfig').setup(require('config.mason-lspconfig-conf'))
-      require('rust-tools').setup({})
     end,
   },
 }
