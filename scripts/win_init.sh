@@ -13,9 +13,10 @@ cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
 cp .gitexcludes ~/
-cp .vimrc ~/
+cp -Rap .config/nvim ~/.config/nvim/
 cp -R .aws ~/
 sudo cp sudoers.d/* /etc/sudoers.d/
 mkdir -p ~/Workspace
 cp -R .ssh/config_linux ~/.ssh/config
 chmod 700 ~/.ssh
+

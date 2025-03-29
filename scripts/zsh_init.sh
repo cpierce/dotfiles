@@ -3,7 +3,7 @@ cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
 cp .gitignore_global ~/
-cp .vimrc ~/
+cp -Rapv .config/nvim ~/.config/
 sudo cp sudoers.d/* /etc/sudoers.d/
 mkdir -p ~/Workspace
 cp -R .ssh ~/
