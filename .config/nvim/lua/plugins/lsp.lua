@@ -13,45 +13,14 @@ return {
     'williamboman/mason-lspconfig.nvim',
     dependencies = {
       'williamboman/mason.nvim',
+      'mfussenegger/nvim-dap',
+      'jay-babu/mason-nvim-dap.nvim',
+      'simrat39/rust-tools.nvim',
+      'b0o/schemastore.nvim',
     },
     config = function()
       require('mason-lspconfig').setup(require('config.mason-lspconfig-conf'))
-    end,
-  },
-  {
-    'mfussenegger/nvim-dap',
-  },
-  {
-    'jay-babu/mason-nvim-dap.nvim',
-  },
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      {
-        'simrat39/rust-tools.nvim',
-        'b0o/schemastore.nvim',
-        dependencies = { 'neovim/nvim-lspconfig' },
-        config = function()
-          require('rust-tools').setup({})
-        end,
-      },
-      'williamboman/mason-lspconfig.nvim',
-    },
-    opts = require('config.lspconfig-conf'),
-    config = function()
-      local lspconfig = require('lspconfig')
-
-      for _, server in ipairs({
-        'cssls',
-        'html',
-        'intelephense',
-        'jsonls',
-        'lua_ls',
-        'rust_analyzer',
-        'yamlls',
-      }) do
-        lspconfig[server].setup(require('config.lsp.' .. server .. '-conf'))
-      end
+      require('rust-tools').setup({})
     end,
   },
 }
