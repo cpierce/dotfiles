@@ -14,11 +14,4 @@ return {
       require('mini.icons').mock_nvim_web_devicons()
     end,
   },
-  {
-    'echasnovski/mini.pairs',
-    version = false,
-    config = function()
-      require('mini.pairs').setup(require('config.mini.pairs-conf'))
-    end,
-  },
 }
