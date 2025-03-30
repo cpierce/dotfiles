@@ -52,6 +52,14 @@ return {
         desc = 'Git Log (snacks)',
       },
       {
+        '<leader>fm',
+        function()
+          require('snacks').dashboard.open()
+        end,
+        silent = true,
+        desc = 'Display File Menu (snacks)',
+      },
+      {
         ']]',
         function()
           Snacks.words.jump(vim.v.count1)
