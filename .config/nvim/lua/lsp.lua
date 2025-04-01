@@ -1,17 +1,17 @@
-local api = vim.api
-
--- Define server configurations
-local servers = {
+vim.lsp.config = {
   cssls = {
     cmd = { 'vscode-css-language-server', '--stdio' },
+    root_markers = { '.git', '.stylelintrc', '.stylelintignore.json' },
     filetypes = { 'css', 'scss', 'less' },
   },
   html = {
     cmd = { 'vscode-html-language-server', '--stdio' },
+    root_markers = { '.git', 'package.json' },
     filetypes = { 'html' },
   },
   intelephense = {
     cmd = { 'intelephense', '--stdio' },
+    root_markers = { 'composer.json', 'phpunit.xml', '.git' },
     filetypes = { 'php' },
   },
   jsonls = {
@@ -20,50 +20,17 @@ local servers = {
   },
   lua_ls = {
     cmd = { 'lua-language-server' },
+    root_markers = { 'init.lua', '.git' },
     filetypes = { 'lua' },
   },
   yamlls = {
     cmd = { 'yaml-language-server', '--stdio' },
+    root_markers = { '.github', 'docker-compose.yaml' },
     filetypes = { 'yaml' },
   },
 }
 
--- A common root directory detection function
-local function default_root_dir(fname)
-  -- This is a simple example; you might want to use vim.fs.find() for more robust detection.
-  return vim.fs.dirname(fname) or vim.loop.cwd()
-end
-
--- Iterate over the server table and create autocommands for each filetype.
-for server_name, config in pairs(servers) do
-  for _, ft in ipairs(config.filetypes) do
-    api.nvim_create_autocmd('FileType', {
-      pattern = ft,
-      callback = function(args)
-        local bufnr = args.buf
-        local fname = vim.api.nvim_buf_get_name(bufnr)
-        local root_dir = default_root_dir(fname)
-
-        -- Check if this server is already attached to the buffer.
-        local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-        for _, client in ipairs(clients) do
-          if client.name == server_name then
-            return -- Already attached; do nothing.
-          end
-        end
-
-        -- Start the server.
-        vim.lsp.start(vim.tbl_extend('force', {
-          name = server_name,
-          cmd = config.cmd,
-          root_dir = root_dir,
-          filetypes = config.filetypes,
-          on_attach = function(client, bufnr)
-            -- Optional: set up keymaps or additional settings here.
-            print('LSP ' .. server_name .. ' attached to buffer ' .. bufnr)
-          end,
-        }, require('config.lsp.' .. server_name .. '-conf')))
-      end,
-    })
-  end
+-- Iterate over the lsp.config for each filetype specified above.
+for server_name in pairs(vim.lsp.config) do
+  vim.lsp.enable(server_name)
 end
