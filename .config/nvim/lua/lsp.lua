@@ -22,6 +22,13 @@ vim.lsp.config = {
     cmd = { 'lua-language-server' },
     root_markers = { 'init.lua', '.git' },
     filetypes = { 'lua' },
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' },
+        },
+      },
+    },
   },
   yamlls = {
     cmd = { 'yaml-language-server', '--stdio' },
