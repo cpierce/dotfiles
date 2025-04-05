@@ -9,7 +9,7 @@ return {
       { '<leader>f', group = 'file/find' },
       { '<leader>i', group = 'code references' },
       { '<leader>l', group = 'lazy/mason' },
-      { '<leader>m', group = 'messages' },
+      { '<leader>m', group = 'messages', icon = { icon = '󰚢', color = 'red' } },
       { '<leader>g', group = 'git' },
       { '<leader>gh', group = 'hunks' },
       { '<leader>q', group = 'quit/session' },
