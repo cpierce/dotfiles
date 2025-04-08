@@ -18,6 +18,7 @@ brew install gitkraken-cli
 brew install gnupg2
 brew install fzf
 brew install jq
+brew install mkcert
 brew install ngrok
 brew install nmap
 brew install node
