@@ -1,8 +1,9 @@
 [push]
     default = simple
+	autoSetupRemote = true
 [user]
-    name = Chris Pierce
-    email = cpierce@csdurant.com
+	name = Chris Pierce
+	email = cpierce@csdurant.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP3O+vs3dV4dC+MaZDnEIyfr6hfQWTH8mEptTeRE4KhV
 [credential]
     helper = cache -- timeout=6300
@@ -36,6 +37,7 @@
     excludesfile = ~/.gitignore_global
     filemode = false
     editor = vim
+    ignorecase = false
 [init]
     defaultBranch = main
 [gpg]
