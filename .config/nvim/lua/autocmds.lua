@@ -72,10 +72,10 @@ api.nvim_create_autocmd('VimEnter', {
   pattern = '*',
   callback = function()
     require('neo-tree.command').execute({ action = 'show' })
-    if vim.fn.argc() > 0 then
+    if vim.fn.argc() == 0 then
       vim.defer_fn(function()
         vim.cmd('wincmd p')
-      end, 200)
+      end, 100)
     end
   end,
 })
