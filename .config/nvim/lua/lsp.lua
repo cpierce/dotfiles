@@ -1,4 +1,9 @@
 vim.lsp.config = {
+  bashls = {
+    cmd = { 'bash-language-server', 'start' },
+    root_markers = { '.git' },
+    filetypes = { 'sh', 'bash' },
+  },
   cssls = {
     cmd = { 'vscode-css-language-server', '--stdio' },
     root_markers = { '.git', '.stylelintrc', '.stylelintignore.json' },

@@ -81,38 +81,6 @@ map('v', '<leader>cO', ":'<,'>sort!<cr>", { silent = true, desc = 'Order (revers
 map('v', '<leader>ci', ":'<,'>sort i<cr>", { silent = true, desc = 'Order (no-case)' })
 map('v', '<leader>co', ":'<,'>sort<cr>", { silent = true, desc = 'Order' })
 
--- Trouble.nvim Keybindings
-local trouble = require('trouble')
-
-map('n', '<leader>cS', '<cmd>Trouble lsp toggle<cr>', { desc = 'LSP References/Definitions/... (trouble)' })
-map('n', '<leader>cs', '<cmd>Trouble symbols toggle<cr>', { desc = 'Symbols (trouble)' })
-map('n', '<leader>xL', '<cmd>Trouble loclist toggle<cr>', { desc = 'Location List (trouble)' })
-map('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', { desc = 'Quick List (trouble)' })
-map('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = 'Buffer Diagnostics (trouble)' })
-map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', { desc = 'Diagnostics (trouble)' })
-
-map('n', '[q', function()
-  if trouble.is_open() then
-    trouble.prev({ skip_groups = true, jump = true })
-  else
-    local ok, err = pcall(vim.cmd.cprev)
-    if not ok then
-      vim.notify(err, vim.log.levels.ERROR)
-    end
-  end
-end, { desc = 'Previous Trouble/Quickfix Item' })
-
-map('n', ']q', function()
-  if trouble.is_open() then
-    trouble.next({ skip_groups = true, jump = true })
-  else
-    local ok, err = pcall(vim.cmd.cnext)
-    if not ok then
-      vim.notify(err, vim.log.levels.ERROR)
-    end
-  end
-end, { desc = 'Next Trouble/Quickfix Item' })
-
 -- Reload previous session
 map('n', '<leader>ql', function()
   require('persistence').load({ last = true })
