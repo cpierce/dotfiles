@@ -24,6 +24,14 @@ extract () {
 }
 
 # ------------------------------------------
+# TMux Auto Connect to SSH Function
+# ------------------------------------------
+tm() {
+  ssh -t "$1" 'tmux attach -t $(hostname) || tmux new -s $(hostname)'
+}
+
+
+# ------------------------------------------
 # SSH Tunnel Command Generator Function
 # ------------------------------------------
 tunnel () {
@@ -58,10 +66,7 @@ parse_aws_options() {
 }
 
 aws_instances() {
-    parse_aws_options "$@" || {
-        echo "Error: Failed to parse AWS options"
-        return 1
-    }
+    parse_aws_options "$@"
     op plugin run -- aws ec2 describe-instances "${AWS_PROFILE[@]}" "${AWS_FILTERS[@]}" \
         --query "Reservations[*].Instances[*].{Name:Tags[?Key=='Name']|[0].Value,InstanceId:InstanceId,PublicIp:PublicIpAddress,PrivateIp:PrivateIpAddress,Type:InstanceType,State:State.Name,Zone:Placement.AvailabilityZone}" \
         --output "$AWS_OUTPUT"
