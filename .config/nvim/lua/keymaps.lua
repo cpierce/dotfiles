@@ -2,9 +2,6 @@
 --
 local map = vim.keymap.set
 
--- jj to escape insert mode
-map('i', 'jj', '<Esc>')
-
 -- Easy window navigation
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
