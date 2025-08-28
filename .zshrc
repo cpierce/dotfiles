@@ -42,8 +42,14 @@ zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store' '.localized'
 # ------------------------------------------
 PROMPT='%K{060} #%! %k %F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
 RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:*' formats '%K{060} ᚠ %b %k [%c%u]'
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' use-simple true
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats '%K{060} ᚠ %b %k %F{yellow}[%c%u]%f'
+zstyle ':vcs_info:*' stagedstr '●'
+zstyle ':vcs_info:*' unstagedstr '✚'
 zstyle ':vcs_info:git:*' actionformats '%K{red} %b|%a %k'
+zstyle ':vcs_info:git:*' check-for-changes true
 
 # ------------------------------------------
 # Aliases
@@ -59,6 +65,7 @@ alias grep='grep --color=auto'
 alias phpstan='phpstan --memory-limit=512M'
 alias cdws='cd $WORKSPACE'
 alias reload='source ~/.zshrc'
+alias tf='terraform'
 
 # ------------------------------------------
 # Load External Configurations
@@ -68,3 +75,19 @@ if command -v fzf > /dev/null; then
 fi
 [ -f ~/.config/op/plugins.sh ] && source ~/.config/op/plugins.sh
 [ -f ~/.zfunctions ] && source ~/.zfunctions
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# pnpm
+export PNPM_HOME="/Users/cpierce/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/cpierce/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
