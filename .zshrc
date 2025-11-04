@@ -40,8 +40,8 @@ zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store' '.localized'
 # ------------------------------------------
 # Prompt Configuration
 # ------------------------------------------
-PROMPT='%K{060} #%! %k %F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
-RPROMPT=\$vcs_info_msg_0_
+PROMPT='%F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
+RPROMPT=' %K{060} #%! %k'
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' use-simple true
 zstyle ':vcs_info:*' check-for-changes true
