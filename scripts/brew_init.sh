@@ -38,7 +38,7 @@ brew install tmate
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform
 brew install tree
-brew install youtube-dl
+brew install yt-dlp
 brew install neovim
 brew install watch
 brew install wget
