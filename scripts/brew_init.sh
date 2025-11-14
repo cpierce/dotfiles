@@ -11,7 +11,6 @@ brew install azure-cli
 brew install copilot
 brew install direnv
 brew install docker
-brew install docker-compose
 brew install ffmpeg
 brew install git
 brew install gitkraken-cli
