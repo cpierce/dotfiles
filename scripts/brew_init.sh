@@ -13,7 +13,6 @@ brew install direnv
 brew install docker
 brew install ffmpeg
 brew install git
-brew install gitkraken-cli
 brew install gnupg2
 brew install fzf
 brew install jq
