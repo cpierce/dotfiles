@@ -2,4 +2,4 @@
 cp resources/fonts/* ~/Library/Fonts
 
 curl -sS https://webi.sh/nerdfont | sh; \
-source ~/.config/envman/PATH.env
+[ -f ~/.config/envman/PATH.env ] && source ~/.config/envman/PATH.env

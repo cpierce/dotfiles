@@ -12,7 +12,7 @@ ln -s /mnt/c/Users/cpier/Downloads ~/Downloads
 cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
-cp .gitexcludes ~/
+cp .gitignore_global ~/
 cp -Rap .config/nvim/* ~/.config/nvim/
 cp -R .aws ~/
 sudo cp sudoers.d/* /etc/sudoers.d/

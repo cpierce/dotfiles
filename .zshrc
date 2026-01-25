@@ -80,7 +80,7 @@ fi
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # pnpm
-export PNPM_HOME="~/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -88,6 +88,4 @@ esac
 # pnpm end
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/cpierce/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
 # End of Docker CLI completions
