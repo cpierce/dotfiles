@@ -1,5 +1,6 @@
 return {
   ensure_installed = {
+    'bashls',
     'cssls',
     'html',
     'intelephense',

@@ -7,7 +7,12 @@ api.nvim_create_autocmd('FileType', {
   pattern = 'scss',
 
   callback = function()
-    api.nvim_set_keymap('n', '<leader>cm', ':w <BAR> !sass %:%:r.css<CR><space>', { noremap = true, silent = true, desc = 'Compile Sass' })
+    vim.keymap.set('n', '<leader>cm', ':w <BAR> !sass %:%:r.css<CR><space>', {
+      buffer = 0,
+      noremap = true,
+      silent = true,
+      desc = 'Compile Sass',
+    })
   end,
 })
 
@@ -40,14 +45,6 @@ api.nvim_create_autocmd('FileType', {
   },
   callback = function()
     vim.b.miniindentscope_disable = true
-  end,
-})
-
--- Format on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*',
-  callback = function(args)
-    require('conform').format({ bufnr = args.buf })
   end,
 })
 
@@ -108,7 +105,10 @@ vim.api.nvim_create_autocmd('FileType', {
 api.nvim_create_autocmd({ 'BufAdd', 'BufDelete' }, {
   callback = function()
     vim.schedule(function()
-      pcall(nvim_bufferline)
+      local ok, bufferline = pcall(require, 'bufferline')
+      if ok then
+        bufferline.setup(require('config.bufferline-conf'))
+      end
     end)
   end,
 })

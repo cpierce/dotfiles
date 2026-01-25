@@ -6,15 +6,6 @@ return {
     end,
     keys = {
       {
-        '<C-f>',
-        function()
-          require('spectre').toggle()
-        end,
-        noremap = true,
-        silent = true,
-        desc = 'Search and Replace (spectre)',
-      },
-      {
         '<leader>fr',
         function()
           require('spectre').toggle()

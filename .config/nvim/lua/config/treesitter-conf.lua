@@ -8,7 +8,6 @@ return {
     'javascript',
     'json',
     'lua',
-    'gitattributes',
     'git_config',
     'gitcommit',
     'git_rebase',

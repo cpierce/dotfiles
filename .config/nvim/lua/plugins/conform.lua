@@ -6,7 +6,7 @@ return {
       { 'neovim/nvim-lspconfig' },
       { 'nvim-lua/plenary.nvim' },
       { 'williamboman/mason.nvim' },
-      { 'williambowan/mason-lspconfig.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
     },
     opts = require('config.conform-conf'),
     keys = {

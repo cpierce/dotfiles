@@ -36,11 +36,10 @@ opt.clipboard = 'unnamedplus'
 opt.termguicolors = true -- Enable true colors
 opt.background = 'dark' -- Set background to dark
 opt.wrap = false -- Disable line wrapping
-opt.linebreak = true -- Prevent midwork break
 opt.sidescrolloff = 8 -- Pad scrolling sideways
 opt.scrolloff = 10 -- Keeps 10 lines above/below the cursor
 opt.smoothscroll = true -- Enable smooth scroll
-opt.textwidth = 158 -- Set textwidth gutter at 78 characters
+opt.textwidth = 158 -- Set textwidth gutter at 158 characters
 opt.colorcolumn = '160' -- Show visible line for wrap
 opt.formatoptions:append('l')
 opt.shortmess:append('I')

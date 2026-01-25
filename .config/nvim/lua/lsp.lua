@@ -42,6 +42,11 @@ vim.lsp.config = {
   },
 }
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+for _, config in pairs(vim.lsp.config) do
+  config.capabilities = vim.tbl_deep_extend('force', config.capabilities or {}, capabilities)
+end
+
 -- Iterate over the lsp.config for each filetype specified above.
 for server_name in pairs(vim.lsp.config) do
   vim.lsp.enable(server_name)
