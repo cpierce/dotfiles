@@ -42,6 +42,7 @@
     defaultBranch = main
 [gpg]
 	format = ssh
+	program = /opt/homebrew/bin/gpg
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
