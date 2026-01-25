@@ -1,19 +1,47 @@
-# Chris Pierce's Dotfiles
+# cpierce dotfiles
 
-This repository contains the configuration files and scripts used by Chris Pierce. Reach out at <cpierce@csdurant.com> for any queries or suggestions.
+Opinionated macOS-focused dotfiles and setup scripts. This repo is meant to be run in pieces, not as a single monolith.
 
-## Overview
+## Quick Start
 
-These dotfiles are a culmination of years of refining and enhancing my development environment. They serve to streamline various engineering tasks, making the daily grind smoother and more efficient. While some of these configurations and scripts are part of my daily workflow, others are used less frequently. However, each one has proven its worth time and again.
+Clone the repo and run scripts directly from the repo root.
 
-## Why Share Them?
+```sh
+git clone git@github.com:cpierce/dotfiles.git
+cd dotfiles
+```
 
-Over the years, I've realized the value of a well-organized and efficient workspace. By sharing these dotfiles, I hope to provide a starting point for others looking to optimize their own environments. Whether you're a seasoned developer or just starting out, feel free to explore, use, or adapt any part of this collection to suit your needs.
+Run individual scripts as needed:
+
+```sh
+./scripts/zsh_init.sh
+./scripts/brew_init.sh
+./scripts/mac_init.sh
+./scripts/fonts_init.sh
+./scripts/post_install.sh
+```
+
+There is also a convenience runner:
+
+```sh
+./scripts/init.sh
+```
+
+## What It Contains
+
+- `./.config/nvim`: Neovim setup
+- `./.zshrc`, `./.zfunctions`: Zsh config
+- `./.gitconfig`, `./.gitignore_global`: Git defaults
+- `./scripts/*`: bootstrap helpers
+- `./sudoers.d/*`: local sudoers entries
+
+## Script Notes
+
+- `scripts/brew_init.sh` installs Homebrew and packages.
+- `scripts/mac_init.sh` applies macOS defaults.
+- `scripts/fzf_init.sh` installs fzf key bindings.
+- `scripts/post_install.sh` runs pnpm setup, mkcert, and misc tools.
 
 ## License
 
-These dotfiles are dedicated to the public domain under the [CC0 1.0 Universal License](https://github.com/cpierce/dotfiles/blob/main/LICENSE/). You can copy, modify, distribute, and perform the work, even for commercial purposes, all without asking permission.
-
----
-
-Let me know if this works for you or if you'd like any further adjustments!
+Public domain under [CC0 1.0 Universal License](https://github.com/cpierce/dotfiles/blob/main/LICENSE/).
