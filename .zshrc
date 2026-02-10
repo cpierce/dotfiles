@@ -25,10 +25,6 @@ export WORKSPACE="$HOME/Workspace"
 # Load Modules and Completion
 # ------------------------------------------
 autoload -Uz compinit && compinit
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
 
 # ------------------------------------------
 # External Tools
@@ -41,18 +37,11 @@ fi
 zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store' '.localized'
 
 # ------------------------------------------
-# Prompt Configuration
+# Prompt (Starship)
 # ------------------------------------------
-PROMPT='%F{111}%n%f@%F{111}%m%f:%F{104}%~%f%# '
-RPROMPT=' %K{060} #%! %k'
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' use-simple true
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats '%K{060} ᚠ %b %k %F{yellow}[%c%u]%f'
-zstyle ':vcs_info:*' stagedstr '●'
-zstyle ':vcs_info:*' unstagedstr '✚'
-zstyle ':vcs_info:git:*' actionformats '%K{red} %b|%a %k'
-zstyle ':vcs_info:git:*' check-for-changes true
+if command -v starship > /dev/null; then
+    eval "$(starship init zsh)"
+fi
 
 # ------------------------------------------
 # Aliases

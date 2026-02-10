@@ -1,7 +1,7 @@
 #!/bin/zsh
 WIN_USER="cpier"
 
-sudo apt install ansible nmap php-cli pwgen zsh
+sudo apt install ansible nmap php-cli pwgen zsh starship
 
 # Install the folders for Ubuntu
 mkdir -p /mnt/c/Users/$WIN_USER/Workspace
@@ -17,6 +17,7 @@ cp .gitconfig ~/
 cp .gitignore_global ~/
 mkdir -p ~/.config/nvim
 cp -Rap .config/nvim/* ~/.config/nvim/
+cp .config/starship.toml ~/.config/starship.toml
 cp -R .aws ~/
 cp -R .ssh/config_linux ~/.ssh/config
 chmod 700 ~/.ssh

@@ -38,6 +38,7 @@ brew install pwgen
 brew install ripgrep
 brew install s3cmd
 brew install shellcheck
+brew install starship
 brew install sslscan
 brew install tmate
 brew tap hashicorp/tap

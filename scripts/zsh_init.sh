@@ -3,7 +3,9 @@ cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
 cp .gitignore_global ~/
-cp -Rapv .config/nvim/* ~/.config/nvim
+mkdir -p ~/.config/nvim
+cp -Rapv .config/nvim/* ~/.config/nvim/
+cp .config/starship.toml ~/.config/starship.toml
 sudo cp sudoers.d/* /etc/sudoers.d/
 mkdir -p ~/Workspace
 cp -R .ssh ~/
