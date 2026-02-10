@@ -14,7 +14,7 @@ opt.timeoutlen = 500 -- Adjusts key mapping timeout (if needed)
 opt.number = true
 opt.relativenumber = true
 
--- Sessions
+-- Sessions (canonical source; also referenced in persistence-conf.lua)
 opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
 
 -- Tab Stuff

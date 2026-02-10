@@ -4,8 +4,9 @@
 export PATH="$PATH:/opt/homebrew/opt/node/bin:$HOME/.composer/vendor/bin:/opt/homebrew/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
 export NVM_DIR="$HOME/.nvm"
-export EDITOR="/usr/local/bin/vim"
-export HISTCONTROL=ignoreboth
+export EDITOR="vim"
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 export HISTSIZE=1000
 export HISTFILESIZE=2000
 export CLICOLOR=1
@@ -32,7 +33,9 @@ setopt prompt_subst
 # ------------------------------------------
 # External Tools
 # ------------------------------------------
-eval "$(direnv hook zsh)"
+if command -v direnv > /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
 
 # Skip .DS_Store and .localized on tab tab
 zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store' '.localized'
@@ -87,5 +90,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/cpierce/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 # End of Docker CLI completions

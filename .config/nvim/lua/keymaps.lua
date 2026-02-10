@@ -14,10 +14,10 @@ map('n', '<C-q>', ':qall<cr>', { silent = true })
 map('n', '<leader>qq', ':qall<cr>', { noremap = true, silent = true, desc = 'Quit nVim' })
 
 -- Disable Arrow Key
-map('', '<Down>', '<Nop>', { noremap = true, silent = true })
-map('', '<Left>', '<Nop>', { noremap = true, silent = true })
-map('', '<Right>', '<Nop>', { noremap = true, silent = true })
-map('', '<Up>', '<Nop>', { noremap = true, silent = true })
+map({ 'n', 'v', 'i', 'c' }, '<Down>', '<Nop>', { noremap = true, silent = true })
+map({ 'n', 'v', 'i', 'c' }, '<Left>', '<Nop>', { noremap = true, silent = true })
+map({ 'n', 'v', 'i', 'c' }, '<Right>', '<Nop>', { noremap = true, silent = true })
+map({ 'n', 'v', 'i', 'c' }, '<Up>', '<Nop>', { noremap = true, silent = true })
 
 -- Indent and stay in visual mode
 map('v', '<', '<gv', { noremap = true, silent = true })
@@ -33,7 +33,7 @@ map('n', '0', '^', { noremap = true, silent = true })
 map('n', '<leader>ls', '<cmd>Lazy sync<cr>', { noremap = true, silent = true, desc = 'Sync (lazy)' })
 map('n', '<leader>lc', '<cmd>Lazy clean<cr>', { noremap = true, silent = true, desc = 'Clean (lazy)' })
 map('n', '<leader>lu', '<cmd>Lazy update<cr>', { noremap = true, silent = true, desc = 'Update (lazy)' })
-map('n', '<leader>la', '<cmd>lua Snacks.picker.autocmds()<cr>', { noremap = true, silent = true, desc = 'Autocmds (snacks)' })
+map('n', '<leader>la', function() require('snacks').picker.autocmds() end, { noremap = true, silent = true, desc = 'Autocmds (snacks)' })
 
 map('n', '<leader>ml', '<cmd>Noice last<cr>', { noremap = true, silent = true, desc = 'Show Last Message (noice)' })
 map('n', '<leader>mh', '<cmd>NoiceFzf<cr>', { noremap = true, silent = true, desc = 'Show History (noice)' })
@@ -53,9 +53,9 @@ end, { noremap = true, silent = true })
 map('n', '<leader><leader>', '<cmd>BufferLineCycleNext<cr>', { noremap = true, silent = true, desc = 'switch buffer' })
 map('n', '<tab><tab>', '<cmd>BufferLineCycleNext<cr>', { silent = true, desc = 'Next Buffer' })
 map('n', '<S-tab><S-tab>', '<cmd>BufferLineCyclePrev<cr>', { silent = true, desc = 'Prev Buffer' })
-map('', '<leader>bc', '<cmd>BufferLineCloseOthers<cr>', { silent = true, desc = 'Delete All But Current' })
-map('', '<leader>bn', '<cmd>BufferLineCycleNext<cr>', { silent = true, desc = 'Next Buffer' })
-map('', '<leader>bp', '<cmd>BufferLineCyclePrev<cr>', { silent = true, desc = 'Prev Buffer' })
+map('n', '<leader>bc', '<cmd>BufferLineCloseOthers<cr>', { silent = true, desc = 'Delete All But Current' })
+map('n', '<leader>bn', '<cmd>BufferLineCycleNext<cr>', { silent = true, desc = 'Next Buffer' })
+map('n', '<leader>bp', '<cmd>BufferLineCyclePrev<cr>', { silent = true, desc = 'Prev Buffer' })
 
 -- Yank All to Clipboard
 map('n', '<leader>ya', function()

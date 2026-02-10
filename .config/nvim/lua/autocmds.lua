@@ -7,12 +7,14 @@ api.nvim_create_autocmd('FileType', {
   pattern = 'scss',
 
   callback = function()
-    vim.keymap.set('n', '<leader>cm', ':w <BAR> !sass %:%:r.css<CR><space>', {
-      buffer = 0,
-      noremap = true,
-      silent = true,
-      desc = 'Compile Sass',
-    })
+    if vim.fn.executable('sass') == 1 then
+      vim.keymap.set('n', '<leader>cm', ':w <BAR> !sass %:%:r.css<CR><space>', {
+        buffer = 0,
+        noremap = true,
+        silent = true,
+        desc = 'Compile Sass',
+      })
+    end
   end,
 })
 
@@ -105,10 +107,7 @@ vim.api.nvim_create_autocmd('FileType', {
 api.nvim_create_autocmd({ 'BufAdd', 'BufDelete' }, {
   callback = function()
     vim.schedule(function()
-      local ok, bufferline = pcall(require, 'bufferline')
-      if ok then
-        bufferline.setup(require('config.bufferline-conf'))
-      end
+      pcall(vim.cmd, 'BufferLineSort')
     end)
   end,
 })

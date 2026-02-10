@@ -30,5 +30,4 @@ return {
     treesitter = true,
     which_key = true,
   },
-  colorscheme = 'catppuccin-mocha', -- Define the colorscheme here
 }

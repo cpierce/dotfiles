@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # First Install Brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Load Homebrew into PATH for this session
 if [ -x "/opt/homebrew/bin/brew" ]; then

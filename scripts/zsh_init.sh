@@ -8,4 +8,5 @@ sudo cp sudoers.d/* /etc/sudoers.d/
 mkdir -p ~/Workspace
 cp -R .ssh ~/
 cp -R .aws ~/
-sudo chmod 700 ~/.ssh
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/config ~/.ssh/config_linux

@@ -62,7 +62,7 @@ return {
       {
         ']]',
         function()
-          Snacks.words.jump(vim.v.count1)
+          require('snacks').words.jump(vim.v.count1)
         end,
         desc = 'Next Reference',
         mode = { 'n', 't' },
@@ -70,7 +70,7 @@ return {
       {
         '[[',
         function()
-          Snacks.words.jump(-vim.v.count1)
+          require('snacks').words.jump(-vim.v.count1)
         end,
         desc = 'Prev Reference',
         mode = { 'n', 't' },

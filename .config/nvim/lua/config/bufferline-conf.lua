@@ -1,7 +1,7 @@
 return {
   options = {
     close_command = function(n)
-      --styleua: ignore
+      --stylua: ignore
       Snacks.bufdelete(n)
     end,
     right_mouse_command = function(n)

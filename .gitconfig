@@ -1,10 +1,10 @@
 [push]
     default = simple
-	autoSetupRemote = true
+    autoSetupRemote = true
 [user]
-	name = Chris Pierce
-	email = cpierce@csdurant.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP3O+vs3dV4dC+MaZDnEIyfr6hfQWTH8mEptTeRE4KhV
+    name = Chris Pierce
+    email = cpierce@csdurant.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP3O+vs3dV4dC+MaZDnEIyfr6hfQWTH8mEptTeRE4KhV
 [credential]
     helper = cache -- timeout=6300
 [color]
@@ -41,9 +41,8 @@
 [init]
     defaultBranch = main
 [gpg]
-	format = ssh
-	program = /opt/homebrew/bin/gpg
+    format = ssh
 [gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
-	gpgsign = true
+    gpgsign = true

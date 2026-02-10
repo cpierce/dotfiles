@@ -25,8 +25,6 @@ return {
   -- Custom formatters and additional settings
   formatters = {
     injected = { options = { ignore_errors = true } },
-    timeout_ms = 500,
-    lsp_fallback = true,
 
     shfmt = {
       prepend_args = { '-i', '2', '-ci' },
@@ -37,7 +35,7 @@ return {
   },
 
   format_on_save = {
-    timeout_ms = 500,
+    timeout_ms = 3000,
     lsp_fallback = true,
   },
 }
