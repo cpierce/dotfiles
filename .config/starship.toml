@@ -1,98 +1,62 @@
-# Catppuccin Mocha inspired prompt
-palette = "catppuccin_mocha"
-
-format = """
-[](blue)\
-$os\
-$username\
-[](bg:lavender fg:blue)\
-$hostname\
-[](bg:green fg:lavender)\
-$directory\
-[](bg:yellow fg:green)\
-$git_branch\
-$git_status\
-[](fg:yellow)\
-$fill\
-$cmd_duration\
-$jobs\
-$line_break\
+# Minimal prompt matching previous zsh style
+format = """$username[@](fg:111)$hostname[:]()$directory[%]()$fill$cmd_duration$jobs$git_branch$git_status
 $character"""
 
-[os]
-disabled = false
-style = "bg:blue fg:crust"
-
-[os.symbols]
-Macos = " "
-Windows = " "
+right_format = ""
 
 [username]
 show_always = true
-style_user = "bg:blue fg:crust"
+style_user = "fg:111"
 format = "[$user]($style)"
 
 [hostname]
 ssh_only = false
-style = "bg:lavender fg:crust"
-format = "[@$hostname ]($style)"
+style = "fg:111"
+format = "[$hostname]($style)"
 
 [directory]
-style = "bg:green fg:crust"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
+style = "fg:104"
+format = "[$path]($style)"
+truncation_length = 0
+truncate_to_repo = false
 
 [git_branch]
-symbol = " "
-style = "bg:yellow fg:crust"
-format = "[ $symbol$branch ]($style)"
+symbol = "ᚠ"
+style = "fg:104"
+format = "[$symbol $branch]($style) "
 
 [git_status]
-style = "bg:yellow fg:crust"
-format = "[$all_status$ahead_behind]($style)"
+style = "fg:yellow"
+format = "[$all_status $ahead_behind]($style)"
 staged = "●"
 modified = "✚"
+untracked = "◌"
+deleted = "✘"
+renamed = "»"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 
 [cmd_duration]
 min_time = 2000
-style = "fg:subtext0"
+style = "fg:yellow"
 format = "[$duration]($style) "
 
 [jobs]
-style = "fg:subtext0"
+style = "fg:white"
 
 [fill]
 symbol = " "
 
 [character]
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
+success_symbol = "[❯](fg:white)"
+error_symbol = "[❯](fg:red)"
 
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+[status]
+disabled = false
+style = "bg:060 fg:white"
+format = "[ #$maybe_int ]($style)"
+map_symbol = false
+recognize_signal_code = false
+pipestatus = false
