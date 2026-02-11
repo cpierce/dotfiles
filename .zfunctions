@@ -1,4 +1,14 @@
 # ------------------------------------------
+# Change directory to workspace or subdirectory
+# ------------------------------------------
+cdws() {
+  if [[ -z "$1" ]]; then
+    cd "$WORKSPACE"
+  else
+    cd "$WORKSPACE/$*"
+  fi
+}
+# ------------------------------------------
 # Easy File Extraction Function
 # ------------------------------------------
 extract () {
@@ -10,10 +20,10 @@ extract () {
     case "$1" in
         *.tar.bz2) tar fxj "$1" ;;
         *.tar.gz) tar fxz "$1" ;;
-        *.bz2) bunzip2 "$1" ;;
+        *.bz2) bunzip "$1" ;;
         *.gz) gunzip "$1" ;;
         *.tar) tar xf "$1" ;;
-        *.tgz) tar fxz "$1" ;;
+        *.tgz) tar fzx "$1" ;;
         *.zip) unzip "$1" ;;
         *.Z) uncompress "$1" ;;
         *)

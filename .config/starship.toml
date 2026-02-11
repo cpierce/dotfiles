@@ -1,5 +1,5 @@
 # Minimal prompt matching previous zsh style
-format = """$username[@](fg:111)$hostname[:]()$directory[%]()$fill$cmd_duration$jobs$git_branch$git_status
+format = """$username[:]()$directory[%]()$fill$cmd_duration$jobs$git_branch$git_status
 $character"""
 
 right_format = ""

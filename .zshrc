@@ -55,7 +55,6 @@ alias ping='ping -c 10'
 alias sudo='sudo '
 alias grep='grep --color=auto'
 alias phpstan='phpstan --memory-limit=512M'
-alias cdws='cd $WORKSPACE'
 alias reload='source ~/.zshrc'
 alias tf='terraform'
 
