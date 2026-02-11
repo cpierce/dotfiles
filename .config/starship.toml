@@ -21,7 +21,7 @@ truncation_length = 0
 truncate_to_repo = false
 
 [git_branch]
-symbol = "ᚠ"
+symbol = ""
 style = "fg:104"
 format = "[$symbol $branch]($style) "
 
