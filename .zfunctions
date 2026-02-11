@@ -2,12 +2,22 @@
 # Change directory to workspace or subdirectory
 # ------------------------------------------
 cdws() {
+  if [[ -z "$WORKSPACE" ]]; then
+    echo "WORKSPACE is not set"
+    return 1
+  fi
+
   if [[ -z "$1" ]]; then
     cd "$WORKSPACE"
   else
     cd "$WORKSPACE/$*"
   fi
 }
+
+_cdws() {
+  _path_files -W "$WORKSPACE" -/
+}
+compdef _cdws cdws
 # ------------------------------------------
 # Easy File Extraction Function
 # ------------------------------------------
