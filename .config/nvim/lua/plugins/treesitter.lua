@@ -3,7 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup(require('config.treesitter-conf'))
+      require('nvim-treesitter').setup(require('config.treesitter-conf'))
     end,
     keys = {
       { '<C-space>', desc = 'Increment Selection' },

@@ -23,6 +23,7 @@ brew install git
 brew install gnupg2
 brew install fzf
 brew install jq
+brew install luarocks
 brew install mkcert
 brew install ngrok
 brew install nmap

@@ -128,6 +128,23 @@ api.nvim_create_autocmd('QuitPre', {
   end,
 })
 
+-- LSP keymaps on attach
+api.nvim_create_autocmd('LspAttach', {
+  callback = function(event)
+    local opts = function(desc)
+      return { buffer = event.buf, noremap = true, silent = true, desc = desc }
+    end
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts('Hover'))
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts('Go to Definition'))
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts('Go to Declaration'))
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts('Go to Implementation'))
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts('References'))
+    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, opts('Rename Symbol'))
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts('Code Action'))
+    vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, opts('Line Diagnostics'))
+  end,
+})
+
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   callback = function(event)

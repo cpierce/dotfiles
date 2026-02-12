@@ -46,7 +46,9 @@ return {
   },
   input = {},
   lazygit = {},
-  notifier = {},
+  notifier = {
+    enabled = false,
+  },
   picker = {
     sources = {
       files = {
