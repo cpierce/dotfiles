@@ -5,8 +5,8 @@ return function()
     bash = { 'shellcheck' },
     sh = { 'shellcheck' },
     php = { 'php' },
-    javascript = { 'eslint_d', 'eslint' },
-    typescript = { 'eslint_d', 'eslint' },
+    javascript = { 'eslint_d' },
+    typescript = { 'eslint_d' },
     rust = { 'clippy' },
     lua = { 'luacheck' },
   }
@@ -16,4 +16,6 @@ return function()
       lint.try_lint()
     end,
   })
+
+  lint.try_lint()
 end

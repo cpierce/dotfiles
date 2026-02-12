@@ -1,15 +1,11 @@
 return {
-  flavour = 'mocha', -- Options: latte, frappe, macchiato, mocha
+  flavour = 'mocha',
   transparent_background = true,
   integrations = {
-    aerial = true,
-    alpha = true,
     blink_cmp = true,
-    cmp = true,
     dashboard = true,
     bufferline = true,
     gitsigns = true,
-    indent_blankline = { enabled = true },
     lsp_trouble = true,
     mason = true,
     markdown = true,

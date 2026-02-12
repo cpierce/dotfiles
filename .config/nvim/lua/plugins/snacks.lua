@@ -4,9 +4,7 @@ return {
     priority = 1000,
     opts = require('config.snacks-conf'),
     config = function(_, opts)
-      local notify = vim.notify
       require('snacks').setup(opts)
-      vim.notify = notify
     end,
     keys = {
       {

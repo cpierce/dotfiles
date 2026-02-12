@@ -87,8 +87,6 @@ vim.g.root_lsp_ignore = { 'copilot' }
 vim.g.markdown_recommended_style = 0
 vim.g.ai_cmp = true
 
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
 
 vim.diagnostic.config({
   virtual_lines = {

@@ -11,7 +11,7 @@ return {
       symbols = {
         added = icons.git.LineAdded,
         modified = icons.git.LineModified,
-        deleted = icons.git.FileRemoved,
+        deleted = icons.git.FileDeleted,
         renamed = icons.git.FileRenamed,
         untracked = icons.git.FileUntracked,
         ignored = icons.git.FileIgnored,
