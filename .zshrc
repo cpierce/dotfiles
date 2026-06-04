@@ -1,7 +1,7 @@
 # ------------------------------------------
 # Paths and Config Options
 # ------------------------------------------
-export PATH="$PATH:/opt/homebrew/opt/node/bin:$HOME/.composer/vendor/bin:/opt/homebrew/bin"
+export PATH="$HOME/.local/bin:$PATH:/opt/homebrew/opt/node/bin:$HOME/.composer/vendor/bin:/opt/homebrew/bin"
 export NODE_PATH="$NODE_PATH:$HOME/npm/lib/node_modules"
 export NVM_DIR="$HOME/.nvm"
 export EDITOR="vim"
