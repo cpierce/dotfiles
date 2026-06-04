@@ -16,7 +16,7 @@ return {
   },
   signcolumn = true,
   numhl = true,
-  linehl = true,
+  linehl = false,
   current_line_blame = true,
   current_line_blame_opts = {
     delay = 500,

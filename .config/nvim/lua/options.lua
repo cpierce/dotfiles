@@ -32,7 +32,7 @@ opt.swapfile = false -- Disable swap files
 opt.backspace = { 'indent', 'eol', 'start' } -- Allow backspace over everything
 opt.clipboard = 'unnamedplus'
 
--- UI Tweaks
+-- UI and UX Tweaks
 opt.termguicolors = true -- Enable true colors
 opt.background = 'dark' -- Set background to dark
 opt.wrap = false -- Disable line wrapping
@@ -87,6 +87,7 @@ vim.g.root_lsp_ignore = { 'copilot' }
 vim.g.markdown_recommended_style = 0
 vim.g.ai_cmp = true
 
+opt.nrformats:append('alpha') -- Allow incrementing/decrementing of letters
 
 vim.diagnostic.config({
   virtual_lines = {

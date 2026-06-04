@@ -1,14 +1,12 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     build = ':TSUpdate',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
-      require('nvim-treesitter').setup(require('config.treesitter-conf'))
+      require('config.treesitter-conf')()
     end,
-    keys = {
-      { '<C-space>', desc = 'Increment Selection' },
-      { '<bs>', desc = 'Decrement Selection', mode = 'x' },
-    },
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',

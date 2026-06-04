@@ -2,7 +2,7 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'echasnovski/mini.icons' },
-    lazy = false, -- Load immediately
+    event = 'VeryLazy', -- Load just after startup
     opts = require('config.lualine-conf'), -- Loads external configuration
   },
 }

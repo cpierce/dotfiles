@@ -4,7 +4,7 @@ return {
   lazy = false, -- This plugin is already lazy
   keys = {
     {
-      '<leader>cr',
+      '<leader>cR',
       '<cmd>RustLsp relatedDiagnostics<cr>',
       noremap = true,
       silent = true,

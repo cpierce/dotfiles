@@ -2,7 +2,12 @@
 --
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
--- Servers that need custom settings
+-- Apply blink's completion capabilities to every server (0.11 '*' fallback),
+-- so individual configs below only need their server-specific bits.
+vim.lsp.config('*', {
+  capabilities = capabilities,
+})
+
 vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
@@ -11,30 +16,39 @@ vim.lsp.config('lua_ls', {
       },
     },
   },
-  capabilities = capabilities,
 })
 
 vim.lsp.config('cssls', {
   root_markers = { '.git', '.stylelintrc', '.stylelintignore.json' },
-  capabilities = capabilities,
 })
 
 vim.lsp.config('intelephense', {
   root_markers = { 'composer.json', 'phpunit.xml', '.git' },
-  capabilities = capabilities,
+})
+
+-- jsonls/yamlls get their schemas from SchemaStore (package.json, tsconfig,
+-- GitHub Actions, docker-compose, etc.).
+vim.lsp.config('jsonls', {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
 })
 
 vim.lsp.config('yamlls', {
   root_markers = { '.github', 'docker-compose.yaml' },
-  capabilities = capabilities,
+  settings = {
+    yaml = {
+      -- Disable the built-in store so it doesn't fight SchemaStore.
+      schemaStore = { enable = false, url = '' },
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
 })
 
--- Servers with default settings just need capabilities
-for _, server in ipairs({ 'bashls', 'html', 'jsonls' }) do
-  vim.lsp.config(server, {
-    capabilities = capabilities,
-  })
-end
+-- bashls and html need no extra settings (capabilities come from '*').
 
 -- Enable all servers (rust_analyzer is managed by rustaceanvim)
 vim.lsp.enable({ 'bashls', 'cssls', 'html', 'intelephense', 'jsonls', 'lua_ls', 'yamlls' })

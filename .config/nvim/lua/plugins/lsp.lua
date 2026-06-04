@@ -1,7 +1,7 @@
 return {
   {
     'williamboman/mason.nvim',
-    lazy = false,
+    cmd = { 'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
     config = function()
       require('mason').setup(require('config.mason-conf'))
     end,
@@ -12,13 +12,11 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    lazy = false,
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'williamboman/mason.nvim',
       'neovim/nvim-lspconfig',
       'saghen/blink.cmp',
-      'mfussenegger/nvim-dap',
-      'jay-babu/mason-nvim-dap.nvim',
       'b0o/schemastore.nvim',
     },
     config = function()
@@ -28,7 +26,7 @@ return {
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    lazy = false,
+    event = 'VeryLazy',
     dependencies = { 'williamboman/mason.nvim' },
     config = function()
       require('mason-tool-installer').setup(require('config.mason-tool-installer-conf'))

@@ -7,7 +7,6 @@ return {
       { '<leader>c', group = 'code' },
       { '<leader>d', group = 'debug' },
       { '<leader>f', group = 'file/find' },
-      { '<leader>i', group = 'code references' },
       { '<leader>l', group = 'lazy/mason' },
       { '<leader>m', group = 'messages', icon = { icon = '󰚢', color = 'red' } },
       { '<leader>g', group = 'git' },
