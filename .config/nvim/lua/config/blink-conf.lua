@@ -23,15 +23,7 @@ return {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
-    providers = {
-      copilot = {
-        name = 'copilot',
-        module = 'blink-cmp-copilot',
-        score_offset = 100,
-        async = true,
-      },
-    },
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
   },
   keymap = {
     preset = 'super-tab',

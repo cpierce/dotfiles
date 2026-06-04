@@ -82,10 +82,7 @@ opt.smartcase = true
 opt.undofile = true
 opt.undolevels = 10000
 
--- Ignore copilot lsp
-vim.g.root_lsp_ignore = { 'copilot' }
 vim.g.markdown_recommended_style = 0
-vim.g.ai_cmp = true
 
 opt.nrformats:append('alpha') -- Allow incrementing/decrementing of letters
 

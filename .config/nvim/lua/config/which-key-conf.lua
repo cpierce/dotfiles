@@ -4,6 +4,7 @@ return {
     {
       mode = { 'n', 'v' },
       { '<leader><tab>', group = 'tabs' },
+      { '<leader>a', group = 'ai', icon = { icon = '󰚩', color = 'cyan' } },
       { '<leader>c', group = 'code' },
       { '<leader>d', group = 'debug' },
       { '<leader>f', group = 'file/find' },
