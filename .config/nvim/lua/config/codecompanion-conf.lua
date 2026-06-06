@@ -3,13 +3,13 @@ return {
     acp = {
       claude_code = function()
         return require('codecompanion.adapters').extend('claude_code', {
-          -- No token needed if you're logged into Claude Code: the adapter falls
-          -- back to the agent's own ACP auth. To pin an explicit token, generate
-          -- one with `claude setup-token` and read it from 1Password rather than
-          -- hardcoding a secret in this (public) repo:
-          -- env = {
-          --   CLAUDE_CODE_OAUTH_TOKEN = 'cmd:op read op://Personal/Anthropic/credential --no-newline',
-          -- },
+          -- The claude-agent-acp bridge does not read the macOS keychain, so it
+          -- needs an explicit OAuth token (generate with `claude setup-token`).
+          -- Read it from 1Password rather than hardcoding a secret in this repo.
+          -- The op:// path is quoted because it contains spaces; `cmd:` runs via `sh -c`.
+          env = {
+            CLAUDE_CODE_OAUTH_TOKEN = 'cmd:op read "op://development/Claude API Credentials - Vim/credential" --no-newline',
+          },
         })
       end,
     },
