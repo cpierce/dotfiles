@@ -15,7 +15,6 @@ brew install 1password-cli
 brew install ansible
 brew install awscli
 brew install azure-cli
-brew install copilot
 brew install direnv
 brew install docker
 brew install ffmpeg
@@ -31,12 +30,12 @@ brew install ngrok
 brew install nmap
 brew install node
 brew install pnpm
-brew install packer
 brew install php
 brew install phpstan
 brew install phpunit
 brew install pinentry-mac
 brew install powershell
+brew install pv
 brew install pwgen
 brew install ripgrep
 brew install s3cmd
