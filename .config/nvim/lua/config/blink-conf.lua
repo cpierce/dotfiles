@@ -23,7 +23,16 @@ return {
     },
   },
   sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
+    default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+    providers = {
+      -- lazydev completes the nvim lua API (vim.*) while editing this config;
+      -- score_offset ranks it above lua_ls suggestions.
+      lazydev = {
+        name = 'LazyDev',
+        module = 'lazydev.integrations.blink',
+        score_offset = 100,
+      },
+    },
   },
   keymap = {
     preset = 'super-tab',

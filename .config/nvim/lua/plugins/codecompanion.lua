@@ -11,6 +11,7 @@ return {
       { '<leader>aa', '<cmd>CodeCompanionActions<cr>', mode = { 'n', 'v' }, noremap = true, silent = true, desc = 'Actions (CodeCompanion)' },
       { '<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', mode = { 'n', 'v' }, noremap = true, silent = true, desc = 'Toggle Chat (CodeCompanion)' },
       { '<leader>ad', '<cmd>CodeCompanionChat Add<cr>', mode = 'v', noremap = true, silent = true, desc = 'Add Selection to Chat (CodeCompanion)' },
+      { '<leader>ai', ':CodeCompanion ', mode = { 'n', 'v' }, noremap = true, desc = 'Inline Assistant (CodeCompanion)' },
     },
   },
 }

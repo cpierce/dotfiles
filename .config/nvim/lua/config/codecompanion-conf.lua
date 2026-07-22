@@ -20,5 +20,10 @@ return {
       -- Pick a model in-chat, or pin one: adapter = { name = 'claude_code', model = 'opus' }
       adapter = 'claude_code',
     },
+    inline = {
+      -- Without this the inline assistant (:CodeCompanion <prompt>) falls back
+      -- to the plugin default (copilot), which isn't set up here.
+      adapter = 'claude_code',
+    },
   },
 }

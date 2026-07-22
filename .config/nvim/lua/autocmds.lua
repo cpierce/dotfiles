@@ -31,25 +31,6 @@ api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'
   command = "if mode() != 'c' | checktime | endif",
 })
 
--- Disable Mini IndentScope for specific filetypes
-api.nvim_create_autocmd('FileType', {
-  pattern = {
-    'alpha',
-    'dashboard',
-    'fzf',
-    'gitsigns-blame',
-    'help',
-    'mason',
-    'notify',
-    'spectre_panel',
-    'toggleterm',
-    'Trouble',
-  },
-  callback = function()
-    vim.b.miniindentscope_disable = true
-  end,
-})
-
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   pattern = { 'json', 'jsonc', 'json5' },
@@ -121,7 +102,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Auto-close NeoTree before quitting
+-- Save the session before quitting
 api.nvim_create_autocmd('QuitPre', {
   callback = function()
     require('persistence').save()

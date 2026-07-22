@@ -48,7 +48,7 @@ vim.lsp.config('yamlls', {
   },
 })
 
--- bashls and html need no extra settings (capabilities come from '*').
+-- bashls, html and vtsls need no extra settings (capabilities come from '*').
 
 -- Enable all servers (rust_analyzer is managed by rustaceanvim)
-vim.lsp.enable({ 'bashls', 'cssls', 'html', 'intelephense', 'jsonls', 'lua_ls', 'yamlls' })
+vim.lsp.enable({ 'bashls', 'cssls', 'html', 'intelephense', 'jsonls', 'lua_ls', 'vtsls', 'yamlls' })

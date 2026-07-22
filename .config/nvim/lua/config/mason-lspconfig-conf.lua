@@ -6,6 +6,7 @@ return {
     'intelephense',
     'jsonls',
     'lua_ls',
+    'vtsls',
     'yamlls',
   },
   -- Servers are enabled explicitly in lua/lsp.lua (with custom settings), so
