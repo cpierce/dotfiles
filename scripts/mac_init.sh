@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Enable Touch ID for sudo via sudo_local so it survives OS updates
+if [ -f /etc/pam.d/sudo_local.template ] && [ ! -f /etc/pam.d/sudo_local ]; then
+  sudo sh -c 'sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template > /etc/pam.d/sudo_local'
+fi
+
 # Disable Google Chrome print preview and use system default
 defaults write com.google.Chrome DisablePrintPreview -boolean true
 
