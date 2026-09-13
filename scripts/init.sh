@@ -1,5 +1,6 @@
 #!/bin/zsh
 source ./scripts/zsh_init.sh
+source ./scripts/claude_init.sh
 source ./scripts/brew_init.sh
 source ./scripts/fzf_init.sh
 source ./scripts/composer_init.sh

@@ -1,7 +1,7 @@
 #!/bin/zsh
 WIN_USER="cpier"
 
-sudo apt install ansible nmap php-cli pwgen zsh starship
+sudo apt install ansible jq nmap php-cli pwgen zsh starship
 
 # Install the folders for Ubuntu
 mkdir -p /mnt/c/Users/$WIN_USER/Workspace
@@ -22,3 +22,7 @@ cp -R .aws ~/
 cp -R .ssh/config_linux ~/.ssh/config
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/config
+
+# Claude Code + user-level config (~/.claude)
+curl -fsSL https://claude.ai/install.sh | bash
+source ./scripts/claude_init.sh

@@ -15,6 +15,7 @@ Run individual scripts as needed:
 
 ```sh
 ./scripts/zsh_init.sh
+./scripts/claude_init.sh
 ./scripts/brew_init.sh
 ./scripts/mac_init.sh
 ./scripts/fonts_init.sh
@@ -30,6 +31,7 @@ There is also a convenience runner:
 ## What It Contains
 
 - `./.config/nvim`: Neovim setup
+- `./claude`: Claude Code user config, installed to `~/.claude`
 - `./.zshrc`, `./.zfunctions`: Zsh config
 - `./.gitconfig`, `./.gitignore_global`: Git defaults
 - `./scripts/*`: bootstrap helpers
@@ -37,6 +39,7 @@ There is also a convenience runner:
 
 ## Script Notes
 
+- `scripts/claude_init.sh` copies `claude/` into `~/.claude` (works on macOS and Linux).
 - `scripts/brew_init.sh` installs Homebrew and packages.
 - `scripts/mac_init.sh` applies macOS defaults.
 - `scripts/fzf_init.sh` installs fzf key bindings.

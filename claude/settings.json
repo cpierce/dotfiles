@@ -1,0 +1,161 @@
+{
+  "model": "fable[1m]",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/cc-status"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$HOME/.claude/statusline-command.sh\""
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "php-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Not derivable — no git remotes configured in this repo (/Users/cpierce/Workspace has no tracked files and no remotes); assume private until a remote is added",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: 1Password shell plugins (op plugin run), directory-scoped to project working directories per ~/.claude/CLAUDE.md",
+      "**Default / protected branches**: Not queryable — no remote configured, default branch unknown (origin/HEAD unset)",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
+      "**Source control**: The trusted repo (/Users/cpierce/Workspace) and its remote(s) only — currently no remotes configured",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: numerous per-site .env / .env.example / app_local.prod.php files under cpierce/ and csdurant/ site directories (e.g. cpierce/utalkn2me/.env, csdurant/csdurant.com/.env, csdurant/randolphcounty-mo.com/config/.env) plus cpierce/godaddy-2-route53-migration/.godaddy_secret — treat as credential/config material, share only with audiences cleared at the named+specifics bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries prod or production as a whole word or segment (e.g. app_local.prod.php files, csdurant/texasfeedfat.com/tmp/trace_prod.php)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries prod or production as a whole word or segment (e.g. pulumi-checkpoints-372027080672-production, pulumi-service-checkpoints-058607598222-production)",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (mixed personal/hobby use — web hosting/site management for multiple client-style site directories, system administration, and media tooling)",
+      "**Trusted repo**: /Users/cpierce/Workspace — currently has no tracked files and no git remotes configured",
+      "**Org-specific CLIs**: None configured",
+      "**routine under cpierce/ or csdurant/ prefix**: multiple per-site web project directories (e.g. cpierce/app.kellysodfarm.com, csdurant/adarentals.com) appear to be routine site-management work areas, not a single trusted org"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(aws s3 rm:*) — scope to buckets outside the pulumi-checkpoints-*/pulumi-service-checkpoints-* production prefixes given repeated prod-named bucket evidence",
+      "Bash(op plugin run -- aws:*) writes outside the joined project directory — 1Password plugin credential scope per ~/.claude/CLAUDE.md is directory-bound; running from an unrecognized directory risks spin-wait hangs, not just wrong scope"
+    ]
+  }
+}
