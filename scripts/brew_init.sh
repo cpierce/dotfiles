@@ -18,6 +18,7 @@ brew install atuin
 brew install --cask audacity
 brew install awscli
 brew install azure-cli
+brew install bat
 brew install buf
 brew install --cask claude
 brew install --cask codex
@@ -25,6 +26,7 @@ brew tap dart-lang/dart
 brew install dart-lang/dart/dart
 brew install direnv
 brew install docker
+brew install eza
 brew install ffmpeg
 brew install --cask gemini
 brew install gemini-cli
@@ -75,6 +77,9 @@ brew install sequel-ace
 brew install tree
 brew install wimlib
 brew install yt-dlp
+brew install zoxide
+brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
 brew install neovim
 brew install watch
 brew install wget

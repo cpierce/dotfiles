@@ -10,7 +10,7 @@ macOS-focused dotfiles repo. Config files are stored at the repo root mirroring 
 
 ```sh
 ./scripts/init.sh          # runs all scripts below in order
-./scripts/zsh_init.sh      # copies dotfiles to ~/ and sets up ~/.config (nvim, ghostty, starship)
+./scripts/zsh_init.sh      # copies dotfiles to ~/ and sets up ~/.config (nvim, ghostty, starship, atuin)
 ./scripts/claude_init.sh   # copies claude/ to ~/.claude (Claude Code user config)
 ./scripts/brew_init.sh     # installs Homebrew and packages
 ./scripts/fzf_init.sh      # installs fzf key bindings
@@ -22,7 +22,7 @@ macOS-focused dotfiles repo. Config files are stored at the repo root mirroring 
 
 ## Key Architecture
 
-- **Shell**: Zsh with Starship prompt, direnv, nvm, fzf, 1Password CLI plugin integration. Custom functions live in `.zfunctions` (sourced by `.zshrc`).
+- **Shell**: Zsh with Starship prompt, direnv, nvm, fzf, Atuin history, zsh-autosuggestions, zsh-syntax-highlighting, 1Password CLI plugin integration. Custom functions live in `.zfunctions` (sourced by `.zshrc`). `.zshrc` is shared by macOS (Homebrew) and Arch (pacman/paru, no Homebrew), so every tool is guarded with `command -v` or a file check and plugin paths are probed under both prefixes. Load order matters: fzf, then Atuin (owns Ctrl+R), then autosuggestions, with syntax highlighting last.
 - **Terminal**: Ghostty. Config is `.config/ghostty/config.ghostty`, installed to `~/.config/ghostty/` — Ghostty reads that XDG path on macOS and Linux, so one file serves both. Linux-only settings (keybinds that assume keyd's Cmd->Ctrl remap) live in `config_linux.ghostty`, which `zsh_init.sh` installs as `config_os.ghostty` on Linux only; `config.ghostty` pulls it in with an optional `config-file` include. On macOS a `config.ghostty` under `~/Library/Application Support/com.mitchellh.ghostty/` loads afterwards and overrides it; keep that location empty. The font is Monaco Nerd Font Mono, shipped in `resources/fonts/` and installed by `fonts_init.sh`.
 - **Neovim**: Lazy.nvim plugin manager. Entry point is `.config/nvim/init.lua` (leader key: `,`). Core modules in `lua/` (`options`, `keymaps`, `autocmds`, `lsp`, `style`). Plugin specs in `lua/plugins/`, separated configs in `lua/config/`. Uses Catppuccin theme, blink.cmp for completion, Mason for LSP servers, and conform.nvim for formatting.
 - **Neovim formatting**: StyLua enforces Lua style (`.config/nvim/stylua.toml`): 160 col width, 2-space indent, single quotes, Unix line endings.

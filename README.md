@@ -32,6 +32,7 @@ There is also a convenience runner:
 
 - `./.config/nvim`: Neovim setup
 - `./.config/ghostty`: Ghostty terminal config, installed to `~/.config/ghostty` (macOS and Linux). `config_linux.ghostty` holds keybinds that assume keyd's Cmd->Ctrl remap and is installed on Linux only, as `config_os.ghostty`
+- `./.config/atuin`: Atuin shell history config
 - `./resources/fonts`: Monaco Nerd Font, the terminal font
 - `./claude`: Claude Code user config, installed to `~/.claude`
 - `./.zshrc`, `./.zfunctions`: Zsh config
@@ -43,7 +44,7 @@ There is also a convenience runner:
 ## Script Notes
 
 - `scripts/claude_init.sh` copies `claude/` into `~/.claude` (works on macOS and Linux).
-- `scripts/brew_init.sh` installs Homebrew and packages.
+- `scripts/brew_init.sh` installs Homebrew and packages (macOS only). On Arch, install the equivalents with pacman/paru; `.zshrc` picks up `atuin`, `zsh-autosuggestions`, `zsh-syntax-highlighting`, `eza`, `bat` and `zoxide` when they are installed.
 - `scripts/mac_init.sh` applies macOS defaults.
 - `scripts/fzf_init.sh` installs fzf key bindings.
 - `scripts/fonts_init.sh` installs the fonts in `resources/fonts` into `~/Library/Fonts`.

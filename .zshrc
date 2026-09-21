@@ -32,6 +32,9 @@ autoload -Uz compinit && compinit
 if command -v direnv > /dev/null; then
     eval "$(direnv hook zsh)"
 fi
+if command -v zoxide > /dev/null; then
+    eval "$(zoxide init zsh)"
+fi
 
 # Skip .DS_Store and .localized on tab tab
 zstyle ':completion:*:*:*:*:*files' ignored-patterns '.DS_Store' '.localized'
@@ -46,7 +49,14 @@ fi
 # ------------------------------------------
 # Aliases
 # ------------------------------------------
-alias ls='ls -AGFh --color=auto'
+if command -v eza > /dev/null; then
+    alias ls='eza -aF --group-directories-first --icons=auto'
+else
+    alias ls='ls -AGFh --color=auto'
+fi
+if command -v bat > /dev/null; then
+    alias cat='bat'
+fi
 alias tree='tree -a -C --dirsfirst -L 2 --noreport'
 alias pwgen='pwgen -cnyB 32 1 -r $PWGEN_SPECIAL | tr -d "\n" | pbcopy; echo -n "Password copied to clipboard: "; pbpaste; echo'
 alias myip='curl -s ifconfig.co | tr -d "\n" | pbcopy; echo -n "IP Address is: "; pbpaste; echo'
@@ -68,6 +78,7 @@ if command -v atuin > /dev/null; then
     eval "$(atuin init zsh)"    # must come after fzf to own Ctrl+R
 fi
 [ -f ~/.config/op/plugins.sh ] && source ~/.config/op/plugins.sh
+[ -f ~/.op/plugins.sh ] && source ~/.op/plugins.sh
 [ -f ~/.zfunctions ] && source ~/.zfunctions
 
 # Generated for envman. Do not edit.
@@ -83,3 +94,17 @@ esac
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=($HOME/.docker/completions $fpath)
 # End of Docker CLI completions
+
+# ------------------------------------------
+# Zsh Plugins (syntax highlighting must load last)
+# ------------------------------------------
+# Homebrew (macOS) and pacman (Arch) install these under different prefixes.
+for plugin in zsh-autosuggestions zsh-syntax-highlighting; do
+    for dir in /opt/homebrew/share /usr/share/zsh/plugins; do
+        if [ -f "$dir/$plugin/$plugin.zsh" ]; then
+            source "$dir/$plugin/$plugin.zsh"
+            break
+        fi
+    done
+done
+unset plugin dir
