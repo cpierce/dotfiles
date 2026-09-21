@@ -6,6 +6,8 @@ cp .gitignore_global ~/
 mkdir -p ~/.config/nvim
 cp -Rapv .config/nvim/* ~/.config/nvim/
 cp .config/starship.toml ~/.config/starship.toml
+mkdir -p ~/.config/atuin
+cp .config/atuin/config.toml ~/.config/atuin/config.toml
 sudo cp sudoers.d/* /etc/sudoers.d/
 mkdir -p ~/Workspace
 cp -R .ssh ~/

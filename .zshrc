@@ -64,6 +64,9 @@ alias tf='terraform'
 if command -v fzf > /dev/null; then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
+if command -v atuin > /dev/null; then
+    eval "$(atuin init zsh)"    # must come after fzf to own Ctrl+R
+fi
 [ -f ~/.config/op/plugins.sh ] && source ~/.config/op/plugins.sh
 [ -f ~/.zfunctions ] && source ~/.zfunctions
 

@@ -14,6 +14,7 @@ fi
 brew install 1password-cli
 brew install ansible
 brew install asitop
+brew install atuin
 brew install --cask audacity
 brew install awscli
 brew install azure-cli
