@@ -31,6 +31,7 @@ There is also a convenience runner:
 ## What It Contains
 
 - `./.config/nvim`: Neovim setup
+- `./.config/ghostty`: Ghostty terminal config (Linux only; keybinds assume keyd's Cmd->Ctrl remap)
 - `./claude`: Claude Code user config, installed to `~/.claude`
 - `./.zshrc`, `./.zfunctions`: Zsh config
 - `./.gitconfig`, `./.gitignore_global`: Git defaults

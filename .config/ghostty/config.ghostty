@@ -1,0 +1,44 @@
+font-family = "Monaco Nerd Font Mono"
+font-size = 12
+
+# Mac-style clipboard keys (Cmd = Super on this keyboard)
+keybind = super+v=paste_from_clipboard
+keybind = super+c=copy_to_clipboard
+
+# Mac-style tabs and splits
+# keyd sends Cmd as Ctrl, so Cmd+T arrives here as ctrl+t
+keybind = ctrl+t=new_tab
+keybind = super+t=new_tab
+keybind = ctrl+shift+t=unbind
+# Cmd+N -> new window
+keybind = ctrl+n=new_window
+# Cmd+Shift+[ / ] and Cmd+1-9 switch tabs
+keybind = ctrl+shift+left_bracket=previous_tab
+keybind = ctrl+shift+right_bracket=next_tab
+keybind = ctrl+one=goto_tab:1
+keybind = ctrl+two=goto_tab:2
+keybind = ctrl+three=goto_tab:3
+keybind = ctrl+four=goto_tab:4
+keybind = ctrl+five=goto_tab:5
+keybind = ctrl+six=goto_tab:6
+keybind = ctrl+seven=goto_tab:7
+keybind = ctrl+eight=goto_tab:8
+keybind = ctrl+nine=goto_tab:9
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+
+cursor-style-blink = false
+scrollback-limit = 10000000
+window-width = 80
+window-height = 25
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
+working-directory = ~/Workspace/
+
+background = #000000
+background-opacity = 0.8
+background-opacity-cells = true
+background-blur = false
+
+
