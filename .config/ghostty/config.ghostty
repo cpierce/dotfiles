@@ -1,44 +1,56 @@
-font-family = "Monaco Nerd Font Mono"
+# Ghostty config
+# Lives at ~/.config/ghostty/config.ghostty on macOS and Linux.
+# Reload with Cmd+Shift+, (macOS) or Ctrl+Shift+, (Linux).
+# background-opacity needs a full restart on macOS.
+
+# --- Font -------------------------------------------------------------------
+# Monaco Nerd Font Mono ships in this repo (resources/fonts/) and is installed
+# by scripts/fonts_init.sh.
+font-family = Monaco Nerd Font Mono
 font-size = 12
 
-# Mac-style clipboard keys (Cmd = Super on this keyboard)
-keybind = super+v=paste_from_clipboard
-keybind = super+c=copy_to_clipboard
-
-# Mac-style tabs and splits
-# keyd sends Cmd as Ctrl, so Cmd+T arrives here as ctrl+t
-keybind = ctrl+t=new_tab
-keybind = super+t=new_tab
-keybind = ctrl+shift+t=unbind
-# Cmd+N -> new window
-keybind = ctrl+n=new_window
-# Cmd+Shift+[ / ] and Cmd+1-9 switch tabs
-keybind = ctrl+shift+left_bracket=previous_tab
-keybind = ctrl+shift+right_bracket=next_tab
-keybind = ctrl+one=goto_tab:1
-keybind = ctrl+two=goto_tab:2
-keybind = ctrl+three=goto_tab:3
-keybind = ctrl+four=goto_tab:4
-keybind = ctrl+five=goto_tab:5
-keybind = ctrl+six=goto_tab:6
-keybind = ctrl+seven=goto_tab:7
-keybind = ctrl+eight=goto_tab:8
-keybind = ctrl+nine=goto_tab:9
-keybind = super+d=new_split:right
-keybind = super+shift+d=new_split:down
-
+# --- Terminal behavior ------------------------------------------------------
 cursor-style-blink = false
-scrollback-limit = 10000000
+# Bytes per terminal (default 10 MB).
+scrollback-limit = 100000000
+# Initial window size in cells.
 window-width = 80
 window-height = 25
+# Do not prompt when closing a tab/split with a running process.
 confirm-close-surface = false
+# Hide the mouse pointer while typing (Ghostty default is false).
+# It comes back as soon as the mouse moves.
 mouse-hide-while-typing = true
 
-working-directory = ~/Workspace/
+# --- Startup ----------------------------------------------------------------
+# Open new windows in ~/Workspace.
+working-directory = ~/Workspace
 
+# --- Colors -----------------------------------------------------------------
+# Ghostty's default background is dark gray (#282c34), and the gray tints
+# everything behind the transparent window, so use black.
 background = #000000
+
+# --- Transparency -----------------------------------------------------------
+# 80% opaque (20% transparent).
 background-opacity = 0.8
+# Cells with an explicit background color (vim/tmux status bars, etc.) are
+# transparent too. Set to false to keep colored cells solid.
 background-opacity-cells = true
+
+# --- Blur -------------------------------------------------------------------
+# Blur off. `true` = Ghostty default intensity 20, or use a small integer
+# (e.g. 2) for a light blur.
 background-blur = false
 
+# --- Background image -------------------------------------------------------
+# Off. To enable, uncomment and set a path.
+# background-image = ~/Pictures/terminal-bg.png
+# background-image-fit = stretch
+# background-image-opacity = 0.5
 
+# --- OS-specific ------------------------------------------------------------
+# Loaded last. scripts/zsh_init.sh installs config_linux.ghostty next to this
+# file as config_os.ghostty on Linux; macOS has none, and the leading ? keeps a
+# missing file silent.
+config-file = ?config_os.ghostty

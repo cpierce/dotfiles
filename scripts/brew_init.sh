@@ -29,6 +29,7 @@ brew install ffmpeg
 brew install --cask gemini
 brew install gemini-cli
 brew install gh
+brew install --cask ghostty
 brew install git
 brew install git-delta
 brew install gnupg2

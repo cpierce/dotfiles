@@ -2,13 +2,14 @@
 cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
+mkdir -p ~/.config/ghostty
+cp .config/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
 if [[ "$(uname -s)" == "Darwin" ]]; then
   cp .gitconfig_macos ~/.gitconfig_os
 else
   cp .gitconfig_linux ~/.gitconfig_os
   # Ghostty keybinds assume keyd's Cmd->Ctrl remap, so Linux only
-  mkdir -p ~/.config/ghostty
-  cp .config/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
+  cp .config/ghostty/config_linux.ghostty ~/.config/ghostty/config_os.ghostty
 fi
 cp .gitignore_global ~/
 mkdir -p ~/.config/nvim

@@ -31,7 +31,8 @@ There is also a convenience runner:
 ## What It Contains
 
 - `./.config/nvim`: Neovim setup
-- `./.config/ghostty`: Ghostty terminal config (Linux only; keybinds assume keyd's Cmd->Ctrl remap)
+- `./.config/ghostty`: Ghostty terminal config, installed to `~/.config/ghostty` (macOS and Linux). `config_linux.ghostty` holds keybinds that assume keyd's Cmd->Ctrl remap and is installed on Linux only, as `config_os.ghostty`
+- `./resources/fonts`: Monaco Nerd Font, the terminal font
 - `./claude`: Claude Code user config, installed to `~/.claude`
 - `./.zshrc`, `./.zfunctions`: Zsh config
 - `./.gitconfig`, `./.gitignore_global`: Git defaults
@@ -45,6 +46,7 @@ There is also a convenience runner:
 - `scripts/brew_init.sh` installs Homebrew and packages.
 - `scripts/mac_init.sh` applies macOS defaults.
 - `scripts/fzf_init.sh` installs fzf key bindings.
+- `scripts/fonts_init.sh` installs the fonts in `resources/fonts` into `~/Library/Fonts`.
 - `scripts/post_install.sh` runs pnpm setup, mkcert, and misc tools.
 
 ## License
