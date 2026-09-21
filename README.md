@@ -34,6 +34,7 @@ There is also a convenience runner:
 - `./claude`: Claude Code user config, installed to `~/.claude`
 - `./.zshrc`, `./.zfunctions`: Zsh config
 - `./.gitconfig`, `./.gitignore_global`: Git defaults
+- `./.gitconfig_macos`, `./.gitconfig_linux`: OS-specific Git settings (1Password ssh signer path), installed as `~/.gitconfig_os`
 - `./scripts/*`: bootstrap helpers
 - `./sudoers.d/*`: local sudoers entries
 

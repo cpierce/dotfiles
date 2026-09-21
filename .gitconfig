@@ -16,6 +16,7 @@
     pager = true
 [merge]
     tool = code
+    conflictStyle = zdiff3
 [mergetool]
     keepBackup = false
 [mergetool "code"]
@@ -38,11 +39,17 @@
     filemode = false
     editor = vim
     ignorecase = false
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
 [init]
     defaultBranch = main
 [gpg]
     format = ssh
-[gpg "ssh"]
-    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[include]
+    # OS-specific settings (1Password ssh signer path); installed by scripts/zsh_init.sh
+    path = ~/.gitconfig_os
 [commit]
     gpgsign = true

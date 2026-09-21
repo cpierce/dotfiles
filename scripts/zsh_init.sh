@@ -2,6 +2,11 @@
 cp .zfunctions ~/
 cp .zshrc ~/
 cp .gitconfig ~/
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  cp .gitconfig_macos ~/.gitconfig_os
+else
+  cp .gitconfig_linux ~/.gitconfig_os
+fi
 cp .gitignore_global ~/
 mkdir -p ~/.config/nvim
 cp -Rapv .config/nvim/* ~/.config/nvim/

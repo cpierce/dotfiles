@@ -30,6 +30,7 @@ brew install --cask gemini
 brew install gemini-cli
 brew install gh
 brew install git
+brew install git-delta
 brew install gnupg2
 brew install go
 brew install fzf
