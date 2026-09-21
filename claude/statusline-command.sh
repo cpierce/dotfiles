@@ -176,7 +176,8 @@ if [ "$thinking_on" = "true" ]; then
     pre="${ESC}[38;5;141m✳${RESET}"
 fi
 
-model_seg="${pre}${pre:+ }${MODEL_COLOR}${model}${RESET}"
+# Two spaces: ✳ renders wide in some fonts and swallows a single space.
+model_seg="${pre}${pre:+  }${MODEL_COLOR}${model}${RESET}"
 if [ -n "$ctx" ]; then
     ctx_pct=$(printf '%.0f' "$ctx")
     ctx_color=$(pct_color "$ctx_pct")
