@@ -43,6 +43,7 @@ brew install --cask jordanbaird-ice
 brew tap cpierce/tap
 brew install cpierce/tap/l8nc
 brew install kubernetes-cli
+brew install lazygit
 brew install luarocks
 brew install mkcert
 brew install mysql-client
