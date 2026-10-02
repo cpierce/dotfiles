@@ -83,6 +83,7 @@ parse_aws_options() {
     [[ -n ${o_profile[2]} ]] && AWS_PROFILE=(--profile "${o_profile[2]}")
     [[ -n ${o_filters[2]} ]] && AWS_FILTERS=(--filters "${o_filters[2]}")
     [[ -n ${o_output[2]} ]] && AWS_OUTPUT="${o_output[2]}"
+    return 0
 }
 
 aws_instances() {

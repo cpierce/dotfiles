@@ -1,0 +1,15 @@
+#!/bin/sh
+# macOS-style pbcopy for Wayland. Writes to BOTH the clipboard (Ctrl+Shift+V /
+# Ctrl+V) and the primary selection (middle-click / Shift+Insert), so it behaves
+# like the single macOS pasteboard. Output is discarded so wl-copy's background
+# clipboard server does not hold the caller's pipe open.
+if [ $# -gt 0 ]; then
+    wl-copy "$@" >/dev/null 2>&1
+    wl-copy -p "$@" >/dev/null 2>&1
+else
+    tmp=$(mktemp) || exit 1
+    cat > "$tmp"
+    wl-copy < "$tmp" >/dev/null 2>&1
+    wl-copy -p < "$tmp" >/dev/null 2>&1
+    rm -f "$tmp"
+fi

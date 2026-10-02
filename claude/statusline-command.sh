@@ -60,8 +60,9 @@ CACHE_TTL=120
 cache_age=99999
 if [ -f "$USAGE_CACHE" ]; then
     now=$(date +%s)
-    # BSD stat (macOS) first, GNU stat (Linux) second.
-    mtime=$(stat -f %m "$USAGE_CACHE" 2>/dev/null || stat -c %Y "$USAGE_CACHE" 2>/dev/null || echo 0)
+    # GNU stat (Linux) first: GNU `stat -f` prints filesystem info to stdout
+    # before failing, which would end up in mtime. BSD stat (macOS) second.
+    mtime=$(stat -c %Y "$USAGE_CACHE" 2>/dev/null || stat -f %m "$USAGE_CACHE" 2>/dev/null || echo 0)
     cache_age=$(( now - mtime ))
 fi
 if [ "$cache_age" -gt "$CACHE_TTL" ]; then

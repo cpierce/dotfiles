@@ -11,6 +11,11 @@ keybind = super+c=copy_to_clipboard
 keybind = ctrl+t=new_tab
 keybind = super+t=new_tab
 keybind = ctrl+shift+t=unbind
+# Cmd+W -> close tab. Cmd+W arrives as ctrl+w, which is also ^W (delete word,
+# vim window prefix), so keyd sends the physical Ctrl+W as ctrl+alt+w and the
+# second bind turns that back into the real control character.
+keybind = ctrl+w=close_tab
+keybind = ctrl+alt+w=text:\x17
 # Cmd+N -> new window
 keybind = ctrl+n=new_window
 # Cmd+Shift+[ / ] and Cmd+1-9 switch tabs
@@ -27,3 +32,8 @@ keybind = ctrl+eight=goto_tab:8
 keybind = ctrl+nine=goto_tab:9
 keybind = super+d=new_split:right
 keybind = super+shift+d=new_split:down
+
+# Claude Code uses Ctrl+Enter (queue a message while it works); Ghostty's
+# default binds it to toggle_fullscreen, which swallows the key. Free it so the
+# terminal passes it through.
+keybind = ctrl+enter=unbind

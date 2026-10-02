@@ -34,12 +34,14 @@ There is also a convenience runner:
 - `./.config/ghostty`: Ghostty terminal config, installed to `~/.config/ghostty` (macOS and Linux). `config_linux.ghostty` holds keybinds that assume keyd's Cmd->Ctrl remap and is installed on Linux only, as `config_os.ghostty`
 - `./.config/atuin`: Atuin shell history config
 - `./resources/fonts`: Monaco Nerd Font, the terminal font
+- `./resources/linux`: macOS-style commands for Linux: `open` (wraps `xdg-open`, installed to `~/.local/bin`) and `pbcopy`/`pbpaste` for Wayland (installed to `/usr/local/bin`)
 - `./claude`: Claude Code user config, installed to `~/.claude`
 - `./.zshrc`, `./.zfunctions`: Zsh config
 - `./.gitconfig`, `./.gitignore_global`: Git defaults
 - `./.gitconfig_macos`, `./.gitconfig_linux`: OS-specific Git settings (1Password ssh signer path), installed as `~/.gitconfig_os`
+- `./.ssh/config`, `./.ssh/config_linux`: OS-specific SSH defaults, installed as `~/.ssh/config`. Both include `~/.ssh/config_local`, which holds machine-specific hosts and is not in this repo
 - `./scripts/*`: bootstrap helpers
-- `./sudoers.d/*`: local sudoers entries
+- `./sudoers.d/*`: local sudoers entries (macOS only)
 
 ## Script Notes
 
@@ -47,7 +49,8 @@ There is also a convenience runner:
 - `scripts/brew_init.sh` installs Homebrew and packages (macOS only). On Arch, install the equivalents with pacman/paru; `.zshrc` picks up `atuin`, `zsh-autosuggestions`, `zsh-syntax-highlighting`, `eza`, `bat` and `zoxide` when they are installed.
 - `scripts/mac_init.sh` applies macOS defaults.
 - `scripts/fzf_init.sh` installs fzf key bindings.
-- `scripts/fonts_init.sh` installs the fonts in `resources/fonts` into `~/Library/Fonts`.
+- `scripts/fonts_init.sh` installs the fonts in `resources/fonts` into `~/Library/Fonts` (macOS) or `~/.local/share/fonts` (Linux).
+- `scripts/init.sh` skips the macOS-only scripts (`brew_init.sh`, `fzf_init.sh`, `composer_init.sh`, `mac_init.sh`) on Linux.
 - `scripts/post_install.sh` runs pnpm setup, mkcert, and misc tools.
 
 ## License
