@@ -49,6 +49,10 @@ background-blur = false
 # background-image-fit = stretch
 # background-image-opacity = 0.5
 
+# --- Keybinds ---------------------------------------------------------------
+# Cmd+F toggles fullscreen (Ghostty leaves Cmd+F unbound by default).
+keybind = cmd+f=toggle_fullscreen
+
 # --- OS-specific ------------------------------------------------------------
 # Loaded last. scripts/zsh_init.sh installs config_linux.ghostty next to this
 # file as config_os.ghostty on Linux; macOS has none, and the leading ? keeps a
